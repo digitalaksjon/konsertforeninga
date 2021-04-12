@@ -7,6 +7,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import PostCard from '../components/post-card/post-card';
 import PostDetails from '../components/post-details/post-details';
+import Sidebar from '../containers/sidebar';
 
 import {
   FacebookShareButton,
@@ -102,7 +103,7 @@ const BlogPostTemplate = (props: any) => {
             <DiscussionEmbed {...disqusConfig} />
           </BlogPostComment>
         </BlogDetailsContent>
-       
+        <Sidebar />
       </BlogPostDetailsWrapper>
 
       {edges.length !== 0 && (

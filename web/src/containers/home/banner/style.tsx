@@ -1,12 +1,29 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 import BannerBG from '../../../images/banner-bg.jpg';
+import BannerBG2 from '../../../images/banner-bg2.jpg';
+import BannerBG3 from '../../../images/banner-bg3.jpg';
+import BannerBG4 from '../../../images/banner-bg4.jpg';
+import BannerBG5 from '../../../images/banner-bg5.jpg';
+import BannerBG6 from '../../../images/banner-bg6.jpg';
+import BannerBG7 from '../../../images/banner-bg7.jpg';
 
+const imageArray = [BannerBG, BannerBG2, BannerBG3, BannerBG4, BannerBG5, BannerBG6, BannerBG7];
+
+
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
+// pick a random image
+let imageIndex = getRandomArbitrary(0,7);
+
+console.log("hvilket bilde "+imageIndex)
 export const BannerWrapper = styled.div`
   position: relative;
   padding: 90px 0;
   background-color: #d96233;
-  background-image: url(${BannerBG});
+  background-image: url(${imageArray[imageIndex]});
   background-size: cover;
   background-position: center;
   min-height: 870px;
