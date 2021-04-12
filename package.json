@@ -2,6 +2,10 @@
   "private": true,
   "name": "sanity-gatsby-blog",
   "version": "1.0.17",
+  "engines": {
+    "node": ">=15.4.0",
+    "npm": ">=7.6.2"
+  },
   "scripts": {
     "build": "lerna run build --parallel",
     "dev": "lerna run dev --parallel",
