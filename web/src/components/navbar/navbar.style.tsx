@@ -37,7 +37,7 @@ export const Logo = styled.div`
 	}
 	img {
 		display: block;
-		max-width: 50%;
+		max-width: 60%;
 		height: auto;
 	}
 `;
