@@ -9,8 +9,6 @@ import {
   SidebarWidget,
   WidgetTitle,
   TagItem,
-  InstagramWrapper,
-  InstagramPhoto,
 } from './style';
 
 type SidebarProps = {};
@@ -53,7 +51,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
 
   const Posts = Data.allMarkdownRemark.edges;
   const Tags = Data.allMarkdownRemark.group;
-  const InstagramPhotos = Data.allInstaNode.edges;
 
   return (
     <SidebarWrapper>
