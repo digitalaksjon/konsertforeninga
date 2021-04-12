@@ -48,22 +48,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
           fieldValue
         }
       }
-      allInstaNode(limit: 4) {
-        edges {
-          node {
-            id
-            likes
-            comments
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 100, maxHeight: 100, quality: 100) {
-                  ...GatsbyImageSharpFluid_noBase64
-                }
-              }
-            }
-          }
-        }
-      }
     }
   `);
 
@@ -135,49 +119,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
         ))}
       </SidebarWidget>
 
-      <SidebarWidget>
-        <WidgetTitle>Instagram</WidgetTitle>
-        {InstagramPhotos ? (
-          <InstagramWrapper>
-            {InstagramPhotos.map(({ node }: any) => {
-              // Random Placeholder Color
-              const placeholderColors = [
-                '#55efc4',
-                '#81ecec',
-                '#74b9ff',
-                '#a29bfe',
-                '#ffeaa7',
-                '#fab1a0',
-                '#e17055',
-                '#0984e3',
-                '#badc58',
-                '#c7ecee',
-              ];
-              const setColor =
-                placeholderColors[
-                  Math.floor(Math.random() * placeholderColors.length)
-                ];
-
-              return (
-                <InstagramPhoto key={node.id}>
-                  <a
-                    href={`https://www.instagram.com/p/${node.id}`}
-                    target="_blank"
-                  >
-                    <Img
-                      fluid={node.localFile.childImageSharp.fluid}
-                      alt="Instagram Photo"
-                      backgroundColor={setColor}
-                    />
-                  </a>
-                </InstagramPhoto>
-              );
-            })}
-          </InstagramWrapper>
-        ) : (
-          ''
-        )}
-      </SidebarWidget>
+     
     </SidebarWrapper>
   );
 };
