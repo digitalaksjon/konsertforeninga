@@ -12,7 +12,7 @@ export const NavbarWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid ${themeGet('borderColor', '#DBDBDB')};
-	padding: 30px 75px;
+	padding: 20px 75px;
 	background-color: #fff;
 	transition: 0.25s ease-in-out;
 	@media (max-width: 1400px) {
@@ -29,18 +29,23 @@ export const NavbarWrapper = styled.div`
 export const Logo = styled.div`
 	margin-right: 50px;
 	flex-shrink: 0;
-	max-width: 60%;
+	
 	@media (max-width: 990px) {
 		margin: 0 25px;
-		max-width: 100%;
+		
 	}
 	@media (max-width: 575px) {
 		max-width: 90px;
 	}
 	img {
 		display: block;
-
+		max-width: 60%;
 		height: auto;
+	}
+	@media (max-width: 575px) {
+		img {
+			max-width: 100%;
+		}	
 	}
 `;
 
