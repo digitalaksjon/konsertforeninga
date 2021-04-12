@@ -68,4 +68,4 @@ yarn.lock
 .yarn-integrity
 
 # Secrets
-.env.development
+# .env.development
