@@ -4,12 +4,11 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `StoryHub`,
-    author: `Monnisa`,
-    about: `Breakfast procuring no end happiness allowance assurance frank. Met simplicity nor difficulty unreserved who. Entreaties mr conviction dissimilar me
-    astonished estimating cultivated.`,
-    description: `A Gatsby Blog`,
-    siteUrl: `https://storyhub-personal-tarex.redq.now.sh`,
+    title: `Konsertforeninga`,
+    author: `Digital Aksjon`,
+    about: `Konserter i Oslo.`,
+    description: `En konsertarrangør i Oslo`,
+    siteUrl: `https://konsertforeninga.netlify.com`,
   },
   plugins: [
     {
@@ -83,8 +82,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `StoryHub - Personal Blog`,
-        short_name: `StoryHub`,
+        name: `Konsertforeninga`,
+        short_name: `Konsertforeninga`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
