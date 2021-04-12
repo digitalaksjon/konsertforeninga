@@ -1,8 +1,8 @@
 {
   "private": true,
-  "name": "sanity-gatsby-blog-web",
-  "version": "1.0.5",
-  "author": "Sanity <hello@sanity.io>",
+  "name": "konsertforeninga",
+  "version": "0.0.1",
+  "author": "Digital Aksjon <post@digitalaksjon.no>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
