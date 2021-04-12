@@ -13,6 +13,7 @@ const HomePage = (props: any) => {
         title="Agency Blog Modern"
         description={data.site.siteMetadata.description}
       />
+      
       <PersonalBlog />
     </Layout>
   );
