@@ -65,7 +65,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
       </SidebarWidget>
 
       <SidebarWidget>
-        <WidgetTitle>Siste konserter</WidgetTitle>
+        <WidgetTitle>Flere konserter</WidgetTitle>
         {Posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug;
           // Random Placeholder Color

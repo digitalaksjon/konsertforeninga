@@ -10,7 +10,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
   const Data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___date], order: ASC }
         limit: 6
       ) {
         totalCount
@@ -21,7 +21,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
               slug
             }
             frontmatter {
-              date(formatString: "DD [<span>] MMM [</span>]")
+              date(formatString: "DD [<span>] MMMM [</span>]")
               title
               description
               tags
@@ -87,7 +87,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
       </PostRow>
       <SeeMore>
         <Link to="page/1">
-          <Button title="See more" type="submit" />
+          <Button title="Se flere" type="submit" />
         </Link>
       </SeeMore>
     </BlogPostsWrapper>

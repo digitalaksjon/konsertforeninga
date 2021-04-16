@@ -28,11 +28,11 @@ const MenuItems = [
 
   {
     label: 'Konserter',
-    url: '/404',
+    url: '/page/1',
   },
   {
     label: 'Konsertserier',
-    url: '/404'
+    url: '/page/2'
 
   },
   {

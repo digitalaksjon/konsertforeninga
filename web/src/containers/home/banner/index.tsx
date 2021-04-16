@@ -45,7 +45,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
     <BannerWrapper>
       <BannerInner>
         <FeaturePosts>
-          <Title>Kommende konserter</Title>
+          <Title>Utvalgte konserter</Title>
           {Posts.map(({ node }: any) => {
             const title = node.frontmatter.title || node.fields.slug;
             // Random Placeholder Color

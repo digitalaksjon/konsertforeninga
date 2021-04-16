@@ -11,6 +11,11 @@ export const PostPreview = styled.div`
   min-height: 150px;
   img {
     border-radius: 3px;
+    filter: grayscale(100%);
+    :hover {
+      filter: unset;
+
+    }
   }
 
   &:before {
@@ -54,7 +59,7 @@ export const PostDate = styled.div`
 `;
 
 export const PostTitle = styled.h2`
-  font-size: 21px;
+  font-size: 30px;
   font-weight: 700;
   color: ${themeGet('colors.textColor', '#292929')};
   line-height: 1.53;

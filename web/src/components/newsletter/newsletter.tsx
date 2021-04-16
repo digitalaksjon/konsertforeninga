@@ -43,7 +43,7 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
     <NewsletterWrapper {...props}>
       <NewsletterInnerWrapper>
         <NewsletterTitle>
-          Get The Best Of All Hands Delivered To Your Inbox
+          Få siste nytt fra Konsertforeninga rett i innboksen.
         </NewsletterTitle>
         <NewsletterDescription>
           Subscribe to our newsletter and stay updated.
@@ -57,12 +57,12 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
               <Input
                 type="email"
                 name="email"
-                placeholder="Write your email here"
+                placeholder="Skriv inn e-posten din her"
                 onChange={handleChange}
                 value={email}
                 required={true}
               />
-              <Button title="Subscribe" type="submit" />
+              <Button title="Abboner" type="submit" />
             </>
           )}
         </NewsletterInputWrapper>

@@ -37,7 +37,7 @@ export const PostDetailsWrapper = styled.div`
 `;
 
 export const PostTitle = styled.h1`
-  font-size: 30px;
+  font-size: 45px;
   font-weight: 700;
   color: ${themeGet('colors.textColor', '#292929')};
   line-height: 1.53;
@@ -68,17 +68,19 @@ export const PostDate = styled.div`
   justify-content: center;
   color: #fff;
   border-radius: 6px;
-  font-size: 26px;
-x
-  line-height: 1;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 0.8;
   pointer-events: none;
   z-index: 1;
   background-color: rgba(209, 0, 104, 0.7);
-  > span {
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 1;
-    margin-top: 3px;
+  div {
+    > span {
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 1;
+      margin-top: 3px;
+    }
   }
 `;
 

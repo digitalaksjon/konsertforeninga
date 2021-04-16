@@ -34,6 +34,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
 }) => {
   const addClass: string[] = ['post_details'];
 
+
   if (imagePosition == 'left') {
     addClass.push('image_left');
   }
@@ -42,6 +43,9 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
     addClass.push(className);
   }
 
+  var newDateDay = date.substring(0,2)
+  var newDateMonth = date.substring(3,6)
+  var newDate = newDateDay + `<br><span>` + newDateMonth + `</span>`
   // Random Placeholder Color
   const placeholderColors = [
     '#55efc4',
@@ -86,7 +90,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
           {preview == null ? null : (
             <PostPreview className="post_preview">
               <Img fluid={preview} alt={title} backgroundColor={setColor} />
-              <PostDate>{date.substring(0,6)}</PostDate>
+              <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate }} /></PostDate>
             </PostPreview>
           )}
         </>

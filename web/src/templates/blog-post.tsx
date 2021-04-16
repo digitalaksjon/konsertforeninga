@@ -48,7 +48,6 @@ const BlogPostTemplate = (props: any) => {
     config: { identifier: slug, title },
   };
 
-  
   return (
     <Layout>
       <SEO
@@ -107,7 +106,7 @@ const BlogPostTemplate = (props: any) => {
 
       {edges.length !== 0 && (
         <RelatedPostWrapper>
-          <RelatedPostTitle>Related Posts</RelatedPostTitle>
+          <RelatedPostTitle>Relaterte Konserter</RelatedPostTitle>
           <RelatedPostItems>
             {edges.map(({ node }: any) => {
               // Random Placeholder Color
