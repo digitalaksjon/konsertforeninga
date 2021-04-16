@@ -9,7 +9,7 @@ import author from './documents/author'
 import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
-import event from './documents/event'
+import concert from './documents/concert'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -28,7 +28,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     post,
-    event,
+    concert,
     category,
     author,
     mainImage,

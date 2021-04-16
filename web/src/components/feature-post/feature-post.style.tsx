@@ -62,6 +62,32 @@ export const PostMeta = styled.div`
   justify-content: space-between;
 `;
 
+export const PostDate = styled.div`
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  top: 45px;
+  left: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  background-color: rgba(209, 0, 104, 0.7);
+  > span {
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 3px;
+  }
+`;
+
 export const PostTags = styled.div`
   display: flex;
   flex-wrap: wrap;

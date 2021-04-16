@@ -12,7 +12,7 @@ export const NavbarWrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	border-bottom: 1px solid ${themeGet('borderColor', '#DBDBDB')};
-	padding: 20px 75px;
+	padding: 15px 75px;
 	background-color: #fff;
 	transition: 0.25s ease-in-out;
 	@media (max-width: 1400px) {
@@ -39,7 +39,7 @@ export const Logo = styled.div`
 	}
 	img {
 		display: block;
-		max-width: 60%;
+		max-width: 55%;
 		height: auto;
 	}
 	@media (max-width: 575px) {

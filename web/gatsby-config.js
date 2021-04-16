@@ -106,14 +106,7 @@ module.exports = {
         endpoint: process.env.MAILCHIMP_ENDPOINT, // add your MC list endpoint here; see instructions below
       },
     },
-    {
-      resolve: `gatsby-source-instagram`,
-      //add your instagram username, access_token and id below
-      options: {
-        username: process.env.INSTAGRAM_USER_NAME_ID,
-        access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
-      },
-    },
+
     {
       resolve: `gatsby-plugin-web-font-loader`,
       options: {

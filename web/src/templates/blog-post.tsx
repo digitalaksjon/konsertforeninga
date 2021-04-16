@@ -2,12 +2,12 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import _ from 'lodash';
 import urljoin from 'url-join';
-import { DiscussionEmbed } from 'disqus-react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import PostCard from '../components/post-card/post-card';
 import PostDetails from '../components/post-details/post-details';
 import Sidebar from '../containers/sidebar';
+
 
 import {
   FacebookShareButton,
@@ -38,6 +38,7 @@ const BlogPostTemplate = (props: any) => {
   const post = props.data.markdownRemark;
   const { edges } = props.data.allMarkdownRemark;
   const title = post.frontmatter.title;
+
   const slug = post.fields.slug;
   const siteUrl = props.data.site.siteMetadata.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
@@ -47,6 +48,7 @@ const BlogPostTemplate = (props: any) => {
     config: { identifier: slug, title },
   };
 
+  
   return (
     <Layout>
       <SEO
@@ -99,9 +101,6 @@ const BlogPostTemplate = (props: any) => {
             </PostShare>
           </BlogPostFooter>
 
-          <BlogPostComment>
-            <DiscussionEmbed {...disqusConfig} />
-          </BlogPostComment>
         </BlogDetailsContent>
         <Sidebar />
       </BlogPostDetailsWrapper>

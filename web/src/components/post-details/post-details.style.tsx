@@ -55,18 +55,30 @@ export const PostTitle = styled.h1`
     margin-bottom: 15px;
   }
 `;
-
-export const PostDate = styled.span`
-  display: block;
-  font-size: ${themeGet('fontSizes.3', '15')}px;
-  color: ${themeGet('textColor', '#292929')};
-  font-weight: 400;
-  text-transform: uppercase;
-  @media (max-width: 990px) {
-    font-size: 14px;
-  }
-  @media (max-width: 575px) {
+export const PostDate = styled.div`
+  position: absolute;
+  width: 60px;
+  height: 75px;
+  top: 30px;
+  left: 30px;
+  display: flex;
+  text-align:center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 26px;
+x
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+  background-color: rgba(209, 0, 104, 0.7);
+  > span {
     font-size: 13px;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 3px;
   }
 `;
 
@@ -82,6 +94,7 @@ export const PostPreview = styled.div`
 
   img {
     border-radius: 3px;
+    filter: grayscale(100%);
   }
 
   &:before {

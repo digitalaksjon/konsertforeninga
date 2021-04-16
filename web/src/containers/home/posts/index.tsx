@@ -27,7 +27,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
               tags
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 570, maxHeight: 370, quality: 100) {
+                  fluid(maxWidth: 570, maxHeight: 370, quality: 100, grayscale: true) {
                     ...GatsbyImageSharpFluid_noBase64
                   }
                 }
@@ -43,6 +43,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
 
   return (
     <BlogPostsWrapper>
+        <h1>Alle konserter</h1>
       <PostRow>
         {Posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug;

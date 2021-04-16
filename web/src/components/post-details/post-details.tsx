@@ -75,7 +75,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       {imagePosition == 'top' ? (
         <>
           <PostTitle>{title}</PostTitle>
-          <PostDate>{date}</PostDate>
+ 
         </>
       ) : (
         ''
@@ -86,6 +86,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
           {preview == null ? null : (
             <PostPreview className="post_preview">
               <Img fluid={preview} alt={title} backgroundColor={setColor} />
+              <PostDate>{date.substring(0,6)}</PostDate>
             </PostPreview>
           )}
         </>

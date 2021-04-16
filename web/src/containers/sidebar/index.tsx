@@ -55,7 +55,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
   return (
     <SidebarWrapper>
       <SidebarWidget>
-        <WidgetTitle>Promotion</WidgetTitle>
         <a
           href="https://1.envato.market/r1jdv"
           aria-label="Get StoryHub"
@@ -66,7 +65,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
       </SidebarWidget>
 
       <SidebarWidget>
-        <WidgetTitle>Latest Post</WidgetTitle>
+        <WidgetTitle>Siste konserter</WidgetTitle>
         {Posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug;
           // Random Placeholder Color

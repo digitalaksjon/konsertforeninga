@@ -8,6 +8,7 @@ import {
   PostDetails,
   PostTitle,
   PostMeta,
+  PostDate,
   PostTags,
 } from './feature-post.style';
 
@@ -15,6 +16,7 @@ interface FeaturedPostProps {
   image?: any;
   title: string;
   url: string;
+  date?: string;
   tags?: [];
   className?: string;
   imageType?: 'fixed' | 'fluid';
@@ -26,6 +28,7 @@ const FeaturedPost: React.FunctionComponent<FeaturedPostProps> = ({
   title,
   url,
   tags,
+  date,
   className,
   imageType,
   placeholderBG,
@@ -58,6 +61,14 @@ const FeaturedPost: React.FunctionComponent<FeaturedPostProps> = ({
               />
             )}
           </Link>
+          {date && (
+            <PostDate
+              dangerouslySetInnerHTML={{
+                __html: date,
+              }}
+              className="post_date"
+            />
+          )}
         </PostPreview>
       )}
 

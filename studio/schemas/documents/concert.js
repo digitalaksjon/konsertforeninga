@@ -1,8 +1,10 @@
+import {MdMusicNote} from 'react-icons/md'
 
 export default {
-  name: 'event',
+  name: 'concert',
   type: 'document',
-  title: 'Event',
+  title: 'Concert',
+  icon: MdMusicNote,
   fields: [
     {
       name: 'title',

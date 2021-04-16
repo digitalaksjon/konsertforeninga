@@ -1,199 +1,28 @@
 ---
-title: This is markdown unity test!
+title: Propan + Lydia Brunch
 date: '2019-04-22'
-tags: ['markdown', 'test', 'unity', 'featured']
-cover: './preview-1.jpg'
+tags: ['femmebrutal', 'cafemir']
+cover: './event.jpg'
 ---
+Femme Brutal er glade for å kunne invitere til en magisk kveld på Mir med Propan og Lydia Brunch!
 
-Documentation stored with source files shares the same permissions.
-Documentation stored in a separate Git repository can use different
-access controls. If Gerrit Code Review is being used, branch level
-read permissions can be used to grant or restrict access to any
-documentation branches.
+Propan
+Propan har siden oppstarten i 2011 utarbeidet et tilspisset og sømløst samspill hvor de forsker på stemmens ulike roller. Med detalj-fokusert arbeid har duoen opparbeidet seg tyngde og autoritet innen feltet og har overrasket både publikum og kritikere med sin hensynsløse innfallsvinkel og tilnærming til musikk.
 
-## READMEs
+Åpne improvisasjoner og arrangementer skaper utgangspunktet for Propans lydbilde. Stemmene dekonstrueres og samles i helhetlige lydbilder og teksturer, fengende melodier og groover, både akustisk, og gjennom forsterkninger og effekter.
 
-Files named `README.md` are automatically displayed below the file's
-directory listing. For the top level directory this mirrors the
-standard [GitHub](https://github.com/) presentation.
+Suggerende droner, teksturer, lydtepper, stemninger og klanger smelter sammen og blir en plattform åpen for egen tolkning. Slik har duoen etablert ett friskt og forskende uttrykket som oser av selvtillit og egenart!
 
-\*\*\* promo
-README.md files are meant to provide orientation for developers
-browsing the repository, especially first-time users.
+Lydia Brunch
+Lydia Brunch er et støyband fra Oslo som kombinerer elektronisk musikk og poesi. Inspirert av no-wave sjangeren og science fiction lager lydia brunch konseptuelle fortellinger til hver konsert. Visste du at satellitter ble plassert i verdensrommet for å ta opp lyd av månen, også ble brukt for å lytte til andre nasjoners militærbaser? At grunnvannet og ulike arter som bor i Førdefjorden blir forurenset fordi det blir utgravd rutil* i Engebøfjellet?
 
----
+Opptatt av spørsmål som omhandler hvordan vi mennesker oppfører oss i samråd med naturen** og hvordan landskap ser ut og oppfører seg bruker vi instrumenter og funnede objekter for å skape et lydlandskap som kan sette stemningen til uroen vi kjenner på i vår antroposentriske tid.
 
-We recommend that Git repositories have an up-to-date top-level
-`README.md` file.
+*et mineral som brukes til å fremstille titandioksid (TiO2), for å lage en kraftigere hvitfarge.
+** hva ser du for deg når du tenker på natur?
 
-## Markdown syntax
+CC: 170 / 120 (medlemmer av Konsertforeninga, student)
 
-Gitiles supports the core Markdown syntax described in
-[Markdown Basics]. Additional extensions are supported
-to more closely match [GitHub Flavored Markdown] and
-simplify documentation writing.
+I samarbeid med Konsertforeninga, med støtte fra Oslo Kommune og Norsk Kulturråd.
 
-[markdown basics]: http://daringfireball.net/projects/markdown/basics
-[github flavored markdown]: https://help.github.com/articles/github-flavored-markdown/
 
-```js
-import Typography from 'typography'
-
-const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: 1.666,
-  headerFontFamily: ['Avenir Next', 'Helvetica Neue', 'Arial', 'sans-serif'],
-  bodyFontFamily: ['Georgia', 'serif'],
-  // See below for the full list of options.
-})
-
-// Output CSS as string.
-typography.toString()
-
-// Or insert styles directly into the <head> (works well for client-only
-// JS web apps.
-typography.injectStyles()
-```
-
-```html
-<h1>Sample JavaScript</h1>
-<div class="gatsby-highlight">
-  <pre class="language-jsx">
-    <code>
-      <!-- Embedded content here ... -->
-    </code>
-  </pre>
-</div>
-
-<h1>Sample HTML</h1>
-<div class="gatsby-highlight">
-  <pre class="language-html">
-    <code>
-      <!-- Embedded content here ... -->
-    </code>
-  </pre>
-</div>
-```
-
-```js
-var rows = prompt('How many rows for your multiplication table?')
-var cols = prompt('How many columns for your multiplication table?')
-if (rows == '' || rows == null) rows = 10
-if (cols == '' || cols == null) cols = 10
-createTable(rows, cols)
-function createTable(rows, cols) {
-  var j = 1
-  var output = "<table border='1' width='500' cellspacing='0'cellpadding='5'>"
-  for (i = 1; i <= rows; i++) {
-    output = output + '<tr>'
-    while (j <= cols) {
-      output = output + '<td>' + i * j + '</td>'
-      j = j + 1
-    }
-    output = output + '</tr>'
-    j = 1
-  }
-  output = output + '</table>'
-  document.write(output)
-}
-```
-
-### Table
-
-| Option | Description                                                               |
-| ------ | ------------------------------------------------------------------------- |
-| data   | path to data files to supply the data that will be passed into templates. |
-| engine | engine to be used for processing templates. Handlebars is the default.    |
-| ext    | extension to be used for dest files.                                      |
-
-Right aligned columns
-
-| Option |                                                               Description |
-| -----: | ------------------------------------------------------------------------: |
-|   data | path to data files to supply the data that will be passed into templates. |
-| engine |    engine to be used for processing templates. Handlebars is the default. |
-|    ext |                                      extension to be used for dest files. |
-
-### Lists
-
-A bullet list:
-
-```
-* Fruit
-    * Orange
-    * Pear
-* Cake
-```
-
-will render into HTML as:
-
-- Fruit
-  - Orange
-  - Pear
-- Cake
-
-The second level items (above Orange, Pear) must be indented with more
-spaces than the item they are nested under. Above 2 spaces were used.
-Additionally, the entire list must be preceded and followed by a blank
-line.
-
-A numbered list:
-
-```
-1. Fruit
-     1. Orange
-     2. Pear
-2. Cake
-```
-
-will render into HTML as:
-
-1. Fruit
-   1. Orange
-   2. Pear
-2. Cake
-
-### Blockquotes
-
-Sir Winston Churchill once said:
-
-> A lie gets halfway around the world before the truth has a
-> chance to get its pants on.
-
-### Mathematical expressions
-
-You can render LaTeX mathematical expressions.
-
-The _Gamma function_ satisfying $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ is via the Euler integral
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-### UML diagrams
-
-You can render UML diagrams, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
-
-Libraries often attempt to remain neutral in the resulting debates, but that neutrality is predicated on the idea that the debates are taking place on a post-enlightenment playing field and that, eventually, the best ideas will succeed. Or at least that, over time, reasonable people will develop a shared set of facts and tools for assessing and discussing that reality. This allows the library to accomplish good for its users by providing access

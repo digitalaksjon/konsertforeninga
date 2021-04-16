@@ -42,6 +42,9 @@ export const SidebarWidget = styled.div`
   img {
     max-width: 100%;
     height: auto;
+    &:not(:first-child) {
+      filter: grayscale(100%);
+    }
   }
 
   .featured_post {

@@ -22,21 +22,24 @@ type NavbarProps = {
 
 const MenuItems = [
   {
-    label: 'Home',
+    label: 'Hjem',
     url: '/',
   },
+
   {
-    label: 'About',
-    url: '/about',
-  },
-  {
-    label: 'Contact',
-    url: '/contact',
-  },
-  {
-    label: '404 Page',
+    label: 'Konserter',
     url: '/404',
   },
+  {
+    label: 'Konsertserier',
+    url: '/404'
+
+  },
+  {
+    label: 'Om Konsertforeninga',
+    url: '/about',
+  }
+
 ];
 
 const Navbar: React.FunctionComponent<NavbarProps> = ({

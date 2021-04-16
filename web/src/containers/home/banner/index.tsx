@@ -9,7 +9,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
   const Data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { fields: [frontmatter___date], order: ASC }
         limit: 5
         filter: { frontmatter: { tags: { eq: "featured" } } }
       ) {
@@ -27,7 +27,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
               tags
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 90, maxHeight: 90, quality: 100) {
+                  fluid(maxWidth: 90, maxHeight: 90, quality: 100, grayscale: true) {
                     ...GatsbyImageSharpFluid_noBase64
                   }
                 }
@@ -45,7 +45,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
     <BannerWrapper>
       <BannerInner>
         <FeaturePosts>
-          <Title>Konserter fremover</Title>
+          <Title>Kommende konserter</Title>
           {Posts.map(({ node }: any) => {
             const title = node.frontmatter.title || node.fields.slug;
             // Random Placeholder Color
@@ -76,6 +76,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
                     : node.frontmatter.cover.childImageSharp.fluid
                 }
                 url={node.fields.slug}
+                date={node.frontmatter.date}
                 tags={node.frontmatter.tags}
                 placeholderBG={setColor}
               />

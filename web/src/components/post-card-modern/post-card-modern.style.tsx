@@ -44,7 +44,7 @@ export const PostDate = styled.div`
   line-height: 1;
   pointer-events: none;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(209, 0, 104, 0.7);
   > span {
     font-size: 13px;
     font-weight: normal;
