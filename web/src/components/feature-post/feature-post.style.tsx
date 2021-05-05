@@ -64,22 +64,22 @@ export const PostMeta = styled.div`
 
 export const PostDate = styled.div`
   position: absolute;
-  width: 40px;
-  height: 40px;
-  top: 45px;
-  left: 45px;
+  width: 30px;
+  height: 30px;
+  top: 55px;
+  left: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
   border-radius: 6px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   line-height: 1;
   pointer-events: none;
   z-index: 1;
-  background-color: rgba(209, 0, 104, 0.7);
+  background-color: rgba(209, 0, 104, 0.9);
   > span {
     font-size: 10px;
     font-weight: normal;

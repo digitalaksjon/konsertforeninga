@@ -75,6 +75,7 @@ export const RelatedPostItems = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
+  
 `;
 
 export const RelatedPostItem = styled.div`
@@ -94,7 +95,7 @@ export const RelatedPostItem = styled.div`
         a {
           transform: scale(1.05);
           img {
-            filter: unset;
+            filter: grayscale(100%);
   
           }
         }
@@ -338,7 +339,7 @@ export const PostTags = styled.div`
     margin-right: 30px;
     font-size: 14px;
     font-weight: 400;
-    color: ${themeGet('primary', '#D10068')};
+    color: ${themeGet('primary', '#0984e3')};
     @media (max-width: 990px) {
       font-size: 13px;
       margin-right: 25px;

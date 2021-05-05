@@ -68,6 +68,13 @@ module.exports = {
       resolve: `gatsby-transformer-sharp`,
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `backgrounds`,
+        path: `${__dirname}/content/bg`, // wherever background images are stored
+      }
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
     },
     {

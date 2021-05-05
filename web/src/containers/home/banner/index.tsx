@@ -1,7 +1,8 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import FeaturePost from '../../../components/feature-post/feature-post';
-import { BannerWrapper, BannerInner, FeaturePosts, Title } from './style';
+import { BannerWrapper, BannerInner, FeaturePosts, Title, CarouselCaptionWrapper } from './style';
+import BackgroundSlider from 'gatsby-image-background-slider'
 
 type BannerProps = {};
 
@@ -36,14 +37,49 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
           }
         }
       }
+      backgrounds: allFile (filter: {sourceInstanceName: {eq: "backgrounds"}}){
+        nodes {
+          relativePath
+          childImageSharp {
+            fluid (maxWidth: 4000, quality: 100){
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
     }
   `);
 
   const Posts = Data.allMarkdownRemark.edges;
 
+  
   return (
+    
     <BannerWrapper>
+
       <BannerInner>
+      <BackgroundSlider 
+
+        query={Data}
+        initDelay={2} // delay before the first transition (if left at 0, the first image will be skipped initially)
+        transition={4} // transition duration between images
+        duration={8} // how long an image is shown
+        // specify images to include (and their order) according to `relativePath`
+        //images={["dog.jpg", "cat.jpg", "giraffe.jpg", "tasmanian devil.jpg", "gabe.jpg"]} 
+
+           
+        > 
+        {/* Captions in sync with background images*/}
+        <CarouselCaptionWrapper>Viviana Vega</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper>Blow Out!</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper>Blårollinger</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper>Femme Brutal</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper>Skrap & Guitars</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper>Ståle Liavik Solberg og John Butcher</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper>Blow Out Festival!</CarouselCaptionWrapper>
+
+        </BackgroundSlider>
+
         <FeaturePosts>
           <Title>Utvalgte konserter</Title>
           {Posts.map(({ node }: any) => {
