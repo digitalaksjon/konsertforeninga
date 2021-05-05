@@ -66,7 +66,7 @@ const About: React.FunctionComponent<AboutProps> = () => {
         
         <h2>Om Konsertforeninga</h2>
         <p>
-          
+
         Konsertforeninga er en helårsarrangør som står for rundt 70 konserter med ny og levende musikk hvert år.
         </p>
       </AboutPageTitle>
@@ -77,11 +77,11 @@ const About: React.FunctionComponent<AboutProps> = () => {
 
       <AboutDetails>
 
-        <h2>Kontakt oss</h2>
+
         <p>
         Konsertforeninga har gjennom over 23 års virke opparbeida seg en enestående erfaring som kulturformidler i Oslo by. Fram til inngangen av 2007 holdt vi hus på en adresse ved Akerselva, men har siden den gang levd en nomadisk tilværelse som konsertarrangør ved flere ulike scener i hovedstaden. Vårt credo om å bringe til torgs banebrytende og bra musikk i alle sjangre – og stadig med et skråblikk til jazzen – holdes fortsatt høyt i hevd. Og inntil vi får etablert oss med fast bopæl inviterer vi godtfolk til å danse med oss rundt i Oslo. Konsertforeninga står for konsertseriene Blow Out!, FemmeBrutal!, Blårollinger, Death Jazz, Gutvik Ukentlig og Ladyfest i tillegg til flere andre konserter.
         </p>
-
+        <h2>Kontakt oss</h2>
         <p>
           kontakt(at)konsertforeninga.no<br />
           eller<br />
