@@ -63,11 +63,10 @@ const About: React.FunctionComponent<AboutProps> = () => {
   return (
     <AboutWrapper>
       <AboutPageTitle>
-        <h2>About StoryHub</h2>
+        
+        <h2>Om Konsertforeninga</h2>
         <p>
-          StoryHub is a beautiful Gatsby Blog theme designed to showcase your
-          work in style. Perfect for designers, artists, photographers and
-          developers to use for their portfolio website.
+        Konsertforeninga er en helårsarrangør som står for rundt 70 konserter med ny og levende musikk hvert år.
         </p>
       </AboutPageTitle>
 
@@ -76,23 +75,54 @@ const About: React.FunctionComponent<AboutProps> = () => {
       </AboutImage>
 
       <AboutDetails>
-        <h2>Hey there, what’s up?</h2>
+
+        <h2>Kontakt oss</h2>
         <p>
-          RedQ Team is a creative agency specializing in building scalable,
-          high-performance web & mobile application. Our main concern is
-          creating more value into the application so that can help our
-          customers to grow their business.
-        </p>
-        <p>
-          RedQ Team is a creative agency specializing in building scalable,
-          high-performance web & mobile application. Our main concern is
-          creating more value into the application so that can help our
-          customers to grow their business.
+        Konsertforeninga har gjennom over 23 års virke opparbeida seg en enestående erfaring som kulturformidler i Oslo by. Fram til inngangen av 2007 holdt vi hus på en adresse ved Akerselva, men har siden den gang levd en nomadisk tilværelse som konsertarrangør ved flere ulike scener i hovedstaden. Vårt credo om å bringe til torgs banebrytende og bra musikk i alle sjangre – og stadig med et skråblikk til jazzen – holdes fortsatt høyt i hevd. Og inntil vi får etablert oss med fast bopæl inviterer vi godtfolk til å danse med oss rundt i Oslo. Konsertforeninga står for konsertseriene Blow Out!, FemmeBrutal!, Blårollinger, Death Jazz, Gutvik Ukentlig og Ladyfest i tillegg til flere andre konserter.
         </p>
 
+        <p>
+          kontakt(at)konsertforeninga.no<br />
+          eller<br />
+          Konsertforeninga<br />
+          C/O Østnorsk jazzsenter<br />
+          Dronningens Gate 16<br />
+          0152 Oslo<br />
+        </p>
         <SocialProfiles>
           <SocialProfile items={SocialLinks} />
-        </SocialProfiles>
+        </SocialProfiles> 
+
+        <hr />
+
+        <h2>Fakturainformasjon</h2>
+        <p>
+          Vi foretrekker faktura i EHF-format. Registrer oss som kunde med org.nr 879 602 432. Alternativt legg inn konsertforeninga@ebilag.com
+          <br /><br />
+          …navn på konsertserie eller festival…<br />
+          Konsertforeninga<br />
+          Dronningens gate 16<br />
+          0152 Oslo<br />
+          Org nr 879 602 432<br />
+          <br />          
+        <h2>INVOICE / Message to foreign artists</h2>
+      
+          Please send your invoice to (specifying the appropriate concert series) :<br />
+          Blow Out / Blow Out festival / Femme Brutal / Femme Brutal festival / Gutvik ukentlig / etc.<br />
+          Konsertforeninga<br />
+          Dronningens gate 16<br />
+          N-0152 Oslo<br />
+          Norway<br />
+          konsertforeninga@ebilag.com (we prefer invoices in PDF)<br />
+          <br />
+          Along with your invoice, please make sure to email us:<br />
+          IBAN and SWIFT<br />
+          as well as:<br />
+          Your full name<br />
+          Date of birth<br />
+          Residential address<br />
+          Nationality<br />
+        </p>
       </AboutDetails>
     </AboutWrapper>
   );
