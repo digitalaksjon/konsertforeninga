@@ -279,3 +279,74 @@ export const PostTags = styled.div`
     color: ${themeGet('primary', '#D10068')};
   }
 `;
+// Random Placeholder Color
+const placeholderColors = [
+'#55efc4',
+'#81ecec',
+'#74b9ff',
+'#a29bfe',
+'#ffeaa7',
+'#fab1a0',
+'#e17055',
+'#0984e3',
+'#badc58',
+'#c7ecee',
+];
+
+export const PostMetaWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:flex-start;
+  width: 100%;
+
+  div {
+
+    text-align:center;
+    :nth-child(1) {
+      background-color: ${placeholderColors[
+        Math.floor(Math.random() * placeholderColors.length)
+      ]};    
+    }
+    :nth-child(2) {
+      background-color: ${placeholderColors[
+        Math.floor(Math.random() * placeholderColors.length)
+      ]};    
+    }
+    :nth-child(3) {
+      background-color: ${placeholderColors[
+        Math.floor(Math.random() * placeholderColors.length)
+      ]};    
+    }
+    color:#222;
+   
+    margin: 0 10px;
+    padding: 10px;
+    font-family: Poppins;
+
+    cursor: pointer;
+    flex:1;
+    span {
+      font-weight: bold;
+    }
+  }
+  a {
+    display: block;
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    color: ${themeGet('primary', '#D10068')};
+  }
+
+  div.ticketButton {
+    background-color: #D10068;
+    
+    color: white;
+    align-self: self-end;
+    cursor: pointer;
+    text-decoration: underline;
+    &:hover {
+      box-shadow: 0px 2px 5px #444;
+    }
+    
+  }
+`;

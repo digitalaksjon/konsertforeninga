@@ -43,7 +43,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
 
   return (
     <BlogPostsWrapper>
-        <h1>Alle konserter</h1>
+        <h1>Kommende konserter</h1>
       <PostRow>
         {Posts.map(({ node }: any) => {
           const title = node.frontmatter.title || node.fields.slug;
