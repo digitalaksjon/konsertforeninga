@@ -34,8 +34,18 @@ export default {
       title: 'Tidspunkt',
       description: 'Når er konserten?'
     },
-
-    
+    {
+      name: 'price',
+      type: 'string',
+      title: 'Pris',
+      description: 'Hva koster konserten?'
+    },
+    {
+      name: 'ticketURL',
+      type: 'string',
+      title: 'Billettlink',
+      description: 'URL til bilettsalg'
+    },
     {
       name: 'mainImage',
       type: 'mainImage',
