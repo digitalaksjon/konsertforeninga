@@ -1,15 +1,15 @@
-require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`,
+// Load variables from `.env` as soon as possible
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV || "development"}`,
 });
 
+const clientConfig = require("./client-config");
+
+const isProd = process.env.NODE_ENV === "production";
+
+
 module.exports = {
-  siteMetadata: {
-    title: `Konsertforeninga`,
-    author: `Digital Aksjon`,
-    about: `Konserter i Oslo.`,
-    description: `En konsertarrangør i Oslo`,
-    siteUrl: `https://konsertforeninga.netlify.com`,
-  },
+
   plugins: [
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -22,6 +22,15 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: "gatsby-source-sanity",
+      options: {
+        ...clientConfig.sanity,
+        token: process.env.SANITY_READ_TOKEN,
+        watchMode: !isProd,
+        overlayDrafts: !isProd,
       },
     },
     {

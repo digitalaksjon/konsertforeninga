@@ -17,20 +17,23 @@ const SEO: React.FunctionComponent<SEOProps> = ({
   keywords,
   title,
 }) => {
+
+
   const { site } = useStaticQuery(
     graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
+      query DefaultSEOQuery {
+        site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+          title
+          description
+          keywords
+          author {
+            name
           }
         }
       }
-    `
-  )
+  `)
 
+      console.log(site)
   const metaDescription = description || site.siteMetadata.description
 
   return (

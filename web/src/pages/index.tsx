@@ -10,8 +10,7 @@ const HomePage = (props: any) => {
   return (
     <Layout>
       <SEO
-        title="Forsida"
-        description={data.site.siteMetadata.description}
+        title="Forsiden"
       />
 
       <PersonalBlog />
@@ -21,13 +20,8 @@ const HomePage = (props: any) => {
 
 export default HomePage;
 
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`;
+
+
+
+
+
