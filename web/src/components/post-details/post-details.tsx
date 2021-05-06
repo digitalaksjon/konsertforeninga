@@ -102,7 +102,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       <PostMetaWrapper>
       
         <div className="venue">Hvor: <span>Kafé Hærverk</span></div>
-        <div className="time">Klokka: <span>20.00</span></div>
+        <div className="time">Når: <span>20.00</span></div>
         <div className="price">Pris: <span>150 / 100kr</span></div>        
         <div className="ticketButton">Kjøp billetter</div>
       </PostMetaWrapper>

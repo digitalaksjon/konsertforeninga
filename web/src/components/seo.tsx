@@ -2,6 +2,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
+
 type SEOProps = {
   description?: string
   lang?: string
@@ -18,31 +19,36 @@ const SEO: React.FunctionComponent<SEOProps> = ({
   title,
 }) => {
 
-
-  const { site } = useStaticQuery(
-    graphql`
-      query DefaultSEOQuery {
-        site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
-          title
-          description
-          keywords
-          author {
-            name
-          }
+  const detailsQuery = graphql`
+    query DefaultSEOQuery {
+      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+        title
+        description
+        keywords
+        author {
+          name
         }
       }
-  `)
+    }
+  `;
 
-      console.log(site)
-  const metaDescription = description || site.siteMetadata.description
+  const { site } = useStaticQuery(detailsQuery) || {};
 
+  const metaDescription = description || site.description || "";
+  const pageTitle = title || "";
+  const siteTitle = site.title || "";
+  const siteAuthor = site.author?.name || "";
+
+
+
+  
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={siteTitle}
+      titleTemplate={`${pageTitle} | ${siteTitle}`}
       meta={[
         {
           name: `description`,
@@ -66,7 +72,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: siteAuthor,
         },
         {
           name: `twitter:title`,

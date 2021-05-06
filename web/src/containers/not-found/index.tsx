@@ -22,14 +22,17 @@ const NotFound: React.FunctionComponent<NotFoundProps> = () => {
           }
         }
       }
-      site {
-        siteMetadata {
-          author
-          about
+      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+        title
+        description
+        keywords
+        author {
+          name
         }
       }
     }
   `);
+
 
   return (
     <NotFoundWrapper>

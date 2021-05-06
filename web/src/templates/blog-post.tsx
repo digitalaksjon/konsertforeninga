@@ -40,7 +40,7 @@ const BlogPostTemplate = (props: any) => {
   const title = post.frontmatter.title;
 
   const slug = post.fields.slug;
-  const siteUrl = props.data.site.siteMetadata.siteUrl;
+  const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
 
   const disqusConfig = {
@@ -153,9 +153,13 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!, $tag: [String!]) {
-    site {
-      siteMetadata {
-        siteUrl
+    site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+      title
+      description
+      keywords
+      siteUrl
+      author {
+        name
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {

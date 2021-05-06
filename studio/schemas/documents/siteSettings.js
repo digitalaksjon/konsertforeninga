@@ -16,6 +16,12 @@ export default {
       description: 'Describe your blog for search engines and social media.'
     },
     {
+      name: 'siteUrl',
+      type: 'string',
+      title: 'Site URL',
+      description: 'Enter the site URL'
+    },
+    {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',

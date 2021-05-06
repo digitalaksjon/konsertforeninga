@@ -51,14 +51,18 @@ const About: React.FunctionComponent<AboutProps> = () => {
           }
         }
       }
-      site {
-        siteMetadata {
-          author
-          about
+      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+        title
+        description
+        keywords
+        author {
+          name
         }
       }
     }
   `);
+
+
 
   return (
     <AboutWrapper>

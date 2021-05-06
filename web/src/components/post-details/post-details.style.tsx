@@ -343,9 +343,9 @@ export const PostMetaWrapper = styled.div`
     color: white;
     align-self: self-end;
     cursor: pointer;
-    text-decoration: underline;
+    font-weight: bold;
     &:hover {
-      box-shadow: 0px 2px 5px #444;
+      text-decoration: underline;
     }
     
   }

@@ -9,14 +9,14 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
-      description: 'Titles should be catchy, descriptive, and not too long'
+      title: 'Tittel',
+      description: 'Navnet på de som holder konserten'
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Some frontends will require a slug to be set to be able to show the post',
+      description: 'En kortversjon av tittelen til URL',
       options: {
         source: 'title',
         maxLength: 96
@@ -25,24 +25,32 @@ export default {
     {
       name: 'publishedAt',
       type: 'datetime',
-      title: 'Published at',
-      description: 'This can be used to schedule post for publishing'
+      title: 'Publisert',
+      description: 'Denne kan brukes til planlegge publisering av konserter'
     },
+    {
+      name: 'concertDateTime',
+      type: 'datetime',
+      title: 'Tidspunkt',
+      description: 'Når er konserten?'
+    },
+
+    
     {
       name: 'mainImage',
       type: 'mainImage',
-      title: 'Main image'
+      title: 'Bilde'
     },
     {
       name: 'excerpt',
       type: 'excerptPortableText',
-      title: 'Excerpt',
+      title: 'Utdrag',
       description:
-        'This ends up on summary pages, on Google, when people share your post in social media.'
+        'Denne teksten ender opp på Google og når man deler på Facebook.'
     },
     {
       name: 'authors',
-      title: 'Authors',
+      title: 'Forfatter',
       type: 'array',
       of: [
         {
@@ -53,7 +61,7 @@ export default {
     {
       name: 'categories',
       type: 'array',
-      title: 'Categories',
+      title: 'Konsertserie',
       of: [
         {
           type: 'reference',
@@ -66,7 +74,7 @@ export default {
     {
       name: 'body',
       type: 'bodyPortableText',
-      title: 'Body'
+      title: 'Beskrivelse'
     }
   ],
   orderings: [
