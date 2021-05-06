@@ -4,49 +4,55 @@ import Button from '../../../components/button/button';
 import PostCardModern from '../../../components/post-card-modern/post-card-modern';
 import BlogPostsWrapper, { PostRow, PostGrid, SeeMore } from './style';
 
+
 type PostsProps = {};
 
 const Posts: React.FunctionComponent<PostsProps> = () => {
   const Data = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: ASC }
-        limit: 6
-      ) {
-        totalCount
-        edges {
-          node {
-            excerpt(pruneLength: 200)
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "DD [<span>] MMMM [</span>]")
-              title
-              description
-              tags
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 570, maxHeight: 370, quality: 100, grayscale: true) {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
+  
+  
+  query {
+
+    concerts: allSanityConcert (
+      limit: 6
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+     ) {
+      totalCount
+      edges {
+        node {       
+          id
+          tags
+          publishedAt
+          mainImage {
+            asset {
+            
+                fluid(maxWidth: 570) {
+                  ...GatsbySanityImageFluid
                 }
-              }
             }
+          }
+          title
+          _rawExcerpt
+          concertDateTime
+          slug {
+            current
           }
         }
       }
     }
-  `);
+  }
+`);
 
-  const Posts = Data.allMarkdownRemark.edges;
+  const Posts = Data.concerts.edges;
 
   return (
     <BlogPostsWrapper>
         <h1>Kommende konserter</h1>
       <PostRow>
         {Posts.map(({ node }: any) => {
-          const title = node.frontmatter.title || node.fields.slug;
+
+          const title = node.title || node.slug.current;
           // Random Placeholder Color
           const placeholderColors = [
             '#55efc4',
@@ -66,19 +72,15 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
             ];
 
           return (
-            <PostGrid key={node.fields.slug}>
+            <PostGrid key={node.slug.current}>
               <PostCardModern
-                key={node.fields.slug}
+                key={node.slug.current}
                 title={title}
-                image={
-                  node.frontmatter.cover == null
-                    ? null
-                    : node.frontmatter.cover.childImageSharp.fluid
-                }
-                url={node.fields.slug}
-                description={node.excerpt}
-                date={node.frontmatter.date}
-                tags={node.frontmatter.tags}
+                image={node.mainImage}
+                tags={node.tags}
+                url={node.slug.current}
+                description={node.rawExcerpt}
+                date={node.concertDateTime}
                 placeholderBG={setColor}
               />
             </PostGrid>

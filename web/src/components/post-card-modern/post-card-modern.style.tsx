@@ -13,7 +13,7 @@ export const PostPreview = styled.div`
     border-radius: 3px;
     filter: grayscale(100%);
     :hover {
-      filter: unset;
+      filter:unset();
 
     }
   }

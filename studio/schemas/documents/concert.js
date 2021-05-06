@@ -1,4 +1,5 @@
 import {MdMusicNote} from 'react-icons/md'
+import {format} from 'date-fns'
 
 export default {
   name: 'concert',
@@ -41,6 +42,12 @@ export default {
       description: 'Hva koster konserten?'
     },
     {
+      name: 'venue',
+      type: 'string',
+      title: 'Scene',
+      description: 'Hvor avholdes konserten?'
+    },
+    {
       name: 'ticketURL',
       type: 'string',
       title: 'Billettlink',
@@ -67,6 +74,15 @@ export default {
           type: 'authorReference'
         }
       ]
+    },
+    {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        layout: 'tags'
+      }
     },
     {
       name: 'categories',
@@ -127,6 +143,8 @@ export default {
     prepare ({title = 'No title', publishedAt, slug = {}, media}) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
+      console.log(dateSegment)
+
       return {
         title,
         media,

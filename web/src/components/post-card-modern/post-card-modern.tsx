@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import _ from 'lodash';
-import Img from 'gatsby-image';
+import Image from "gatsby-image"
 import {
   PostCardModernWrapper,
   PostPreview,
@@ -44,29 +44,54 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
     addAllClasses.push(className);
   }
 
+  // Random Placeholder Color
+  const placeholderColors = [
+    '#55efc4',
+    '#81ecec',
+    '#74b9ff',
+    '#a29bfe',
+    '#ffeaa7',
+    '#fab1a0',
+    '#e17055',
+    '#0984e3',
+    '#badc58',
+    '#c7ecee',
+  ];
+  const setColor =
+    placeholderColors[Math.floor(Math.random() * placeholderColors.length)];
+
+
+  Date.prototype.getMonthName = function() {
+    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+      "Juli", "August", "September", "Oktober", "November", "Desember"
+    ];
+    return monthNames[this.getMonth()];
+  }
+  
+
+
+  const dateObject = new Date(date);
+
   return (
     <PostCardModernWrapper className={addAllClasses.join(' ')} {...props}>
       {image == null ? null : (
         <PostPreview className="post_preview">
           <Link to={url}>
-            {imageType === 'fluid' ? (
-              <Img
-                fluid={image}
-                alt="post preview"
-                backgroundColor={placeholderBG}
-              />
-            ) : (
-              <Img
-                fixed={image}
-                alt="post preview"
-                backgroundColor={placeholderBG}
-              />
-            )}
+
+
+          <Image
+            
+            fluid={image.asset.fluid}
+            alt={title}
+            backgroundColor={setColor}
+
+          />
+        
           </Link>
           {date && (
             <PostDate
               dangerouslySetInnerHTML={{
-                __html: date,
+                __html: dateObject.getDate() + "<span>"+ dateObject.getMonthName() + "</span>",
               }}
               className="post_date"
             />

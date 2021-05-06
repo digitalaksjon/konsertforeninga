@@ -69,8 +69,8 @@ export const PostDate = styled.div`
   top: 55px;
   left: 55px;
   @media (max-width: 475px) {
-    top: 35px;
-    left: 35px;    
+    top: 30px;
+    left: 30px;    
   }
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@ export const PostDate = styled.div`
   justify-content: center;
   color: #fff;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   line-height: 1;
   pointer-events: none;

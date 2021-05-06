@@ -1,7 +1,7 @@
 export default {
   name: 'category',
   type: 'document',
-  title: 'Category',
+  title: 'Konsertserie',
   fields: [
     {
       name: 'title',
