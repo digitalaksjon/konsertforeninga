@@ -27,7 +27,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
           mainImage {
             asset {
             
-                fluid(maxWidth: 570) {
+                fluid(maxWidth: 570, maxHeight: 370) {
                   ...GatsbySanityImageFluid
                 }
             }
@@ -70,6 +70,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
             placeholderColors[
               Math.floor(Math.random() * placeholderColors.length)
             ];
+            
 
           return (
             <PostGrid key={node.slug.current}>
@@ -79,7 +80,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
                 image={node.mainImage}
                 tags={node.tags}
                 url={node.slug.current}
-                description={node.rawExcerpt}
+                excerpt={node._rawExcerpt}
                 date={node.concertDateTime}
                 placeholderBG={setColor}
               />
