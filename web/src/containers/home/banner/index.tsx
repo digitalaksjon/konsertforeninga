@@ -13,7 +13,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         
       concerts: allSanityConcert (
         limit: 5
-        sort: { fields: [publishedAt], order: DESC }
+        sort: { fields: concertDateTime, order: ASC }
         filter: { tags: { eq: "featured" } } 
       ) {
         totalCount
@@ -117,11 +117,11 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
               }
             
               const dateObject = new Date(node.concertDateTime);
+              
             
-            
-              var concertDate = dateObject.getDay();
+              var concertDate = dateObject.getDate();
               var concertMonth = dateObject.getMonthName(dateObject.getMonth());
-            
+
             
               var newDate = concertDate + `<br><span>` + concertMonth + `</span>`
 

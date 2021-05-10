@@ -66,7 +66,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   const dateObject = new Date(date);
 
 
-  var concertDate = dateObject.getDay();
+  var concertDate = dateObject.getDate();
   var concertMonth = dateObject.getMonthName(dateObject.getMonth());
 
 
@@ -124,9 +124,9 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       )}
       <PostMetaWrapper>
       
-        <div className="venue">{venue}</div>
-        <div className="time">Kl. {concertDateTime}</div>
-        <div className="price">{price}</div>        
+        <div className="venue">Sted: <span>{venue}</span></div>
+        <div className="time">Klokkeslett: <span>{concertDateTime}</span></div>
+        <div className="price">Pris: <span>{price}</span></div>        
         <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>
       </PostMetaWrapper>
 

@@ -14,6 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allSanityConcert(
+          sort: { fields: concertDateTime, order: ASC }
 
           limit: 1000
         ) {
@@ -49,7 +50,6 @@ exports.createPages = ({ graphql, actions }) => {
     const posts = result.data.allSanityConcert.edges
 
     posts.forEach((post, index) => {
-      console.log("her !!!!!!!!!!!!!!!!!!!")
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 

@@ -303,11 +303,11 @@ export const PostMetaWrapper = styled.div`
 
     text-align:center;
     :nth-child(1) {
-      background-color: #81ecec;    
+      background-color: #74b9ff;    
       border-radius: 0 0 10px;
     }
     :nth-child(2) {
-      background-color: #55efc4;    
+      background-color: #74b9ff;    
       border-radius: 0 0 10px 10px;
     }
     :nth-child(3) {
@@ -315,16 +315,18 @@ export const PostMetaWrapper = styled.div`
       border-radius: 0 0 10px 10px;
     }
     color:#222;
-   
+    font-size: 0.9em;
     margin: 0 10px;
     padding: 10px;
     font-family: Poppins;
-    height: 40px;
-    
+    height: 40px;    
     cursor: pointer;
     flex:1;
     box-shadow: 2px 2px #888888;
 
+  }
+  span {
+    font-weight:bold;
   }
   a {
     display: block;
@@ -338,10 +340,10 @@ export const PostMetaWrapper = styled.div`
     background-color: #D10068;
     text-align:right;
     &:hover {
-      height: 50px;
+      height: 45px;
       transition: height 0.5s;
       a {
-        padding: 10px 0;
+        padding: 5px 0;
         transition: padding 0.5s;
         font-weight: bold;
       }

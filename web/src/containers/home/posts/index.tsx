@@ -21,10 +21,10 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
         name
       }
     }
-    
+
     concerts: allSanityConcert (
       limit: 6
-      sort: { fields: [publishedAt], order: DESC }
+        sort: { fields: concertDateTime, order: ASC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
      ) {
       totalCount

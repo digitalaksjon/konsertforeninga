@@ -18,6 +18,8 @@ const BlogList = (props: any) => {
   const PrevLink = !isFirst && prevPage;
   const NextLink = !isLast && nextPage;
 
+  
+
   return (
     <Layout>
       <SEO title={`Page ${currentPage}`} />
@@ -25,6 +27,10 @@ const BlogList = (props: any) => {
       <BlogPostsWrapper>
         <PostRow>
           {Posts.map(({ node }: any) => {
+
+
+            const postURL = data.site.siteUrl + "/" +node.slug.current;
+
             // Random Placeholder Color
             const placeholderColors = [
               '#55efc4',
@@ -42,6 +48,7 @@ const BlogList = (props: any) => {
               placeholderColors[
                 Math.floor(Math.random() * placeholderColors.length)
               ];
+
             return (
               <PostGrid>
                 <PostCardModern
@@ -50,9 +57,9 @@ const BlogList = (props: any) => {
                   image={
                     node.mainImage == null
                       ? null
-                      : node.mainImage.asset.fluid
+                      : node.mainImage
                   }
-                  url={node.slug.current}
+                  url={postURL}
                   description={node._rawExcerpt|| node._rawBody}
                   date={node.concertDateTime}
                   tags={node.tags}
@@ -82,7 +89,7 @@ export const pageQuery = graphql`
     concerts: allSanityConcert (
       limit: $limit
       skip: $skip
-      sort: { fields: [publishedAt], order: DESC }
+      sort: { fields: concertDateTime, order: ASC }
       filter: { tags: { eq: "featured" } } 
     ) {
       totalCount

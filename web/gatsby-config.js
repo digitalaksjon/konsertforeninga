@@ -29,7 +29,7 @@ module.exports = {
       options: {
         ...clientConfig.sanity,
         token: process.env.SANITY_READ_TOKEN,
-        watchMode: true,
+        watchMode: !isProd,
         overlayDrafts: !isProd,
       },
     },

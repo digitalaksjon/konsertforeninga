@@ -210,7 +210,7 @@ export const pageQuery = graphql`
     
     concerts: allSanityConcert (
       limit: 3
-      sort: { fields: [publishedAt], order: DESC }
+      sort: { fields: concertDateTime, order: ASC }
       filter: {
         tags: { in: $tag } 
         slug: { current: { ne: $slug } }
