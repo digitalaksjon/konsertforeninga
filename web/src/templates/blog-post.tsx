@@ -64,6 +64,7 @@ const BlogPostTemplate = (props: any) => {
       <SEO
         title={title}
         description={post._rawExcerpt}
+        metaImage={post.mainImage}
       />
       <BlogPostDetailsWrapper>
         <BlogDetailsContent>

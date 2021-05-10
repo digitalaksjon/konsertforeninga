@@ -7,6 +7,7 @@ type SEOProps = {
   description?: string
   lang?: string
   meta?: any
+  metaImage?: any
   keywords?: any
   title: string
 }
@@ -15,6 +16,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({
   description,
   lang,
   meta,
+  metaImage,
   keywords,
   title,
 }) => {
@@ -61,6 +63,10 @@ const SEO: React.FunctionComponent<SEOProps> = ({
         {
           property: `og:description`,
           content: metaDescription,
+        },
+        {
+          property: `og:image`,
+          content: metaImage,
         },
         {
           property: `og:type`,
