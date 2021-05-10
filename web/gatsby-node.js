@@ -99,9 +99,13 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `SanityConcert`) {
+  
+
+    if (node.internal.type === `sanityConcert`) {
+
     const value = createFilePath({ node, getNode })
     if (typeof node.slug.current !== 'undefined') {
+
       createNodeField({
         node,
         name: 'slug',
