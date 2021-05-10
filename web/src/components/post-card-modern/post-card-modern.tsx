@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import _ from 'lodash';
 import Image from "gatsby-image"
+import PortableText from '../portableText'
+
 import {
   PostCardModernWrapper,
   PostPreview,
@@ -15,7 +17,7 @@ import {
 interface PostCardModernProps {
   image?: any;
   title: string;
-  description?: string;
+  excerpt?: any;
   url: string;
   date?: string;
   tags?: [];
@@ -27,7 +29,7 @@ interface PostCardModernProps {
 const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
   image,
   title,
-  description,
+  excerpt,
   url,
   date,
   tags,
@@ -43,6 +45,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
   if (className) {
     addAllClasses.push(className);
   }
+
 
   // Random Placeholder Color
   const placeholderColors = [
@@ -116,14 +119,8 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
-        {excerpt && (
-          <Excerpt
-            dangerouslySetInnerHTML={{
-              __html: excerpt,
-            }}
-            className="excerpt"
-          />
-        )}
+        {excerpt && <PortableText blocks={excerpt} />}
+       
       </PostDetails>
     </PostCardModernWrapper>
   );
