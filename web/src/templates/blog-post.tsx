@@ -39,13 +39,13 @@ const BlogPostTemplate = (props: any) => {
   const post = props.data.sanityConcert;
   const { edges } = props.data.concerts;
   const title = post.title;
-  console.log(post.mainImage.asset)
 
 
   const slug = post.slug.current;
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
 
+  
 
 
   Date.prototype.getFullMinutes = function () {
@@ -170,6 +170,7 @@ export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!, $tag: [String!]) {
+    
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
       description

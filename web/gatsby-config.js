@@ -9,7 +9,14 @@ const isProd = process.env.NODE_ENV === "production";
 
 
 module.exports = {
-
+  siteMetadata: {
+    title: `Konsertforeninga`,
+    author: `Digital Aksjon`,
+    about: `Breakfast procuring no end happiness allowance assurance frank. Met simplicity nor difficulty unreserved who. Entreaties mr conviction dissimilar me
+    astonished estimating cultivated.`,
+    description: `Konserter i Oslo`,
+    siteUrl: `https://konsertforeninga.netlify.com`,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-styled-components`,
@@ -31,13 +38,6 @@ module.exports = {
       options: {
         // Sanity project info (required)
         ...clientConfig.sanity
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
       },
     },
 
@@ -100,9 +100,69 @@ module.exports = {
         //trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,//`ADD YOUR TRACKING ID HERE`,
       },
     },
-    {
+/*    {
       resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node._rawExcerpt,
+                  date: edge.node.concertDateTime,
+                  url: site.siteUrl + edge.node.slug.current,
+                  guid: site.siteUrl + edge.node.slug.current,
+                  custom_elements: [{ "content:encoded": edge.node._rawBody }],
+                })
+              })
+            },
+            query: `
+              {
+                allSanityConcert(
+                  sort: { order: DESC, fields: [publishedAt] },
+                ) {
+                  edges {
+                    node {
+                      _rawExcerpt
+                      _rawBody
+                      slug {
+                        current
+                      }
+
+                      title
+                      concertDateTime
+                      
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Your Site's RSS Feed",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/feed/",
+            // optional configuration to specify external rss feed, such as feedburner
+            link: "https://konsertforeninga.netlify.com/feed",
+          },
+        ],
+      },
     },
+    */
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -12,7 +12,16 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
   
   
   query {
-
+    site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+      title
+      description
+      keywords
+      siteUrl
+      author {
+        name
+      }
+    }
+    
     concerts: allSanityConcert (
       limit: 6
       sort: { fields: [publishedAt], order: DESC }

@@ -8,7 +8,7 @@ import { BlogPostsWrapper, PostRow, PostGrid } from './templates.style';
 
 const BlogList = (props: any) => {
   const { data } = props;
-  const Posts = data.allMarkdownRemark.edges;
+  const Posts = data.concerts.edges;
   const { currentPage, numPages } = props.pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
@@ -50,7 +50,7 @@ const BlogList = (props: any) => {
                   image={
                     node.mainImage == null
                       ? null
-                      : node.mainImage.childImageSharp.fluid
+                      : node.mainImage.asset.fluid
                   }
                   url={node.slug.current}
                   description={node._rawExcerpt|| node._rawBody}
@@ -77,14 +77,8 @@ export default BlogList;
 
 export const pageQuery = graphql`
   query($skip: Int!, $limit: Int!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    sitePage {
-      path
-    }
+
+
     concerts: allSanityConcert (
       limit: $limit
       skip: $skip
@@ -115,5 +109,17 @@ export const pageQuery = graphql`
         }
       }
     }
+    
+    site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+      title
+      description
+      keywords
+      siteUrl
+      author {
+        name
+      }
+    }
+
+      
   }
 `;

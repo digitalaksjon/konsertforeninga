@@ -27,6 +27,17 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+
+        
+      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+        title
+        description
+        keywords
+        siteUrl
+        author {
+          name
+        }
+      }
       }
     `
   ).then(result => {
@@ -38,6 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
     const posts = result.data.allSanityConcert.edges
 
     posts.forEach((post, index) => {
+      console.log("her !!!!!!!!!!!!!!!!!!!")
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 

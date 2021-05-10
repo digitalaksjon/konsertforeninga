@@ -25,10 +25,15 @@ export default NotFoundPage;
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
+    site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+      title
+      description
+      keywords
+      siteUrl
+      author {
+        name
       }
     }
+
   }
 `;
