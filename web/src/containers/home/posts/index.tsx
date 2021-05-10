@@ -26,14 +26,13 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
           publishedAt
           mainImage {
             asset {
-            
-                fluid(maxWidth: 570) {
+                fluid(maxWidth: 500) {
                   ...GatsbySanityImageFluid
                 }
             }
           }
           title
-          _rawExcerpt
+          excerpt
           concertDateTime
           slug {
             current

@@ -17,9 +17,7 @@ const BlogPostsWrapper = styled.div`
     padding: 60px 25px 0 25px;
   }
 
-  h1 {
-    font-weight: normal;
-  }
+
 `;
 export const PostRow = styled.div`
   display: flex;

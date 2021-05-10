@@ -79,13 +79,17 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
           <Link to={url}>
 
 
-          <Image
+          {image.asset
+            && (
+              <Image
             
-            fluid={image.asset.fluid}
-            alt={title}
-            backgroundColor={setColor}
-
-          />
+              fluid={image.asset.fluid}
+              alt={title}
+              backgroundColor={setColor}
+  
+            />  )
+          }
+          
         
           </Link>
           {date && (
@@ -112,10 +116,10 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
-        {description && (
+        {excerpt && (
           <Excerpt
             dangerouslySetInnerHTML={{
-              __html: description,
+              __html: excerpt,
             }}
             className="excerpt"
           />
