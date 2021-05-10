@@ -288,7 +288,7 @@ const placeholderColors = [
 '#ffeaa7',
 '#fab1a0',
 '#e17055',
-'#0984e3',
+'#74b9ff',
 '#badc58',
 '#c7ecee',
 ];
@@ -303,31 +303,28 @@ export const PostMetaWrapper = styled.div`
 
     text-align:center;
     :nth-child(1) {
-      background-color: ${placeholderColors[
-        Math.floor(Math.random() * placeholderColors.length)
-      ]};    
+      background-color: #81ecec;    
+      border-radius: 0 0 10px;
     }
     :nth-child(2) {
-      background-color: ${placeholderColors[
-        Math.floor(Math.random() * placeholderColors.length)
-      ]};    
+      background-color: #55efc4;    
+      border-radius: 0 0 10px 10px;
     }
     :nth-child(3) {
-      background-color: ${placeholderColors[
-        Math.floor(Math.random() * placeholderColors.length)
-      ]};    
+      background-color: #74b9ff;    
+      border-radius: 0 0 10px 10px;
     }
     color:#222;
    
     margin: 0 10px;
     padding: 10px;
     font-family: Poppins;
-
+    height: 40px;
+    
     cursor: pointer;
     flex:1;
-    span {
-      font-weight: bold;
-    }
+    box-shadow: 2px 2px #888888;
+
   }
   a {
     display: block;
@@ -339,14 +336,27 @@ export const PostMetaWrapper = styled.div`
 
   div.ticketButton {
     background-color: #D10068;
-    
-    color: white;
-    align-self: self-end;
-    cursor: pointer;
-    font-weight: bold;
+    text-align:right;
     &:hover {
-      text-decoration: underline;
+      height: 50px;
+      transition: height 0.5s;
+      a {
+        padding: 10px 0;
+        transition: padding 0.5s;
+        font-weight: bold;
+      }
     }
+    a {
+      margin: 0;
+      text-align: center;
+      color: white;
+      align-self: self-end;
+      cursor: pointer;
+      
+    
+    }
+    border-radius: 0 0 0 10px;
+    
     
   }
 `;

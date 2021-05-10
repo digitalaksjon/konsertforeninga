@@ -9,6 +9,7 @@ import PostDetails from '../components/post-details/post-details';
 import Sidebar from '../containers/sidebar';
 
 
+
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -30,47 +31,61 @@ import {
   BlogPostFooter,
   PostShare,
   PostTags,
-  BlogPostComment,
   BlogDetailsContent,
 } from './templates.style';
 
 const BlogPostTemplate = (props: any) => {
-  const post = props.data.markdownRemark;
-  const { edges } = props.data.allMarkdownRemark;
-  const title = post.frontmatter.title;
+  
+  const post = props.data.sanityConcert;
+  const { edges } = props.data.concerts;
+  const title = post.title;
+  console.log(post.mainImage.asset)
 
-  const slug = post.fields.slug;
+
+  const slug = post.slug.current;
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
 
-  const disqusConfig = {
-    shortname: process.env.GATSBY_DISQUS_NAME,
-    config: { identifier: slug, title },
-  };
 
+
+  Date.prototype.getFullMinutes = function () {
+    if (this.getMinutes() < 10) {
+        return '0' + this.getMinutes();
+    }
+    return this.getMinutes();
+ };
+
+
+  const concertTime = new Date(post.concertDateTime);
+  const readableTime = concertTime.getHours() + "." + concertTime.getFullMinutes();
+  
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title}
+        description={post._rawExcerpt}
       />
       <BlogPostDetailsWrapper>
         <BlogDetailsContent>
           <PostDetails
-            title={post.frontmatter.title}
-            date={post.frontmatter.date}
+            title={post.title}
+            date={post.concertDateTime}
+            venue={post.venue}
+            tickets={post.ticketURL}
+            price={post.price}
+            concertDateTime={readableTime}
             preview={
-              post.frontmatter.cover == null
+              post.mainImage == null
                 ? null
-                : post.frontmatter.cover.childImageSharp.fluid
+                : post.mainImage.asset.fluid
             }
-            description={post.html}
+            description={post._rawBody}
           />
 
           <BlogPostFooter>
-            {post.frontmatter.tags == null ? null : (
+            {post.tags == null ? null : (
               <PostTags className="post_tags">
-                {post.frontmatter.tags.map((tag: string, index: number) => (
+                {post.tags.map((tag: string, index: number) => (
                   <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
                     {`#${tag}`}
                   </Link>
@@ -79,7 +94,7 @@ const BlogPostTemplate = (props: any) => {
             )}
             <PostShare>
               <span>Share This:</span>
-              <FacebookShareButton url={shareUrl} quote={post.excerpt}>
+              <FacebookShareButton url={shareUrl} quote={post._rawExcerpt}>
                 <IoLogoFacebook />
               </FacebookShareButton>
               <TwitterShareButton url={shareUrl} title={title}>
@@ -87,13 +102,13 @@ const BlogPostTemplate = (props: any) => {
               </TwitterShareButton>
               <PinterestShareButton
                 url={shareUrl}
-                media={urljoin(siteUrl, post.frontmatter.cover.publicURL)}
+                media={urljoin(siteUrl, post.mainImage.asset.url)}
               >
                 <IoLogoPinterest />
               </PinterestShareButton>
               <RedditShareButton
                 url={shareUrl}
-                title={`${post.frontmatter.title}`}
+                title={`${post.title}`}
               >
                 <IoLogoReddit />
               </RedditShareButton>
@@ -127,16 +142,16 @@ const BlogPostTemplate = (props: any) => {
                   Math.floor(Math.random() * placeholderColors.length)
                 ];
               return (
-                <RelatedPostItem key={node.fields.slug}>
+                <RelatedPostItem key={node.slug.current}>
                   <PostCard
-                    title={node.frontmatter.title || node.fields.slug}
-                    url={node.fields.slug}
+                    title={node.title || node.slug.current}
+                    url={node.slug.current}
                     image={
-                      node.frontmatter.cover == null
+                      node.mainImage == null
                         ? null
-                        : node.frontmatter.cover.childImageSharp.fluid
+                        : node.mainImage.asset.fluid
                     }
-                    tags={node.frontmatter.tags}
+                    tags={node.tags}
                     placeholderBG={setColor}
                   />
                 </RelatedPostItem>
@@ -151,6 +166,8 @@ const BlogPostTemplate = (props: any) => {
 
 export default BlogPostTemplate;
 
+
+
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!, $tag: [String!]) {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
@@ -162,52 +179,61 @@ export const pageQuery = graphql`
         name
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      excerpt(pruneLength: 160)
-      html
-      fields {
-        slug
-      }
-      frontmatter {
-        title
-        date(formatString: "DD MMM, YYYY")
-        description
+
+      
+    sanityConcert(slug: { current: { eq: $slug } }){
+        id
         tags
-        cover {
-          publicURL
-          childImageSharp {
-            fluid(maxWidth: 1170, quality: 100) {
-              ...GatsbyImageSharpFluid_noBase64
-            }
+        publishedAt
+        mainImage {
+          asset {
+          
+              fluid(maxWidth: 570, maxHeight: 370) {
+                ...GatsbySanityImageFluid
+              }
+              url
           }
         }
-      }
+        title
+        _rawExcerpt
+        _rawBody
+        venue
+        price
+        concertDateTime
+        slug {
+          current
+        }
+        ticketURL
     }
-    allMarkdownRemark(
+
+    
+    concerts: allSanityConcert (
       limit: 3
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [publishedAt], order: DESC }
       filter: {
-        frontmatter: { tags: { in: $tag } }
-        fields: { slug: { ne: $slug } }
+        tags: { in: $tag } 
+        slug: { current: { ne: $slug } }
       }
-    ) {
+     ) {
+      totalCount
       edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            tags
-            cover {
-              publicURL
-              childImageSharp {
-                fluid(maxWidth: 370, maxHeight: 220, quality: 90) {
-                  ...GatsbyImageSharpFluid_noBase64
+        node {       
+          id
+          tags
+          publishedAt
+          mainImage {
+            asset {
+            
+                fluid(maxWidth: 570, maxHeight: 370) {
+                  ...GatsbySanityImageFluid
                 }
-              }
             }
+          }
+          title
+          _rawExcerpt
+          concertDateTime
+          slug {
+            current
           }
         }
       }

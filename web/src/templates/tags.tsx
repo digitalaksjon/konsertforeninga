@@ -7,7 +7,7 @@ import { TagPostsWrapper, TagPageHeading, TagName } from './templates.style';
 
 const Tags = ({ pageContext, data }: any) => {
   const { tag } = pageContext;
-  const { edges, totalCount } = data.allMarkdownRemark;
+  const { edges, totalCount } = data.allSanityConcert;
 
   return (
     <Layout>
@@ -20,12 +20,12 @@ const Tags = ({ pageContext, data }: any) => {
         </TagPageHeading>
         {edges.map(({ node, index }: any) => (
           <PostCard
-            key={node.fields.slug}
-            title={node.frontmatter.title}
-            url={node.fields.slug}
-            description={node.frontmatter.description || node.excerpt}
-            date={node.frontmatter.date}
-            tags={node.frontmatter.tags}
+            key={node.slug.current}
+            title={node.title}
+            url={node.slug.current}
+            description={node._rawExcerpt || node._rawBody}
+            date={node.concertDateTime}
+            tags={node.tags}
           />
         ))}
       </TagPostsWrapper>
@@ -37,24 +37,24 @@ export default Tags;
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allMarkdownRemark(
+    allSanityConcert(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { tags: { in: [$tag] } }
     ) {
       totalCount
       edges {
         node {
-          excerpt(pruneLength: 300)
-          fields {
-            slug
+          _rawExcerpt
+          slug {
+            current
           }
-          frontmatter {
-            date(formatString: "DD [<span>] MMMM [</span>]")
-            title
-            tags
-            description
-          }
+          
+          concertDateTime (formatString: "DD [<span>] MMMM [</span>]")
+          title
+          tags
+          _rawBody
+          
         }
       }
     }

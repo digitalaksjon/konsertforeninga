@@ -9,34 +9,37 @@ type BannerProps = {};
 const Banner: React.FunctionComponent<BannerProps> = () => {
   const Data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: ASC }
+
+        
+      concerts: allSanityConcert (
         limit: 5
-        filter: { frontmatter: { tags: { eq: "featured" } } }
+        sort: { fields: [publishedAt], order: DESC }
+        filter: { tags: { eq: "featured" } } 
       ) {
         totalCount
         edges {
-          node {
-            excerpt(pruneLength: 300)
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "DD [<span>] MMM [</span>]")
-              title
-              description
-              tags
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 90, maxHeight: 90, quality: 100, grayscale: true) {
-                    ...GatsbyImageSharpFluid_noBase64
+          node {       
+            id
+            tags
+            publishedAt
+            mainImage {
+              asset {
+              
+                  fluid(maxWidth: 90, maxHeight: 90) {
+                    ...GatsbySanityImageFluid
                   }
-                }
               }
+            }
+            title
+            _rawExcerpt
+            concertDateTime
+            slug {
+              current
             }
           }
         }
       }
+
       backgrounds: allFile (filter: {sourceInstanceName: {eq: "backgrounds"}}){
         nodes {
           relativePath
@@ -50,9 +53,13 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
     }
   `);
 
-  const Posts = Data.allMarkdownRemark.edges;
+  const Posts = Data.concerts.edges;
 
   
+  
+
+
+
   return (
     
     <BannerWrapper>
@@ -83,7 +90,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <FeaturePosts>
           <Title>Utvalgte konserter</Title>
           {Posts.map(({ node }: any) => {
-            const title = node.frontmatter.title || node.fields.slug;
+            const title = node.title || node.slug.current;
             // Random Placeholder Color
             const placeholderColors = [
               '#55efc4',
@@ -102,18 +109,34 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
                 Math.floor(Math.random() * placeholderColors.length)
               ];
 
+              Date.prototype.getMonthName = function() {
+                var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+                  "Juli", "August", "September", "Oktober", "November", "Desember"
+                ];
+                return monthNames[this.getMonth()];
+              }
+            
+              const dateObject = new Date(node.concertDateTime);
+            
+            
+              var concertDate = dateObject.getDay();
+              var concertMonth = dateObject.getMonthName(dateObject.getMonth());
+            
+            
+              var newDate = concertDate + `<br><span>` + concertMonth + `</span>`
+
             return (
               <FeaturePost
-                key={node.fields.slug}
+                key={node.slug.current}
                 title={title}
                 image={
-                  node.frontmatter.cover == null
+                  node.mainImage == null
                     ? null
-                    : node.frontmatter.cover.childImageSharp.fluid
+                    : node.mainImage.asset.fluid
                 }
-                url={node.fields.slug}
-                date={node.frontmatter.date}
-                tags={node.frontmatter.tags}
+                url={node.slug.current}
+                date={newDate}
+                tags={node.tags}
                 placeholderBG={setColor}
               />
             );

@@ -45,17 +45,17 @@ const BlogList = (props: any) => {
             return (
               <PostGrid>
                 <PostCardModern
-                  key={node.fields.slug}
-                  title={node.frontmatter.title || node.fields.slug}
+                  key={node.slug.current}
+                  title={node.title || node.slug.current}
                   image={
-                    node.frontmatter.cover == null
+                    node.mainImage == null
                       ? null
-                      : node.frontmatter.cover.childImageSharp.fluid
+                      : node.mainImage.childImageSharp.fluid
                   }
-                  url={node.fields.slug}
-                  description={node.frontmatter.description || node.excerpt}
-                  date={node.frontmatter.date}
-                  tags={node.frontmatter.tags}
+                  url={node.slug.current}
+                  description={node._rawExcerpt|| node._rawBody}
+                  date={node.concertDateTime}
+                  tags={node.tags}
                   placeholderBG={setColor}
                 />
               </PostGrid>
@@ -85,29 +85,32 @@ export const pageQuery = graphql`
     sitePage {
       path
     }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+    concerts: allSanityConcert (
       limit: $limit
       skip: $skip
+      sort: { fields: [publishedAt], order: DESC }
+      filter: { tags: { eq: "featured" } } 
     ) {
+      totalCount
       edges {
-        node {
-          excerpt(pruneLength: 300)
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "DD [<span>] MMMM [</span>]")
-            title
-            description
-            tags
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 1170, quality: 90) {
-                  ...GatsbyImageSharpFluid_noBase64
+        node {       
+          id
+          tags
+          publishedAt
+          mainImage {
+            asset {
+            
+                fluid(maxWidth: 570, maxHeight: 370) {
+                  ...GatsbySanityImageFluid
                 }
-              }
             }
+          }
+          title
+          _rawExcerpt
+          _rawBody
+          concertDateTime
+          slug {
+            current
           }
         }
       }

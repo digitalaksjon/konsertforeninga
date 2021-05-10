@@ -13,19 +13,17 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+        allSanityConcert(
+
           limit: 1000
         ) {
           edges {
             node {
-              fields {
-                slug
+              slug {
+                current
               }
-              frontmatter {
-                title
-                tags
-              }
+              title
+              tags
             }
           }
         }
@@ -37,20 +35,20 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.allSanityConcert.edges
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
       createPage({
-        path: post.node.fields.slug,
+        path: post.node.slug.current,
         component: blogPost,
         context: {
-          slug: post.node.fields.slug,
+          slug: post.node.slug.current,
           previous,
           next,
-          tag: post.node.frontmatter.tags,
+          tag: post.node.tags,
         },
       })
     })
@@ -76,8 +74,8 @@ exports.createPages = ({ graphql, actions }) => {
     let tags = []
     // Iterate through each post, putting all found tags into `tags`
     _.each(posts, edge => {
-      if (_.get(edge, 'node.frontmatter.tags')) {
-        tags = tags.concat(edge.node.frontmatter.tags)
+      if (_.get(edge, 'node.tags')) {
+        tags = tags.concat(edge.node.tags)
       }
     })
     // Eliminate duplicate tags
@@ -101,13 +99,13 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `SanityConcert`) {
     const value = createFilePath({ node, getNode })
-    if (typeof node.frontmatter.slug !== 'undefined') {
+    if (typeof node.slug.current !== 'undefined') {
       createNodeField({
         node,
         name: 'slug',
-        value: node.frontmatter.slug,
+        value: node.slug.current,
       })
     } else {
       const value = createFilePath({ node, getNode })

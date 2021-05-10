@@ -2,6 +2,8 @@ import * as React from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import _ from 'lodash';
+import PortableText from '../portableText'
+
 import {
   PostDetailsWrapper,
   PostTitle,
@@ -18,7 +20,11 @@ type PostDetailsProps = {
   title: string;
   date?: string;
   preview?: any;
+  venue?: string;
+  price?: string;
+  concertDateTime?: any;
   description: any;
+  tickets?: string;
   tags?: [];
   className?: string;
   imagePosition?: 'left' | 'top';
@@ -29,7 +35,11 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   date,
   preview,
   description,
+  tickets,
   tags,
+  price,
+  venue,
+  concertDateTime,
   className,
   imagePosition,
   ...props
@@ -45,9 +55,22 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
     addClass.push(className);
   }
 
-  var newDateDay = date.substring(0,2)
-  var newDateMonth = date.substring(3,6)
-  var newDate = newDateDay + `<br><span>` + newDateMonth + `</span>`
+  
+  Date.prototype.getMonthName = function() {
+    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+      "Juli", "August", "September", "Oktober", "November", "Desember"
+    ];
+    return monthNames[this.getMonth()];
+  }
+
+  const dateObject = new Date(date);
+
+
+  var concertDate = dateObject.getDay();
+  var concertMonth = dateObject.getMonthName(dateObject.getMonth());
+
+
+  var newDate = concertDate + `<br><span>` + concertMonth + `</span>`
   // Random Placeholder Color
   const placeholderColors = [
     '#55efc4',
@@ -92,7 +115,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
           {preview == null ? null : (
             <PostPreview className="post_preview">
               <Img fluid={preview} alt={title} backgroundColor={setColor} />
-              <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate }} /></PostDate>
+              <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate}} /></PostDate>
             </PostPreview>
           )}
         </>
@@ -101,10 +124,10 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       )}
       <PostMetaWrapper>
       
-        <div className="venue">Hvor: <span>Kafé Hærverk</span></div>
-        <div className="time">Når: <span>20.00</span></div>
-        <div className="price">Pris: <span>150 / 100kr</span></div>        
-        <div className="ticketButton">Kjøp billetter</div>
+        <div className="venue">{venue}</div>
+        <div className="time">Kl. {concertDateTime}</div>
+        <div className="price">{price}</div>        
+        <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>
       </PostMetaWrapper>
 
       
@@ -117,10 +140,10 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         ) : (
           ''
         )}
-        <PostDescription
-          dangerouslySetInnerHTML={{ __html: description }}
-          className="post_des"
-        />
+        <PostDescription>
+        {description && <PortableText blocks={description} className="post_des" />}
+
+        </PostDescription>
         {tags == null ? null : (
           <PostTags>
             {tags.map((tag, index) => (

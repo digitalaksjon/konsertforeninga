@@ -16,41 +16,44 @@ type SidebarProps = {};
 const Sidebar: React.FunctionComponent<SidebarProps> = () => {
   const Data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+      
+      concerts: allSanityConcert (
         limit: 5
+        sort: { fields: [publishedAt], order: DESC }
       ) {
+        totalCount
         edges {
-          node {
-            excerpt(pruneLength: 300)
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "DD [<span>] MMM [</span>]")
-              title
-              description
-              tags
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 90, maxHeight: 90, quality: 100) {
-                    ...GatsbyImageSharpFluid_noBase64
+          node {       
+            id
+            tags
+            publishedAt
+            mainImage {
+              asset {
+              
+                  fluid(maxWidth: 62, maxHeight: 52) {
+                    ...GatsbySanityImageFluid
                   }
-                }
               }
+            }
+            title
+            _rawExcerpt
+            concertDateTime
+            slug {
+              current
             }
           }
         }
-        group(field: frontmatter___tags) {
+        group(field: tags) {
           totalCount
           fieldValue
         }
-      }
+    }
+
     }
   `);
 
-  const Posts = Data.allMarkdownRemark.edges;
-  const Tags = Data.allMarkdownRemark.group;
+  const Posts = Data.concerts.edges;
+  const Tags = Data.concerts.group;
 
   return (
     <SidebarWrapper>
@@ -67,7 +70,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
       <SidebarWidget>
         <WidgetTitle>Flere konserter</WidgetTitle>
         {Posts.map(({ node }: any) => {
-          const title = node.frontmatter.title || node.fields.slug;
+          const title = node.title || node.slug.current;
           // Random Placeholder Color
           const placeholderColors = [
             '#55efc4',
@@ -88,15 +91,15 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
 
           return (
             <FeaturePost
-              key={node.fields.slug}
+              key={node.slug.current}
               title={title}
               image={
-                node.frontmatter.cover == null
+                node.mainImage == null
                   ? null
-                  : node.frontmatter.cover.childImageSharp.fluid
+                  : node.mainImage.asset.fluid
               }
-              url={node.fields.slug}
-              tags={node.frontmatter.tags}
+              url={node.slug.current}
+              tags={node.tags}
               placeholderBG={setColor}
             />
           );

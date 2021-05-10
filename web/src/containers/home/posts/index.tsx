@@ -33,7 +33,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
             }
           }
           title
-          excerpt
+          _rawExcerpt
           concertDateTime
           slug {
             current

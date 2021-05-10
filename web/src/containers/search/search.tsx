@@ -16,24 +16,31 @@ function Search() {
 
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
+
+      concerts: allSanityConcert (
+        limit: 5
+        sort: { fields: [publishedAt], order: DESC }
+        filter: { tags: { eq: "featured" } } 
+      ) {
+        totalCount
         edges {
-          node {
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM D, YYYY")
-              title
-              description
-              tags
-              cover {
-                childImageSharp {
-                  fluid(maxWidth: 62, maxHeight: 62, quality: 90) {
-                    ...GatsbyImageSharpFluid_noBase64
+          node {       
+            id
+            tags
+            publishedAt
+            mainImage {
+              asset {
+              
+                  fluid(maxWidth: 62, maxHeight: 52) {
+                    ...GatsbySanityImageFluid
                   }
-                }
               }
+            }
+            title
+            _rawExcerpt
+            concertDateTime
+            slug {
+              current
             }
           }
         }
@@ -41,7 +48,7 @@ function Search() {
     }
   `);
 
-  const dataset = data.allMarkdownRemark.edges;
+  const dataset = data.concerts.edges;
 
   /**
    * handles the input change and perfom a search with js-search
@@ -63,8 +70,8 @@ function Search() {
       let data: any = [];
       dataset.forEach(({ node }: any) => {
         let formatedData = {
-          ...node.frontmatter,
-          slug: node.fields.slug,
+          ...node,
+          slug: node.slug.current,
         };
         data.push(formatedData);
       });
@@ -126,13 +133,13 @@ function Search() {
                 ];
               return (
                 <PostList
-                  key={item.slug}
+                  key={item.slug.current}
                   title={item.title}
-                  url={item.slug}
+                  url={item.slug.current}
                   image={
-                    item.cover == null ? null : item.cover.childImageSharp.fluid
+                    item.mainImage == null ? null : item.mainImage.asset.fluid
                   }
-                  date={item.date}
+                  date={item.concertDateTime}
                   tags={item.tags}
                   placeholderBG={setColor}
                 />
