@@ -296,38 +296,28 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content:flex-start;
+  justify-content: space-between;
   width: 100%;
 
   div {
 
     text-align:center;
-    :nth-child(1) {
-      background-color: #74b9ff;    
-      border-radius: 0 0 10px;
-    }
-    :nth-child(2) {
-      background-color: #74b9ff;    
-      border-radius: 0 0 10px 10px;
-    }
-    :nth-child(3) {
-      background-color: #74b9ff;    
-      border-radius: 0 0 10px 10px;
-    }
+    background-color: #74b9ff;    
+    border-radius: 0 0 10px ;
+  
     color:#222;
-    font-size: 0.9em;
+    font-size: 0.8em;
     margin: 0 10px;
     padding: 10px;
     font-family: Poppins;
     height: 40px;    
     cursor: pointer;
-    flex:1;
+    
+    text-transform: uppercase;
     box-shadow: 2px 2px #888888;
 
   }
-  span {
-    font-weight:bold;
-  }
+
   a {
     display: block;
     margin-right: 30px;
@@ -338,14 +328,15 @@ export const PostMetaWrapper = styled.div`
 
   div.ticketButton {
     background-color: #D10068;
-    text-align:right;
+    margin-left: auto;
+    justify-self:flex-end;
     &:hover {
-      height: 45px;
-      transition: height 0.5s;
+
+
       a {
         padding: 5px 0;
         transition: padding 0.5s;
-        font-weight: bold;
+
       }
     }
     a {

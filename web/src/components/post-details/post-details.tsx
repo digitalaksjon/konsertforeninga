@@ -124,9 +124,9 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       )}
       <PostMetaWrapper>
       
-        <div className="venue">Sted: <span>{venue}</span></div>
-        <div className="time">Klokkeslett: <span>{concertDateTime}</span></div>
-        <div className="price">Pris: <span>{price}</span></div>        
+        <div className="venue"><span>{venue}</span></div>
+        <div className="time"><span>{concertDateTime}</span></div>
+        <div className="price"><span>{price}</span></div>        
         <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>
       </PostMetaWrapper>
 
