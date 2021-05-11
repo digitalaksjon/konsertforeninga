@@ -6,6 +6,7 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
+  const concert = path.resolve(`./src/templates/concert.tsx`)
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
   const blogList = path.resolve(`./src/templates/blog-list.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
@@ -13,7 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        allSanityConcert(
+      concerts: allSanityConcert(
           sort: { fields: concertDateTime, order: ASC }
 
           limit: 1000
@@ -29,7 +30,21 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
 
-        
+      posts: allSanityPost(
+          sort: { fields: publishedAt, order: DESC }
+
+          limit: 1000
+        ) {
+          edges {
+            node {
+              slug {
+                current
+              }
+              title
+              tags
+            }
+          }
+        }
       site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
         title
         description
@@ -47,7 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create blog posts pages.
-    const posts = result.data.allSanityConcert.edges
+    const posts = result.data.posts.edges
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -56,6 +71,25 @@ exports.createPages = ({ graphql, actions }) => {
       createPage({
         path: post.node.slug.current,
         component: blogPost,
+        context: {
+          slug: post.node.slug.current,
+          previous,
+          next,
+          tag: post.node.tags,
+        },
+      })
+    })
+
+    // Create concert pages.
+    const concerts = result.data.concerts.edges
+
+    concerts.forEach((post, index) => {
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node
+      const next = index === 0 ? null : posts[index - 1].node
+
+      createPage({
+        path: post.node.slug.current,
+        component: concert,
         context: {
           slug: post.node.slug.current,
           previous,

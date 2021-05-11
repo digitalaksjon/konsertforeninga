@@ -34,10 +34,10 @@ import {
   BlogDetailsContent,
 } from './templates.style';
 
-const BlogPostTemplate = (props: any) => {
+const ConcertTemplate = (props: any) => {
   
-  const post = props.data.sanityPost;
-  const { edges } = props.data.posts;
+  const post = props.data.sanityConcert;
+  const { edges } = props.data.concerts;
   const title = post.title;
 
 
@@ -45,8 +45,19 @@ const BlogPostTemplate = (props: any) => {
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
 
-  console.log(post)
+  
 
+
+  Date.prototype.getFullMinutes = function () {
+    if (this.getMinutes() < 10) {
+        return '0' + this.getMinutes();
+    }
+    return this.getMinutes();
+ };
+
+
+  const concertTime = new Date(post.concertDateTime);
+  const readableTime = concertTime.getHours() + "." + concertTime.getFullMinutes();
 
   return (
     <Layout>
@@ -59,8 +70,12 @@ const BlogPostTemplate = (props: any) => {
         <BlogDetailsContent>
           <PostDetails
             title={post.title}
-            date=""
-
+            date={post.concertDateTime}
+            venue={post.venue}
+            tickets={post.ticketURL}
+            price={post.price}
+            series={post.series[0].title}
+            concertDateTime={readableTime}
             preview={
               post.mainImage == null
                 ? null
@@ -133,7 +148,7 @@ const BlogPostTemplate = (props: any) => {
                   <PostCard
                     title={node.title || node.slug.current}
                     url={node.slug.current}
-                    date={post.publishedAt}
+                    date={post.concertDateTime}
                     image={
                       node.mainImage == null
                         ? null
@@ -152,12 +167,12 @@ const BlogPostTemplate = (props: any) => {
   );
 };
 
-export default BlogPostTemplate;
+export default ConcertTemplate;
 
 
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!, $tag: [String!]) {
+  query ConcertBySlug($slug: String!, $tag: [String!]) {
     
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
@@ -170,7 +185,7 @@ export const pageQuery = graphql`
     }
 
       
-    sanityPost(slug: { current: { eq: $slug } }){
+    sanityConcert(slug: { current: { eq: $slug } }){
         id
         tags
         publishedAt
@@ -186,16 +201,22 @@ export const pageQuery = graphql`
         title
         _rawExcerpt
         _rawBody
+        venue
+        price
+        concertDateTime
+        series {
+          title
+        }
         slug {
           current
         }
-        
+        ticketURL
     }
 
     
-    posts: allSanityPost(
+    concerts: allSanityConcert (
       limit: 3
-      sort: { fields: publishedAt, order: ASC }
+      sort: { fields: concertDateTime, order: ASC }
       filter: {
         tags: { in: $tag } 
         slug: { current: { ne: $slug } }
@@ -217,6 +238,7 @@ export const pageQuery = graphql`
           }
           title
           _rawExcerpt
+          concertDateTime
           slug {
             current
           }

@@ -117,7 +117,10 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
           {preview == null ? null : (
             <PostPreview className="post_preview">
               <Img fluid={preview} alt={title} backgroundColor={setColor} />
-              <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate}} /></PostDate>
+              {newDate &&
+                  <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate}} /></PostDate>  
+              }
+            
             </PostPreview>
           )}
         </>
@@ -125,12 +128,12 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         ''
       )}
       <PostMetaWrapper>
-      
-        <div className="series">Serie: <span>{series}</span></div>
-        <div className="venue">Sted: <span>{venue}</span></div>
-        <div className="time">Tid: <span>{concertDateTime}</span></div>
-        <div className="price">Pris: <span>{price}</span></div>        
-        <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>
+        {series && <div className="series">Serie: <span>{series}</span></div>}
+        {venue && <div className="venue">Sted: <span>{venue}</span></div>}
+        {concertDateTime && <div className="time">Tid: <span>{concertDateTime}</span></div>}
+        {price && <div className="price">Pris: <span>{price}</span></div>}
+        {tickets && <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>}
+        
       </PostMetaWrapper>
 
       
