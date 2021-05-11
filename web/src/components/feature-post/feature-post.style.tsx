@@ -19,6 +19,9 @@ export const PostPreview = styled.div`
   flex-shrink: 0;
   margin-right: 15px;
   overflow: hidden;
+  img {
+    filter: grayscale(100%);
+  }
   @media (max-width: 990px) {
     flex: 0 0 60px;
   }

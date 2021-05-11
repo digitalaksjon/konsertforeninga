@@ -302,7 +302,7 @@ export const PostMetaWrapper = styled.div`
   div {
 
     text-align:center;
-    background-color: #c7ecee;    
+    
     border-radius: 0 0 10px ;
     color:#222;
     font-size: 0.8em;
@@ -311,24 +311,24 @@ export const PostMetaWrapper = styled.div`
     font-family: Poppins;
     height: 40px;    
     cursor: pointer;
-    
+    box-shadow: 1px 1px 2px black;   
     text-transform: uppercase;
     &:nth-child(3) {
-      background-color: #81ecec;    
+     
       color: black;
       
     }
     &:nth-child(4) {
-      background-color: #81ecec;    
+    
       color: black;
     }
 
     
     &:hover {
 
-      
+      font-weight:bold;
       a {
-        padding: 5px 0;
+        padding: 2px 0;
         transition: padding 0.5s;
 
       }
