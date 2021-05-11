@@ -322,17 +322,6 @@ export const PostMetaWrapper = styled.div`
     
       color: black;
     }
-
-    
-    &:hover {
-
-      font-weight:bold;
-      a {
-        padding: 2px 0;
-        transition: padding 0.5s;
-
-      }
-    }
   }
 
   a {
@@ -354,7 +343,11 @@ export const PostMetaWrapper = styled.div`
       color: white;
       align-self: self-end;
       cursor: pointer;
-      
+      &:hover {
+        padding: 2px 0;
+        transition: padding 0.5s;
+
+      }      
     
     }
     border-radius: 0 0 0 10px;
