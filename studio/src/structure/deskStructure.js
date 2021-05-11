@@ -58,26 +58,21 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
-        .title('Blog posts')
+        .title('Konserter')
         .icon(MdDescription)
-        .schemaType('post')
-        .child(S.documentTypeList('post').title('Blog posts')),
+        .schemaType('concert')
+        .child(S.documentTypeList('concert').title('Blog posts')),
       S.listItem()
-        .title('Authors')
-        .icon(MdPerson)
-        .schemaType('author')
-        .child(S.documentTypeList('author').title('Authors')),
-      S.listItem()
-        .title('Categories')
+        .title('Konsertserier')
         .icon(MdLocalOffer)
-        .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+        .schemaType('series')
+        .child(S.documentTypeList('series').title('Konsertserier')),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         listItem =>
-          !['category', 'author', 'post', 'siteSettings'].includes(
+          !['series', 'concert', 'siteSettings'].includes(
             listItem.getId()
           )
       )

@@ -17,10 +17,21 @@ function Search() {
   const data = useStaticQuery(graphql`
     query {
 
+      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+        title
+        description
+        keywords
+        siteUrl
+        author {
+          name
+        }
+      }
+  
+
       concerts: allSanityConcert (
         limit: 5
         sort: { fields: [publishedAt], order: DESC }
-        filter: { tags: { eq: "featured" } } 
+
       ) {
         totalCount
         edges {
@@ -90,6 +101,15 @@ function Search() {
   const { searchResults, searchQuery } = state;
   const queryResults = searchResults;
 
+  Date.prototype.getMonthName = function() {
+    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+      "Juli", "August", "September", "Oktober", "November", "Desember"
+    ];
+    return monthNames[this.getMonth()];
+  }
+  
+
+
   return (
     <SearchWrapper>
       <SearchForm onSubmit={handleSubmit}>
@@ -115,6 +135,8 @@ function Search() {
           >
             {queryResults.map((item: any) => {
               // Random Placeholder Color
+
+  
               const placeholderColors = [
                 '#55efc4',
                 '#81ecec',
@@ -131,15 +153,21 @@ function Search() {
                 placeholderColors[
                   Math.floor(Math.random() * placeholderColors.length)
                 ];
+
+                
+
+              const dateObject = new Date(item.concertDateTime);
+              const dateString = dateObject.getDate() + ". <span>"+dateObject.getMonthName(dateObject.getMonth()) + " " + dateObject.getUTCFullYear()+"</span";
+
               return (
                 <PostList
-                  key={item.slug.current}
+                  key={item.slug}
                   title={item.title}
-                  url={item.slug.current}
+                  url={data.site.siteUrl + item.slug}
                   image={
                     item.mainImage == null ? null : item.mainImage.asset.fluid
                   }
-                  date={item.concertDateTime}
+                  date={dateString}
                   tags={item.tags}
                   placeholderBG={setColor}
                 />

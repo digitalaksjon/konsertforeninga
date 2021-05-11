@@ -16,44 +16,56 @@ type SidebarProps = {};
 const Sidebar: React.FunctionComponent<SidebarProps> = () => {
   const Data = useStaticQuery(graphql`
     query {
-      
-      concerts: allSanityConcert (
-        limit: 5
-        sort: { fields: [publishedAt], order: DESC }
-      ) {
-        totalCount
-        edges {
-          node {       
-            id
-            tags
-            publishedAt
-            mainImage {
-              asset {
-              
-                  fluid(maxWidth: 62, maxHeight: 52) {
-                    ...GatsbySanityImageFluid
-                  }
+          
+      site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
+        title
+        description
+        keywords
+        siteUrl
+        author {
+          name
+        }
+      }
+
+        posts: allSanityPost (
+          limit: 5
+          sort: { fields: [publishedAt], order: DESC }
+        ) {
+          totalCount
+          edges {
+            node {       
+              id
+              tags
+              publishedAt
+              mainImage {
+                asset {
+                
+                    fluid(maxWidth: 62, maxHeight: 52) {
+                      ...GatsbySanityImageFluid
+                    }
+                }
+              }
+              title
+              _rawExcerpt
+              slug {
+                current
               }
             }
-            title
-            _rawExcerpt
-            concertDateTime
-            slug {
-              current
-            }
           }
-        }
-        group(field: tags) {
-          totalCount
-          fieldValue
-        }
-    }
+          group(field: tags) {
+            totalCount
+            fieldValue
+          }
+      }
 
     }
   `);
 
-  const Posts = Data.concerts.edges;
-  const Tags = Data.concerts.group;
+  const Posts = Data.posts.edges;
+  const Tags = Data.posts.group;
+  const fullURL = Data.site.siteUrl;
+
+  
 
   return (
     <SidebarWrapper>
@@ -68,8 +80,9 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
       </SidebarWidget>
 
       <SidebarWidget>
-        <WidgetTitle>Flere konserter</WidgetTitle>
+        <WidgetTitle>Nytt fra foreninga</WidgetTitle>
         {Posts.map(({ node }: any) => {
+          
           const title = node.title || node.slug.current;
           // Random Placeholder Color
           const placeholderColors = [
@@ -98,7 +111,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
                   ? null
                   : node.mainImage.asset.fluid
               }
-              url={node.slug.current}
+              url={fullURL + node.slug.current}
               tags={node.tags}
               placeholderBG={setColor}
             />

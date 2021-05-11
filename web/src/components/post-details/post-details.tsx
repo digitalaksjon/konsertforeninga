@@ -23,6 +23,7 @@ type PostDetailsProps = {
   venue?: string;
   price?: string;
   concertDateTime?: any;
+  series?: string;
   description: any;
   tickets?: string;
   tags?: [];
@@ -39,6 +40,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   tags,
   price,
   venue,
+  series,
   concertDateTime,
   className,
   imagePosition,
@@ -124,9 +126,10 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       )}
       <PostMetaWrapper>
       
-        <div className="venue"><span>{venue}</span></div>
-        <div className="time"><span>{concertDateTime}</span></div>
-        <div className="price"><span>{price}</span></div>        
+        <div className="series">Serie: <span>{series}</span></div>
+        <div className="venue">Sted: <span>{venue}</span></div>
+        <div className="time">Tid: <span>{concertDateTime}</span></div>
+        <div className="price">Pris: <span>{price}</span></div>        
         <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>
       </PostMetaWrapper>
 

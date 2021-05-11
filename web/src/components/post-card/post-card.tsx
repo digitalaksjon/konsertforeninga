@@ -45,6 +45,18 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
     addAllClasses.push(className);
   }
 
+  Date.prototype.getMonthName = function() {
+    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+      "Juli", "August", "September", "Oktober", "November", "Desember"
+    ];
+    return monthNames[this.getMonth()];
+  }
+  
+
+
+  const dateObject = new Date(date);
+  const dateString = dateObject.getDate() + "<span>"+dateObject.getMonthName(dateObject.getMonth()) + "</span";
+
   return (
     <PostCardWrapper className={addAllClasses.join(' ')} {...props}>
       {image == null ? null : (
@@ -63,19 +75,20 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
                 backgroundColor={placeholderBG}
               />
             )}
+             {date && (
+            <PostDate
+              dangerouslySetInnerHTML={{
+                __html: dateString,
+              }}
+              className="post_date"
+            />
+          )}
           </Link>
         </PostPreview>
       )}
 
       <PostDetails className="post_details">
-        {date && (
-          <PostDate
-            dangerouslySetInnerHTML={{
-              __html: date,
-            }}
-            className="post_date"
-          />
-        )}
+
 
         <PostContent className="post_content">
           <PostTitle className="post_title">

@@ -302,9 +302,8 @@ export const PostMetaWrapper = styled.div`
   div {
 
     text-align:center;
-    background-color: #74b9ff;    
+    background-color: #c7ecee;    
     border-radius: 0 0 10px ;
-  
     color:#222;
     font-size: 0.8em;
     margin: 0 10px;
@@ -314,8 +313,26 @@ export const PostMetaWrapper = styled.div`
     cursor: pointer;
     
     text-transform: uppercase;
-    box-shadow: 2px 2px #888888;
+    &:nth-child(3) {
+      background-color: #81ecec;    
+      color: black;
+      
+    }
+    &:nth-child(4) {
+      background-color: #81ecec;    
+      color: black;
+    }
 
+    
+    &:hover {
+
+      
+      a {
+        padding: 5px 0;
+        transition: padding 0.5s;
+
+      }
+    }
   }
 
   a {
@@ -330,15 +347,7 @@ export const PostMetaWrapper = styled.div`
     background-color: #D10068;
     margin-left: auto;
     justify-self:flex-end;
-    &:hover {
-
-
-      a {
-        padding: 5px 0;
-        transition: padding 0.5s;
-
-      }
-    }
+   
     a {
       margin: 0;
       text-align: center;

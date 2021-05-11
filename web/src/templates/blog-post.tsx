@@ -58,7 +58,7 @@ const BlogPostTemplate = (props: any) => {
 
   const concertTime = new Date(post.concertDateTime);
   const readableTime = concertTime.getHours() + "." + concertTime.getFullMinutes();
-  
+
   return (
     <Layout>
       <SEO
@@ -74,6 +74,7 @@ const BlogPostTemplate = (props: any) => {
             venue={post.venue}
             tickets={post.ticketURL}
             price={post.price}
+            series={post.series[0].title}
             concertDateTime={readableTime}
             preview={
               post.mainImage == null
@@ -147,6 +148,7 @@ const BlogPostTemplate = (props: any) => {
                   <PostCard
                     title={node.title || node.slug.current}
                     url={node.slug.current}
+                    date={post.concertDateTime}
                     image={
                       node.mainImage == null
                         ? null
@@ -202,6 +204,9 @@ export const pageQuery = graphql`
         venue
         price
         concertDateTime
+        series {
+          title
+        }
         slug {
           current
         }

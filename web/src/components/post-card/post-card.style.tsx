@@ -29,35 +29,31 @@ export const PostDetails = styled.div`
 `;
 
 export const PostDate = styled.div`
-  font-size: 90px;
-  font-weight: 700;
-  text-align: center;
-  padding: 30px 35px 15px 35px;
-  margin-right: 20px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 24px;
+  font-weight: bold;
   line-height: 1;
-  color: ${themeGet('colors.textColor', '#292929')};
-  @media (max-width: 1200px) {
-    font-size: 70px;
-    padding: 25px 25px 15px 25px;
-    margin-right: 35px;
-  }
-  @media (max-width: 990px) {
-    font-size: 56px;
-    padding: 20px 20px 15px 20px;
-    margin-right: 25px;
-  }
-  @media (max-width: 575px) {
-    display: none;
-  }
-
+  pointer-events: none;
+  z-index: 1;
+  background-color: rgba(209, 0, 104, 0.7);
   > span {
     font-size: 13px;
-    font-weight: 400;
-    display: block;
-    margin-top: 12px;
-    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 1;
+    margin-top: 3px;
   }
 `;
+
 
 export const PostContent = styled.div`
   align-self: center;

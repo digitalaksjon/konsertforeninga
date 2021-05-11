@@ -36,6 +36,19 @@ export default {
       description: 'Når er konserten?'
     },
     {
+      name: 'series',
+      type: 'array',
+      title: 'Konsertserie',
+      of: [
+        {
+          type: 'reference',
+          to: {
+            type: 'series'
+          }
+        }
+      ]
+    },
+    {
       name: 'price',
       type: 'string',
       title: 'Pris',
@@ -83,19 +96,6 @@ export default {
       options: {
         layout: 'tags'
       }
-    },
-    {
-      name: 'categories',
-      type: 'array',
-      title: 'Konsertserie',
-      of: [
-        {
-          type: 'reference',
-          to: {
-            type: 'category'
-          }
-        }
-      ]
     },
     {
       name: 'body',
