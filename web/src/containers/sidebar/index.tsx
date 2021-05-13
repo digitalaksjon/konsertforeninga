@@ -37,7 +37,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
               id
               tags
               publishedAt
-              mainImage {
+              featuredImage {
                 asset {
                 
                     fluid(maxWidth: 62, maxHeight: 52) {
@@ -63,7 +63,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
 
   const Posts = Data.posts.edges;
   const Tags = Data.posts.group;
-  const fullURL = Data.site.siteUrl;
+
 
   
 
@@ -102,16 +102,18 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
               Math.floor(Math.random() * placeholderColors.length)
             ];
 
+            console.log(node.slug.current)
+
           return (
             <FeaturePost
               key={node.slug.current}
               title={title}
               image={
-                node.mainImage == null
+                node.featuredImage == null
                   ? null
-                  : node.mainImage.asset.fluid
+                  : node.featuredImage.asset.fluid
               }
-              url={fullURL + node.slug.current}
+              url={"/"+node.slug.current}
               tags={node.tags}
               placeholderBG={setColor}
             />

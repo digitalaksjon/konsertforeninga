@@ -53,7 +53,7 @@ const BlogPostTemplate = (props: any) => {
       <SEO
         title={title}
         description={post._rawExcerpt}
-        metaImage={post.mainImage}
+        metaImage={post.featuredImage}
       />
       <BlogPostDetailsWrapper>
         <BlogDetailsContent>
@@ -62,9 +62,9 @@ const BlogPostTemplate = (props: any) => {
             date=""
 
             preview={
-              post.mainImage == null
+              post.featuredImage == null
                 ? null
-                : post.mainImage.asset.fluid
+                : post.featuredImage.asset.fluid
             }
             description={post._rawBody}
           />
@@ -89,7 +89,7 @@ const BlogPostTemplate = (props: any) => {
               </TwitterShareButton>
               <PinterestShareButton
                 url={shareUrl}
-                media={urljoin(siteUrl, post.mainImage.asset.url)}
+                media={urljoin(siteUrl, post.featuredImage.asset.url)}
               >
                 <IoLogoPinterest />
               </PinterestShareButton>
@@ -174,7 +174,7 @@ export const pageQuery = graphql`
         id
         tags
         publishedAt
-        mainImage {
+        featuredImage {
           asset {
           
               fluid(maxWidth: 570, maxHeight: 370) {
@@ -207,7 +207,7 @@ export const pageQuery = graphql`
           id
           tags
           publishedAt
-          mainImage {
+          featuredImage {
             asset {
             
                 fluid(maxWidth: 570, maxHeight: 370) {
@@ -217,6 +217,7 @@ export const pageQuery = graphql`
           }
           title
           _rawExcerpt
+          _rawBody
           slug {
             current
           }

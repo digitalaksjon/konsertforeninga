@@ -45,6 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        
       site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
         title
         description

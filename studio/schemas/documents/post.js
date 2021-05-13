@@ -1,4 +1,4 @@
-import {format} from 'date-fns'
+import { format } from 'date-fns'
 
 export default {
   name: 'post',
@@ -28,8 +28,8 @@ export default {
       description: 'This can be used to schedule post for publishing'
     },
     {
-      name: 'mainImage',
-      type: 'mainImage',
+      name: 'featuredImage',
+      type: 'image',
       title: 'Main image'
     },
     {
@@ -53,7 +53,7 @@ export default {
       title: 'Tags',
       name: 'tags',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{ type: 'string' }],
       options: {
         layout: 'tags'
       }
@@ -71,7 +71,7 @@ export default {
       by: [
         {
           field: 'publishedAt',
-          direction: 'asc'
+          direction: 'desc'
         },
         {
           field: 'title',
@@ -85,7 +85,7 @@ export default {
       by: [
         {
           field: 'publishedAt',
-          direction: 'desc'
+          direction: 'asc'
         },
         {
           field: 'title',
@@ -99,9 +99,9 @@ export default {
       title: 'title',
       publishedAt: 'publishedAt',
       slug: 'slug',
-      media: 'mainImage'
+      media: 'featuredImage'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare({ title = 'No title', publishedAt, slug = {}, media }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
       return {
