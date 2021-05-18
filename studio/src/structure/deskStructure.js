@@ -1,17 +1,12 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings } from "react-icons/md";
-import {
-  MdPerson,
-  MdDescription,
-  MdLocalOffer
-} from "react-icons/md"
+import { MdSettings } from 'react-icons/md'
+import { MdPerson, MdDescription, MdLocalOffer } from 'react-icons/md'
 import IframePreview from '../previews/IframePreview'
 
 // Web preview configuration
 const remoteURL = 'https://konsertforeninga.netlify.app'
 const localURL = 'http://localhost:8000'
-const previewURL =
-  window.location.hostname === 'localhost' ? localURL : remoteURL
+const previewURL = window.location.hostname === 'localhost' ? localURL : remoteURL
 
 export const getDefaultDocumentNode = props => {
   /**
@@ -61,7 +56,7 @@ export default () =>
         .title('Konserter')
         .icon(MdDescription)
         .schemaType('concert')
-        .child(S.documentTypeList('concert').title('Blog posts')),
+        .child(S.documentTypeList('concert').title('Konserter')),
       S.listItem()
         .title('Konsertserier')
         .icon(MdLocalOffer)
@@ -71,9 +66,6 @@ export default () =>
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        listItem =>
-          !['series', 'concert', 'siteSettings'].includes(
-            listItem.getId()
-          )
+        listItem => !['series', 'concert', 'siteSettings'].includes(listItem.getId())
       )
     ])

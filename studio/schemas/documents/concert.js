@@ -1,5 +1,5 @@
-import {MdMusicNote} from 'react-icons/md'
-import {format} from 'date-fns'
+import { MdMusicNote } from 'react-icons/md'
+import { format } from 'date-fns'
 
 export default {
   name: 'concert',
@@ -49,6 +49,11 @@ export default {
       ]
     },
     {
+      name: 'mainImage',
+      type: 'image',
+      title: 'Bilde'
+    },
+    {
       name: 'price',
       type: 'string',
       title: 'Pris',
@@ -67,32 +72,16 @@ export default {
       description: 'URL til bilettsalg'
     },
     {
-      name: 'mainImage',
-      type: 'mainImage',
-      title: 'Bilde'
-    },
-    {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Utdrag',
-      description:
-        'Denne teksten ender opp på Google og når man deler på Facebook.'
-    },
-    {
-      name: 'authors',
-      title: 'Forfatter',
-      type: 'array',
-      of: [
-        {
-          type: 'authorReference'
-        }
-      ]
+      description: 'Denne teksten ender opp på Google og når man deler på Facebook.'
     },
     {
       title: 'Tags',
       name: 'tags',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{ type: 'string' }],
       options: {
         layout: 'tags'
       }
@@ -111,10 +100,6 @@ export default {
         {
           field: 'publishedAt',
           direction: 'asc'
-        },
-        {
-          field: 'title',
-          direction: 'asc'
         }
       ]
     },
@@ -125,10 +110,6 @@ export default {
         {
           field: 'publishedAt',
           direction: 'desc'
-        },
-        {
-          field: 'title',
-          direction: 'asc'
         }
       ]
     }
@@ -140,15 +121,14 @@ export default {
       slug: 'slug',
       media: 'mainImage'
     },
-    prepare ({title = 'No title', publishedAt, slug = {}, media}) {
+    prepare({ title = 'No title', publishedAt, slug = {}, media }) {
       const dateSegment = format(publishedAt, 'YYYY/MM')
       const path = `/${dateSegment}/${slug.current}/`
-      console.log(dateSegment)
 
       return {
         title,
         media,
-        subtitle: publishedAt ? path : 'Missing publishing date'
+        subtitle: publishedAt ? dateSegment : 'Missing publishing date'
       }
     }
   }
