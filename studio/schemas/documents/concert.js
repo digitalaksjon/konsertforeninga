@@ -49,11 +49,6 @@ export default {
       ]
     },
     {
-      name: 'mainImage',
-      type: 'image',
-      title: 'Bilde'
-    },
-    {
       name: 'price',
       type: 'string',
       title: 'Pris',
@@ -72,11 +67,17 @@ export default {
       description: 'URL til bilettsalg'
     },
     {
+      name: 'mainImage',
+      type: 'mainImage',
+      title: 'Bilde'
+    },
+    {
       name: 'excerpt',
       type: 'excerptPortableText',
       title: 'Utdrag',
       description: 'Denne teksten ender opp på Google og når man deler på Facebook.'
     },
+
     {
       title: 'Tags',
       name: 'tags',
