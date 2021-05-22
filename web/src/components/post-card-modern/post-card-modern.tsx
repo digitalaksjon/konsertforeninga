@@ -74,7 +74,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
 
 
   const dateObject = new Date(date);
-
+  
   return (
     <PostCardModernWrapper className={addAllClasses.join(' ')} {...props}>
       {image == null ? null : (
