@@ -29,7 +29,7 @@ const BlogList = (props: any) => {
           {Posts.map(({ node }: any) => {
 
 
-            const postURL = data.site.siteUrl + "/" +node.slug.current;
+            const postURL = "/" +node.slug.current;
 
             // Random Placeholder Color
             const placeholderColors = [
@@ -60,7 +60,7 @@ const BlogList = (props: any) => {
                       : node.mainImage
                   }
                   url={postURL}
-                  description={node._rawExcerpt|| node._rawBody}
+                  excerpt={node._rawExcerpt|| node._rawExcerpt}
                   date={node.concertDateTime}
                   tags={node.tags}
                   placeholderBG={setColor}
@@ -89,8 +89,7 @@ export const pageQuery = graphql`
     concerts: allSanityConcert (
       limit: $limit
       skip: $skip
-      sort: { fields: concertDateTime, order: ASC }
-      filter: { tags: { eq: "featured" } } 
+      sort: { fields: concertDateTime, order: DESC }
     ) {
       totalCount
       edges {

@@ -57,7 +57,7 @@ export const PostTitle = styled.h1`
 `;
 export const PostDate = styled.div`
   position: absolute;
-  width: 60px;
+  width: 75px;
   height: 75px;
   top: 30px;
   left: 30px;
@@ -296,28 +296,30 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  
   width: 100%;
 
   div {
 
     text-align:center;
-    
+    font-family: 'Poppins';
     border-radius: 0 0 10px ;
     color:#222;
-    font-size: 0.8em;
+    font-size: 1em;
     margin: 0 10px;
+    margin-top: 10px;
     padding: 10px;
     font-family: Poppins;
     height: 40px;    
     cursor: pointer;
-    box-shadow: 1px 1px 2px black;   
+    border: 0.5px solid #333;
+    
     text-transform: uppercase;
-    &:nth-child(3) {
-     
-      color: black;
-      
+    span {
+      font-weight: bold;
+      color: #333;
     }
+
     &:nth-child(4) {
     
       color: black;

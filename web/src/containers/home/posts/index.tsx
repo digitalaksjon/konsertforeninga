@@ -7,11 +7,13 @@ import BlogPostsWrapper, { PostRow, PostGrid, SeeMore } from './style';
 
 type PostsProps = {};
 
+
+
 const Posts: React.FunctionComponent<PostsProps> = () => {
   const Data = useStaticQuery(graphql`
   
   
-  query {
+  query ($currentDate: Date!) {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
       description
@@ -22,10 +24,12 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
       }
     }
 
-    concerts: allSanityConcert (
+    concerts : allSanityConcert(
+
+
       limit: 6
         sort: { fields: concertDateTime, order: ASC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }, concertDateTime: {gte: $currentDate}}
      ) {
       totalCount
       edges {
@@ -50,6 +54,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
         }
       }
     }
+    
   }
 `);
 

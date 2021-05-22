@@ -3,6 +3,22 @@ const _ = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 
+
+function getCurrentDate() {
+  const d = new Date();
+  let month = (d.getMonth() + 1).toString();
+  if (month.length < 2) {
+    month = `0${month}`;
+  }
+  let day = d.getDate().toString();
+  if (day.length < 2) {
+    day = `0${day}`;
+  }
+  return `${d.getFullYear()}-${month}-${day}`;
+}
+
+
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -84,25 +100,32 @@ exports.createPages = ({ graphql, actions }) => {
     // Create concert pages.
     const concerts = result.data.concerts.edges
 
+    
     concerts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
+      const previous = index === concerts.length - 1 ? null : concerts[index + 1].node
+      const next = index === 0 ? null : concerts[index - 1].node
+    
 
-      createPage({
-        path: post.node.slug.current,
-        component: concert,
-        context: {
-          slug: post.node.slug.current,
-          previous,
-          next,
-          tag: post.node.tags,
-        },
-      })
+        createPage({
+          path: post.node.slug.current,
+          component: concert,
+          context: {
+            slug: post.node.slug.current,
+            previous,
+            next,
+            tag: post.node.tags,
+            currentDate: getCurrentDate()
+            
+          },
+        })
+    
+    
+
     })
 
     // Create blog post list pages
-    const postsPerPage = 6
-    const numPages = Math.ceil(posts.length / postsPerPage)
+    const postsPerPage = 10
+    const numPages = Math.ceil(concerts.length / postsPerPage)
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
@@ -116,6 +139,8 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
+
+    
 
     // Tag pages:
     let tags = []
@@ -142,6 +167,8 @@ exports.createPages = ({ graphql, actions }) => {
     return null
   })
 }
+
+
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions

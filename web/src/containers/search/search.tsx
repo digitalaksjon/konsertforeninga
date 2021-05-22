@@ -163,7 +163,7 @@ function Search() {
                 <PostList
                   key={item.slug}
                   title={item.title}
-                  url={data.site.siteUrl + item.slug}
+                  url={"/"+item.slug}
                   image={
                     item.mainImage == null ? null : item.mainImage.asset.fluid
                   }

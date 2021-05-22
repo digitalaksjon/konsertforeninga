@@ -77,7 +77,6 @@ export default {
       title: 'Utdrag',
       description: 'Denne teksten ender opp på Google og når man deler på Facebook.'
     },
-
     {
       title: 'Tags',
       name: 'tags',

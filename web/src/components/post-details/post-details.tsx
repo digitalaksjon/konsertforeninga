@@ -72,7 +72,12 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   var concertMonth = dateObject.getMonthName(dateObject.getMonth());
 
 
-  var newDate = concertDate + `<br><span>` + concertMonth + `</span>`
+  var newDate
+  if (date != "NaN")  {
+    newDate = concertDate + `<br><span>` + concertMonth + `</span>`
+  } else {
+    newDate = date
+  }
   // Random Placeholder Color
   const placeholderColors = [
     '#55efc4',
@@ -117,7 +122,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
           {preview == null ? null : (
             <PostPreview className="post_preview">
               <Img fluid={preview} alt={title} backgroundColor={setColor} />
-              {newDate &&
+              {newDate != "NaN" &&
                   <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate}} /></PostDate>  
               }
             

@@ -59,7 +59,8 @@ const BlogPostTemplate = (props: any) => {
         <BlogDetailsContent>
           <PostDetails
             title={post.title}
-            date=""
+            date="NaN"
+
 
             preview={
               post.featuredImage == null
