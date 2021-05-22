@@ -13,7 +13,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
   const Data = useStaticQuery(graphql`
   
   
-  query ($currentDate: Date!) {
+  query {
     site: sanitySiteSettings(_id: { eq: "siteSettings" }) {
       title
       description
@@ -29,7 +29,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
 
       limit: 6
         sort: { fields: concertDateTime, order: ASC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }, concertDateTime: {gte: $currentDate}}
+      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }}
      ) {
       totalCount
       edges {
