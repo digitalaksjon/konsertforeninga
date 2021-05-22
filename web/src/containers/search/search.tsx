@@ -29,7 +29,6 @@ function Search() {
   
 
       concerts: allSanityConcert (
-        limit: 5
         sort: { fields: [publishedAt], order: DESC }
 
       ) {

@@ -22,8 +22,8 @@ export const rebuildIndex = (searchData: any) => {
   dataToSearch.searchIndex = new JsSearch.TfIdfSearchIndex("title")
 
   dataToSearch.addIndex("title") // sets the index attribute for the data
-  dataToSearch.addIndex("description") // sets the index attribute for the data
-  dataToSearch.addIndex("tags") // sets the index attribute for the data
+  dataToSearch.addIndex("body") // sets the index attribute for the data
+
 
   dataToSearch.addDocuments(searchData) // adds the data to be searched
   return dataToSearch
