@@ -155,6 +155,7 @@ const ConcertTemplate = (props: any) => {
                         : node.mainImage.asset.fluid
                     }
                     tags={node.tags}
+                    series={node.series.title}
                     placeholderBG={setColor}
                   />
                 </RelatedPostItem>
