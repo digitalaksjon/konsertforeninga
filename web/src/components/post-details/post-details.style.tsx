@@ -109,6 +109,30 @@ export const PostPreview = styled.div`
     left: 10%;
     filter: blur(15px);
   }
+
+  div.series {
+    position:absolute;
+    top: 30px;
+    right:30px;
+    background-color: #fff;
+    font-size: 10px;
+    margin: 0 10px;
+    padding: 10px;
+    font-family: Poppins;
+    height: 40px;    
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #333;
+    
+    text-transform: uppercase;
+    font-weight: bold;
+    span {
+      margin-left: 5px;
+      font-size: 16px;
+      color:#D10068;
+      font-weight: 900;
+       
+    }
+  }
 `;
 
 export const PostDescriptionWrapper = styled.div`
@@ -304,22 +328,25 @@ export const PostMetaWrapper = styled.div`
     text-align:center;
     font-family: 'Poppins';
     border-radius: 0 0 5px ;
-    color:#fff;
-    font-size: 0.9em;
+
+    font-size: 10px;
     margin: 0 10px;
     padding: 10px;
     font-family: Poppins;
     height: 40px;    
     cursor: pointer;
     box-shadow: 2px 2px 5px #333;
-    background-color: #74b9ff;
+    
     text-transform: uppercase;
     font-weight: bold;
     span {
       margin-left: 5px;
-      font-size: 1.1rem;
-      color: #333;
+      font-size: 16px;
+      color:#D10068;
+      font-weight: 900;
+       
     }
+
 
     &:nth-child(4) {
     
@@ -335,9 +362,10 @@ export const PostMetaWrapper = styled.div`
     color: ${themeGet('primary', '#D10068')};
   }
 
+  
+
   div.ticketButton {
     background-color: #D10068;
-    margin-left: auto;
     justify-self:flex-end;
    
     a {
