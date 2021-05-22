@@ -61,7 +61,7 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
     <PostCardWrapper className={addAllClasses.join(' ')} {...props}>
       {image == null ? null : (
         <PostPreview className="post_preview">
-          <Link to={url}>
+          <Link to={"/"+url}>
             {imageType === 'fluid' ? (
               <Img
                 fluid={image}

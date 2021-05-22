@@ -10,14 +10,19 @@ export default {
     },
     {
       name: 'description',
-      type: 'text',
+      type: 'bodyPortableText',
       title: 'Description'
+    },
+    {
+      name: 'mainImage',
+      type: 'image',
+      title: 'Bilde'
     },
     {
       name: 'slug',
       type: 'slug',
       title: 'Slug',
-      description: 'Som e frontends will require a slug to be set to be able to show the post',
+      description: 'Some frontends will require a slug to be set to be able to show the post',
       options: {
         source: 'title',
         maxLength: 96

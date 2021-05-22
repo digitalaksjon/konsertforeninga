@@ -32,7 +32,7 @@ const MenuItems = [
   },
   {
     label: 'Konsertserier',
-    url: '/page/2'
+    url: '/serier'
 
   },
   {

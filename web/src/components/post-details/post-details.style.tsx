@@ -303,20 +303,21 @@ export const PostMetaWrapper = styled.div`
 
     text-align:center;
     font-family: 'Poppins';
-    border-radius: 0 0 10px ;
-    color:#222;
-    font-size: 1em;
+    border-radius: 0 0 5px ;
+    color:#fff;
+    font-size: 0.9em;
     margin: 0 10px;
-    margin-top: 10px;
     padding: 10px;
     font-family: Poppins;
     height: 40px;    
     cursor: pointer;
-    border: 0.5px solid #333;
-    
+    box-shadow: 2px 2px 5px #333;
+    background-color: #74b9ff;
     text-transform: uppercase;
+    font-weight: bold;
     span {
-      font-weight: bold;
+      margin-left: 5px;
+      font-size: 1.1rem;
       color: #333;
     }
 
@@ -343,6 +344,7 @@ export const PostMetaWrapper = styled.div`
       margin: 0;
       text-align: center;
       color: white;
+      font-weight: bold;
       align-self: self-end;
       cursor: pointer;
       &:hover {

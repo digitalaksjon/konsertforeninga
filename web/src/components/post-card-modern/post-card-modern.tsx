@@ -121,7 +121,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
-        {excerpt && <PortableText blocks={excerpt[0]} />}
+        {excerpt && <PortableText blocks={excerpt} />}
        
       </PostDetails>
     </PostCardModernWrapper>

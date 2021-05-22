@@ -52,6 +52,30 @@ export const RelatedPostWrapper = styled.div`
   }
 `;
 
+
+export const SeriesWrapper = styled.div`
+  font-size: 1.5rem;
+  text-align:center;
+  margin-bottom: 100px;
+  @media (min-width: 990px) {
+    width: 900px;
+  }
+  @media (min-width: 1200px) {
+    width: 1050px;
+  }
+  @media (min-width: 1400px) {
+    width: 1170px;
+  }
+  @media (max-width: 990px) {
+    font-size: 1rem;
+    margin-bottom: 50px;
+    padding: 80px 45px 0 45px;
+  }
+  @media (max-width: 575px) {
+    padding: 10px 25px 0 25px;
+  }
+`;
+
 export const RelatedPostTitle = styled.h2`
   color: ${themeGet('colors.textColor', '#292929')};
   font-size: 16px;
