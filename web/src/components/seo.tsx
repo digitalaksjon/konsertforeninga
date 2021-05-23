@@ -1,7 +1,7 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-
+import PortableText from '../portableText'
 
 type SEOProps = {
   description?: string
@@ -36,7 +36,7 @@ const SEO: React.FunctionComponent<SEOProps> = ({
 
   const { site } = useStaticQuery(detailsQuery) || {};
 
-  const metaDescription = description || site.description || "";
+  const metaDescription = site.description || "";
   const pageTitle = title || "";
   const siteTitle = site.title || "";
   const siteAuthor = site.author?.name || "";
