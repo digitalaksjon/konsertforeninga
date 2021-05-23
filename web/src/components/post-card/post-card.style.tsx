@@ -46,13 +46,20 @@ export const PostDate = styled.div`
   line-height: 1;
   pointer-events: none;
   z-index: 1;
+  text-align:center;
   background-color: rgba(209, 0, 104, 0.7);
   > span {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: normal;
     line-height: 1;
+    text-align:center;
+    display:block;
     margin-top: 3px;
   }
+
+  
+    font-size: 18px;
+  
 `;
 
 

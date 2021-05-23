@@ -27,7 +27,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
     concerts : allSanityConcert(
 
 
-      limit: 10
+      limit: 30
         sort: { fields: concertDateTime, order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }}
      ) {
@@ -37,6 +37,9 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
           id
           tags
           publishedAt
+          series {
+            title
+          }
           mainImage {
             asset {
             
@@ -57,6 +60,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
     
   }
 `);
+              
 
   const Posts = Data.concerts.edges;
 
@@ -64,7 +68,13 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
     <BlogPostsWrapper>
         <h1>Kommende konserter</h1>
       <PostRow>
-        {Posts.map(({ node }: any) => {
+      
+
+        {Posts.filter(
+          function(date) {            
+            return  new Date(date.node.concertDateTime).valueOf() > new Date().valueOf();
+          }
+        ).map(({ node }: any) => {
 
           const title = node.title || node.slug.current;
           // Random Placeholder Color
@@ -86,13 +96,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
             ];
             ''
 
-            
-            function isAfterToday(date) {
-              return new Date(date).valueOf() > new Date().valueOf();
-            }
-            const dateObject = new Date(node.concertDateTime);
 
-          if (isAfterToday(dateObject)) { 
           return (
             
               <PostGrid key={node.slug.current}>
@@ -105,14 +109,14 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
                             excerpt={node._rawExcerpt}
                             date={node.concertDateTime}
                             placeholderBG={setColor}
+                            series={node.series[0].title}
                           />
                           </PostGrid>
            
-
-          )} else {
-            return null
-          }
-})}
+        )
+      }
+      ).reverse()
+}
       </PostRow>
       <SeeMore>
         <Link to="page/1">

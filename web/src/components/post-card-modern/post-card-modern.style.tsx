@@ -22,8 +22,31 @@ export const PostPreview = styled.div`
         
         filter: unset;
     }
-   
+  } 
 
+  .series {
+    position:absolute;
+    top: 0px;
+    right:-10px;
+    background-color: rgba(209, 0, 104, 0.7);
+    font-size: 10px;
+    margin: 0 10px;
+    padding: 5px 10px;
+
+    border-radius:  0 0 0 10px;
+    cursor: pointer;
+    
+    text-transform: uppercase;
+    font-weight: bold;
+    span {
+      
+  
+      font-size: 16px;
+      color:#fff;
+      font-weight: 900;       
+    }
+  }
+    
   &:before {
     content: '';
     position: absolute;
@@ -34,6 +57,8 @@ export const PostPreview = styled.div`
     left: 10%;
     filter: blur(15px);
   }
+
+    
 `;
 
 export const PostDetails = styled.div``;
@@ -62,7 +87,15 @@ export const PostDate = styled.div`
     line-height: 1;
     margin-top: 3px;
   }
+
+  @media (max-width: 600px) {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 `;
+
+
 
 export const PostTitle = styled.h2`
   font-size: 30px;

@@ -26,7 +26,11 @@ const BlogList = (props: any) => {
 
       <BlogPostsWrapper>
         <PostRow>
-          {Posts.map(({ node }: any) => {
+          {Posts.filter(
+          function(date) {            
+            return  new Date(date.node.concertDateTime).valueOf() > new Date().valueOf();
+          }
+        ).map(({ node }: any) => {
 
 
             const postURL = "/" +node.slug.current;
@@ -60,6 +64,7 @@ const BlogList = (props: any) => {
                       : node.mainImage
                   }
                   url={postURL}
+                  series={node.series[0].title}
                   excerpt={node._rawExcerpt|| node._rawExcerpt}
                   date={node.concertDateTime}
                   tags={node.tags}
@@ -69,12 +74,7 @@ const BlogList = (props: any) => {
             );
           })}
         </PostRow>
-        <Pagination
-          prevLink={PrevLink}
-          nextLink={NextLink}
-          currentPage={`${currentPage}`}
-          totalPage={`${numPages}`}
-        />
+     
       </BlogPostsWrapper>
     </Layout>
   );
@@ -108,6 +108,9 @@ export const pageQuery = graphql`
           title
           _rawExcerpt
           _rawBody
+          series {
+            title
+          }
           concertDateTime
           slug {
             current

@@ -82,6 +82,14 @@ export const PostDate = styled.div`
       margin-top: 3px;
     }
   }
+  @media (max-width: 600px) {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    span {
+      font-size: 10px;
+    }
+  }
 `;
 
 export const PostPreview = styled.div`
@@ -114,25 +122,31 @@ export const PostPreview = styled.div`
     position:absolute;
     top: 0px;
     right:-10px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255,1);
     font-size: 10px;
     margin: 0 10px;
-    padding: 6px;
+    padding: 5px 10px;
     font-family: Poppins;
-    
+
+    border-radius: 0 0 0 10px;
     cursor: pointer;
     
     text-transform: uppercase;
     font-weight: bold;
     span {
-      
+      font-family: 'Poppins';
+  
       font-size: 22px;
-      color:#D10068;
-      font-weight: 900;
-       
+      color:#111;
+      font-weight: 900;       
     }
     
+    @media (max-width: 600px) {
 
+      > span {
+        font-size: 12px;
+      }
+    }
 
     
   }
@@ -227,8 +241,14 @@ export const PostDescription = styled.div`
     @media (max-width: 1200px) {
       margin: 50px 0;
       font-size: 19px;
+    }  @media (max-width: 600px) {
+      width: 50px;
+      height: 50px;
+      font-size: 18px;
+      span {
+        font-size: 10px;
+      }
     }
-    @media (max-width: 575px) {
       margin: 40px 0;
       font-size: 15px;
     }
@@ -260,8 +280,8 @@ export const PostDescription = styled.div`
     }
 
     p {
-      font-size: 21px;
-      font-weight: 500;
+      font-size: 15px;
+      
       line-height: 2;
       margin-bottom: 23px;
       @media (max-width: 1200px) {
@@ -335,22 +355,34 @@ export const PostMetaWrapper = styled.div`
     font-size: 12px;
     margin: 0px 10px;
     padding: 10px;
-    font-family: Poppins;
-      
+
     cursor: pointer;
-    box-shadow: 2px 2px 5px #333;
+    box-shadow: 1px 1px 4px #333;
     
     text-transform: uppercase;
-    font-weight: bold;
+
     span {
       margin-left: 5px;
       font-size: 16px;
       color:#D10068;
-      font-weight: 900;
+      font-weight: 600;
        
     }
 
     align-self:start;
+    
+    @media (max-width: 600px) {
+      font-size: 11px;
+      padding: 5px;
+      
+      span {
+        font-size: 15px;
+      }
+      &:nth-of-type(even) {
+        margin-left:auto;
+      }
+    }
+
     
     
   }
@@ -385,7 +417,6 @@ export const PostMetaWrapper = styled.div`
     
     }
     border-radius: 0 0 0 10px;
-    
-    
+
   }
 `;

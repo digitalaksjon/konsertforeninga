@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import _ from 'lodash';
 import Img from 'gatsby-image';
+import PortableText from '../portableText'
 import {
   PostCardWrapper,
   PostPreview,
@@ -18,6 +19,7 @@ interface PostCardProps {
   title: string;
   description?: string;
   url: string;
+  series?: string;
   date?: string;
   tags?: [];
   className?: string;
@@ -32,6 +34,7 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
   url,
   date,
   tags,
+  series,
   className,
   imageType,
   placeholderBG,
@@ -46,8 +49,8 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
   }
 
   Date.prototype.getMonthName = function() {
-    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
-      "Juli", "August", "September", "Oktober", "November", "Desember"
+    var monthNames = ["Jan", "Feb", "Mars", "April", "Mai", "Juni",
+      "Juli", "Aug", "Sept", "Okt", "Nov", "Des"
     ];
     return monthNames[this.getMonth()];
   }
@@ -55,7 +58,7 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
 
 
   const dateObject = new Date(date);
-  const dateString = dateObject.getDate() + "<span>"+dateObject.getMonthName(dateObject.getMonth()) + "</span";
+  const dateString = dateObject.getDate() + "<span>"+dateObject.getMonthName(dateObject.getMonth()) + "<br />"+dateObject.getFullYear() + "</span";
 
   return (
     <PostCardWrapper className={addAllClasses.join(' ')} {...props}>
@@ -75,6 +78,8 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
                 backgroundColor={placeholderBG}
               />
             )}
+
+            {series && <div className="series" ><span>{series}</span></div>}
              {date && (
             <PostDate
               dangerouslySetInnerHTML={{
@@ -95,12 +100,9 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
             <Link to={url}>{title}</Link>
           </PostTitle>
           {description && (
-            <Excerpt
-              dangerouslySetInnerHTML={{
-                __html: description,
-              }}
-              className="excerpt"
-            />
+            <Excerpt>
+                   {description && <PortableText blocks={description[0]} />}
+            </Excerpt>
           )}
 
           {tags == null ? null : (

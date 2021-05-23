@@ -19,6 +19,7 @@ interface PostCardModernProps {
   title: string;
   excerpt?: any;
   url: string;
+  series?: string;
   date?: string;
   tags?: [];
   className?: string;
@@ -33,6 +34,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
   url,
   date,
   tags,
+  series,
   className,
   imageType,
   placeholderBG,
@@ -91,11 +93,13 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
               backgroundColor={setColor}
   
             />  )
+            
           }
+          
           
         
           </Link>
-          
+          {series && <div className="series" ><span>{series}</span></div>}
           {date && (
             <PostDate
               dangerouslySetInnerHTML={{
@@ -109,18 +113,11 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
       )}
       
       <PostDetails className="post_details">
-        {tags == null ? null : (
-          <PostTags className="post_tags">
-            {tags.map((tag: string, index: number) => (
-              <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
-                {`#${tag}`}
-              </Link>
-            ))}
-          </PostTags>
-        )}
+  
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
+        
         {excerpt && <PortableText blocks={excerpt[0]} />}
        
       </PostDetails>

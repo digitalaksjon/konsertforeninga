@@ -29,6 +29,7 @@ export const NavbarWrapper = styled.div`
 export const Logo = styled.div`
 	margin-right: 50px;
 	flex-shrink: 0;
+
 	
 	@media (max-width: 990px) {
 		margin: 0 25px;
@@ -39,12 +40,13 @@ export const Logo = styled.div`
 	}
 	img {
 		display: block;
-		max-width: 55%;
+		max-width: 50%;
 		height: auto;
 	}
 	@media (max-width: 575px) {
+		max-width:50%;
 		img {
-			max-width: 160%;
+			max-width: 100%;
 			
 		}	
 		align-self: center;

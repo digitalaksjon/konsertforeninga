@@ -137,7 +137,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         {concertDateTime && <div className="time">TIDSPUNKT: <span>{concertDateTime}</span></div>}
 
         {price && <div className="price">PRIS: <span>{price}</span></div>}
-        {tickets && <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETTER</Link></div>}
+        {tickets && <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETT</Link></div>}
         
       </PostMetaWrapper>
 
@@ -155,15 +155,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         {description && <PortableText blocks={description} className="post_des" />}
 
         </PostDescription>
-        {tags == null ? null : (
-          <PostTags>
-            {tags.map((tag, index) => (
-              <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
-                {`#${tag}`}
-              </Link>
-            ))}
-          </PostTags>
-        )}
+    
       </PostDescriptionWrapper>
     </PostDetailsWrapper>
   );

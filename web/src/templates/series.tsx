@@ -124,7 +124,7 @@ const ConcertTemplate = (props: any) => {
                   <PostCard
                     title={node.title || node.slug.current}
                     url={node.slug.current}
-                    date={post.concertDateTime}
+                    date={node.concertDateTime}
                     image={
                       node.mainImage == null
                         ? null
@@ -180,7 +180,7 @@ export const pageQuery = graphql`
     }
 
     
-    concerts: allSanityConcert(filter: {series: {elemMatch: {slug: {current: {eq: $slug}}}}}) {
+    concerts: allSanityConcert(filter: {series: {elemMatch: {slug: {current: {eq: $slug}}}}}, sort: { fields: concertDateTime, order: DESC }) {
       totalCount
       edges {
         node {       

@@ -99,6 +99,7 @@ export const RelatedPostItems = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 0 -15px;
+  
 `;
 
 export const RelatedPostItem = styled.div`
