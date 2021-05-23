@@ -113,15 +113,14 @@ export const PostPreview = styled.div`
   div.series {
     position:absolute;
     top: 30px;
-    right:0px;
+    right:-10px;
     background-color: #fff;
     font-size: 10px;
     margin: 0 10px;
-    padding: 10px;
+    padding: 6px;
     font-family: Poppins;
     
     cursor: pointer;
-    box-shadow: 2px 2px 5px #333;
     
     text-transform: uppercase;
     font-weight: bold;
@@ -132,7 +131,7 @@ export const PostPreview = styled.div`
       font-weight: 900;
        
     }
-    opacity: 0.9;
+    
 
 
     
@@ -324,7 +323,7 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: start;
   width: 100%;
 
   div {
