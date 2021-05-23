@@ -128,7 +128,7 @@ export const PostPreview = styled.div`
     font-size: 10px;
     margin: 0 10px;
     padding: 5px 10px;
-    
+    font-family: 'Poppins';
     
     border-radius: 0 0 0 10px;
     cursor: pointer;
@@ -366,6 +366,7 @@ export const PostMetaWrapper = styled.div`
       font-size: 16px;
       color:#D10068;
       font-weight: 600;
+
        
     }
 

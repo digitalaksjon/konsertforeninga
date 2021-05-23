@@ -32,6 +32,7 @@ export const PostPreview = styled.div`
     font-size: 10px;
     margin: 0 10px;
     padding: 5px 10px;
+    font-family: 'Poppins';
 
     border-radius:  0 0 0 10px;
     cursor: pointer;
@@ -57,6 +58,7 @@ export const PostPreview = styled.div`
     left: 10%;
     filter: blur(15px);
   }
+  
 
     
 `;
@@ -94,6 +96,14 @@ export const PostDate = styled.div`
     font-size: 20px;
     top: 10px;
     left: 10px;
+    width: 50px;
+    top: 10px;
+    left: 10px;
+    height: 50px;
+    font-size: 18px;
+    span {
+      font-size: 10px;
+    }
   }
 `;
 
