@@ -185,7 +185,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `/page/1` : `/page/${i + 1}`,
+        path: i === 0 ? `/konserter` : `/konserter/${i + 1}`,
         component: blogList,
         context: {
           limit: postsPerPage,

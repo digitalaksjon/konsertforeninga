@@ -27,8 +27,8 @@ const MenuItems = [
   },
 
   {
-    label: 'Konserter',
-    url: '/page/1',
+    label: 'Alle konserter',
+    url: '/konserter',
   },
   {
     label: 'Konsertserier',
@@ -37,7 +37,7 @@ const MenuItems = [
   },
   {
     label: 'Om Konsertforeninga',
-    url: '/about',
+    url: '/om',
   }
 
 ];
