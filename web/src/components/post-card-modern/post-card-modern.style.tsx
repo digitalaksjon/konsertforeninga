@@ -92,6 +92,8 @@ export const PostDate = styled.div`
     width: 40px;
     height: 40px;
     font-size: 20px;
+    top: 10px;
+    left: 10px;
   }
 `;
 

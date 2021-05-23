@@ -84,6 +84,8 @@ export const PostDate = styled.div`
   }
   @media (max-width: 600px) {
     width: 50px;
+    top: 10px;
+    left: 10px;
     height: 50px;
     font-size: 18px;
     span {
@@ -122,22 +124,21 @@ export const PostPreview = styled.div`
     position:absolute;
     top: 0px;
     right:-10px;
-    background-color: rgba(255, 255, 255,1);
+    background-color: rgba(209, 0, 104, 0.7);
     font-size: 10px;
     margin: 0 10px;
     padding: 5px 10px;
-    font-family: Poppins;
-
+    
+    
     border-radius: 0 0 0 10px;
     cursor: pointer;
     
     text-transform: uppercase;
     font-weight: bold;
     span {
-      font-family: 'Poppins';
-  
+     
       font-size: 22px;
-      color:#111;
+      color:#fff;
       font-weight: 900;       
     }
     
@@ -357,8 +358,7 @@ export const PostMetaWrapper = styled.div`
     padding: 10px;
 
     cursor: pointer;
-    box-shadow: 1px 1px 4px #333;
-    
+ 
     text-transform: uppercase;
 
     span {
@@ -401,7 +401,7 @@ export const PostMetaWrapper = styled.div`
     background-color: #D10068;
     justify-self:flex-end;
     margin-left: auto;
-   
+    box-shadow: 2px 2px 5px #111;
     a {
       margin: 0;
       text-align: center;
