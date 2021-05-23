@@ -112,7 +112,7 @@ export const PostPreview = styled.div`
 
   div.series {
     position:absolute;
-    top: 30px;
+    top: 0px;
     right:-10px;
     background-color: #fff;
     font-size: 10px;
@@ -126,7 +126,7 @@ export const PostPreview = styled.div`
     font-weight: bold;
     span {
       
-      font-size: 20px;
+      font-size: 22px;
       color:#D10068;
       font-weight: 900;
        
@@ -351,11 +351,7 @@ export const PostMetaWrapper = styled.div`
     }
 
     align-self:start;
-    &:nth-child(4) {
     
-      align-self:end;
-      
-    }
     
   }
 
@@ -372,6 +368,7 @@ export const PostMetaWrapper = styled.div`
   div.ticketButton {
     background-color: #D10068;
     justify-self:flex-end;
+    margin-left: auto;
    
     a {
       margin: 0;

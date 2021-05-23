@@ -17,7 +17,7 @@ export const PostPreview = styled.div`
     border-radius: 3px;
     filter: grayscale(100%);
 
-    transition: scale 0.5s ease;
+    transition:all 0.5s ease;
     &:hover {
         
         filter: unset;

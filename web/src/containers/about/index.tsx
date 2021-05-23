@@ -4,9 +4,7 @@ import Image from 'gatsby-image';
 import SocialProfile from '../../components/social-profile/social-profile';
 import {
   IoLogoFacebook,
-  IoLogoTwitter,
-  IoLogoInstagram,
-  IoLogoLinkedin,
+  IoLogoInstagram
 } from 'react-icons/io';
 import {
   AboutWrapper,
@@ -19,24 +17,14 @@ import {
 const SocialLinks = [
   {
     icon: <IoLogoFacebook />,
-    url: 'https://www.facebook.com/redqinc/',
+    url: 'https://www.facebook.com/Konsertforeninga',
     tooltip: 'Facebook',
   },
   {
     icon: <IoLogoInstagram />,
-    url: 'https://www.instagram.com/redqinc/',
+    url: 'https://www.instagram.com/konsertforeninga/',
     tooltip: 'Instagram',
-  },
-  {
-    icon: <IoLogoTwitter />,
-    url: 'https://twitter.com/redqinc',
-    tooltip: 'Twitter',
-  },
-  {
-    icon: <IoLogoLinkedin />,
-    url: 'https://www.linkedin.com/company/redqinc/',
-    tooltip: 'Linked In',
-  },
+  }
 ];
 
 interface AboutProps {}

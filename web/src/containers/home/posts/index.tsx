@@ -27,8 +27,8 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
     concerts : allSanityConcert(
 
 
-      limit: 6
-        sort: { fields: concertDateTime, order: ASC }
+      limit: 10
+        sort: { fields: concertDateTime, order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null }}
      ) {
       totalCount
@@ -84,23 +84,35 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
             placeholderColors[
               Math.floor(Math.random() * placeholderColors.length)
             ];
-            
+            ''
 
+            
+            function isAfterToday(date) {
+              return new Date(date).valueOf() > new Date().valueOf();
+            }
+            const dateObject = new Date(node.concertDateTime);
+
+          if (isAfterToday(dateObject)) { 
           return (
-            <PostGrid key={node.slug.current}>
-              <PostCardModern
-                key={node.slug.current}
-                title={title}
-                image={node.mainImage}
-                tags={node.tags}
-                url={node.slug.current}
-                excerpt={node._rawExcerpt}
-                date={node.concertDateTime}
-                placeholderBG={setColor}
-              />
-            </PostGrid>
-          );
-        })}
+            
+              <PostGrid key={node.slug.current}>
+                            <PostCardModern
+                            key={node.slug.current}
+                            title={title}
+                            image={node.mainImage}
+                            tags={node.tags}
+                            url={node.slug.current}
+                            excerpt={node._rawExcerpt}
+                            date={node.concertDateTime}
+                            placeholderBG={setColor}
+                          />
+                          </PostGrid>
+           
+
+          )} else {
+            return null
+          }
+})}
       </PostRow>
       <SeeMore>
         <Link to="page/1">

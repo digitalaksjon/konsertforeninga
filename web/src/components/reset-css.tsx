@@ -17,6 +17,7 @@ const ResetCSS = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  a {word-wrap: break-word; max-width:300px;}
 
   html,
   html a,
