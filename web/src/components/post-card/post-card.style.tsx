@@ -10,6 +10,7 @@ export const PostPreview = styled.div`
   position: relative;
   img {
     border-radius: 3px;
+    filter: grayscale(100%);
   }
 
   &:before {

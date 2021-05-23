@@ -9,14 +9,20 @@ export const PostPreview = styled.div`
   margin-bottom: 30px;
   position: relative;
   min-height: 150px;
+ 
   img {
+    position: relative;
+
+    display: block; 
     border-radius: 3px;
     filter: grayscale(100%);
-    :hover {
-      filter:unset();
 
+    transition: scale 0.5s ease;
+    &:hover {
+        
+        filter: unset;
     }
-  }
+   
 
   &:before {
     content: '';

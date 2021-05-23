@@ -44,8 +44,10 @@ export const Logo = styled.div`
 	}
 	@media (max-width: 575px) {
 		img {
-			max-width: 100%;
+			max-width: 160%;
+			
 		}	
+		align-self: center;
 	}
 `;
 

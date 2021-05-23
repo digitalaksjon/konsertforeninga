@@ -113,25 +113,29 @@ export const PostPreview = styled.div`
   div.series {
     position:absolute;
     top: 30px;
-    right:30px;
+    right:0px;
     background-color: #fff;
     font-size: 10px;
     margin: 0 10px;
     padding: 10px;
     font-family: Poppins;
-    height: 40px;    
+    
     cursor: pointer;
     box-shadow: 2px 2px 5px #333;
     
     text-transform: uppercase;
     font-weight: bold;
     span {
-      margin-left: 5px;
-      font-size: 16px;
+      
+      font-size: 20px;
       color:#D10068;
       font-weight: 900;
        
     }
+    opacity: 0.9;
+
+
+    
   }
 `;
 
@@ -320,7 +324,7 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  
+  justify-content: space-between;
   width: 100%;
 
   div {
@@ -329,11 +333,11 @@ export const PostMetaWrapper = styled.div`
     font-family: 'Poppins';
     border-radius: 0 0 5px ;
 
-    font-size: 10px;
-    margin: 0 10px;
+    font-size: 12px;
+    margin: 0px 10px;
     padding: 10px;
     font-family: Poppins;
-    height: 40px;    
+      
     cursor: pointer;
     box-shadow: 2px 2px 5px #333;
     
@@ -347,11 +351,13 @@ export const PostMetaWrapper = styled.div`
        
     }
 
-
+    align-self:start;
     &:nth-child(4) {
     
-      color: black;
+      align-self:end;
+      
     }
+    
   }
 
   a {
@@ -376,8 +382,8 @@ export const PostMetaWrapper = styled.div`
       align-self: self-end;
       cursor: pointer;
       &:hover {
-        padding: 2px 0;
-        transition: padding 0.5s;
+        padding: 4px 0;
+        transition: padding 0.5s ease-in-out;
 
       }      
     

@@ -115,9 +115,12 @@ export const RelatedPostItem = styled.div`
   .post_card {
     &:hover {
       .post_preview {
+        transition: scale 0.4s ease-in-out;
         a {
+          
           transform: scale(1.05);
           img {
+            
             filter: unset;
   
           }
@@ -136,8 +139,9 @@ export const RelatedPostItem = styled.div`
       &:before {
         filter: blur(10px);
       }
+      
       img {
-        filter: grayscale(100%);
+     
 
       }
     }
