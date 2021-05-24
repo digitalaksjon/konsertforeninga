@@ -4,6 +4,13 @@ const BlogPostsWrapper = styled.div`
   margin: 0 auto;
   padding-top: 120px;
   position: relative;
+
+  h1 {
+    font-size: 30px;
+    @media (max-width: 600px) {
+      font-size: 22px;
+    }
+  }
   @media (min-width: 991px) {
     width: 900px;
   }

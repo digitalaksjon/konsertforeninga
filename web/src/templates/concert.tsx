@@ -148,7 +148,7 @@ const ConcertTemplate = (props: any) => {
                   <PostCard
                     title={node.title || node.slug.current}
                     url={node.slug.current}
-                    date={post.concertDateTime}
+                    date={node.concertDateTime}
                     image={
                       node.mainImage == null
                         ? null

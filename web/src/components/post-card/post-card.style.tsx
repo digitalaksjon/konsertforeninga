@@ -23,6 +23,32 @@ export const PostPreview = styled.div`
     left: 10%;
     filter: blur(15px);
   }
+
+  
+  .series {
+    position:absolute;
+    top: 0px;
+    left:150px;
+    background-color: rgba(209, 0, 104, 0.7);
+    font-size: 10px;
+    margin: 0 10px;
+    padding: 5px 10px;
+    font-family: 'Poppins';
+    width: 50%;
+    border-radius:  0 0 0 10px;
+    cursor: pointer;
+    
+    text-transform: uppercase;
+    font-weight: bold;
+    span {
+      
+  
+      font-size: 16px;
+      color:#fff;
+      font-weight: 900;       
+    }
+  }
+    
 `;
 
 export const PostDetails = styled.div`
@@ -33,8 +59,8 @@ export const PostDate = styled.div`
   position: absolute;
   width: 50px;
   height: 50px;
-  top: 20px;
-  left: 20px;
+  top: 10px;
+  left: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,6 +100,7 @@ export const PostTitle = styled.h2`
   line-height: 1.53;
   margin-bottom: 10px;
   a {
+    
     color: ${themeGet('colors.textColor', '#292929')};
   }
   @media (max-width: 1200px) {

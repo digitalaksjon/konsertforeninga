@@ -150,7 +150,7 @@ export const RelatedPostItem = styled.div`
       font-size: 21px;
       a {
         display: block;
-        white-space: nowrap;
+        white-space: wrap;
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
