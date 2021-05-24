@@ -119,7 +119,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
 }
       </PostRow>
       <SeeMore>
-        <Link to="page/1">
+        <Link to="konserter/">
           <Button title="Se flere" type="submit" />
         </Link>
       </SeeMore>

@@ -13,8 +13,8 @@ const BlogList = (props: any) => {
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
   const prevPage =
-    currentPage - 1 === 1 ? '/page/1' : `/page/${(currentPage - 1).toString()}`;
-  const nextPage = `/page/${(currentPage + 1).toString()}`;
+    currentPage - 1 === 1 ? '/konserter' : `/konserter/${(currentPage - 1).toString()}`;
+  const nextPage = `/konserter/${(currentPage + 1).toString()}`;
   const PrevLink = !isFirst && prevPage;
   const NextLink = !isLast && nextPage;
 
@@ -26,11 +26,7 @@ const BlogList = (props: any) => {
 
       <BlogPostsWrapper>
         <PostRow>
-          {Posts.filter(
-          function(date) {            
-            return  new Date(date.node.concertDateTime).valueOf() > new Date().valueOf();
-          }
-        ).map(({ node }: any) => {
+          {Posts.map(({ node }: any) => {
 
 
             const postURL = "/" +node.slug.current;
@@ -74,7 +70,12 @@ const BlogList = (props: any) => {
             );
           })}
         </PostRow>
-     
+        <Pagination
+          prevLink={PrevLink}
+          nextLink={NextLink}
+          currentPage={`${currentPage}`}
+          totalPage={`${numPages}`}
+        />
       </BlogPostsWrapper>
     </Layout>
   );

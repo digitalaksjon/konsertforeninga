@@ -180,7 +180,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
 
     // Create concert list pages
-    const postsPerPage = 10
+    const postsPerPage = 20
     const numPages = Math.ceil(concerts.length / postsPerPage)
 
     Array.from({ length: numPages }).forEach((_, i) => {
