@@ -32,19 +32,19 @@ export const PostPreview = styled.div`
     font-size: 10px;
     margin: 0 10px;
     padding: 5px 10px;
-
+    font-family: 'Poppins';
 
     border-radius:  0 0 0 10px;
     cursor: pointer;
-    
+    color: #000;
     text-transform: uppercase;
-    font-weight: bold;
+
     span {
-      
-  
-      font-size: 14px;
-      color:#0984e3;
-      font-weight: 900;       
+      margin-left: 5px;
+      font-size: 16px;
+      color:#D10068;
+      font-weight: 600;
+     
     }
   }
     

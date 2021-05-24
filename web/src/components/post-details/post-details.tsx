@@ -125,7 +125,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
               {newDate != "NaN" &&
                   <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate}} /></PostDate>  
               }
-                    {series && <div className="series"><span>{series}</span></div>}
+                    {series && <div className="series">SERIE:<span>{series}</span></div>}
             </PostPreview>
           )}
         </>

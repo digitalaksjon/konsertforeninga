@@ -99,7 +99,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
           
         
           </Link>
-          {series && <div className="series" ><span>{series}</span></div>}
+          {series && <div className="series" >SERIE:<span>{series}</span></div>}
           {date && (
             <PostDate
               dangerouslySetInnerHTML={{
