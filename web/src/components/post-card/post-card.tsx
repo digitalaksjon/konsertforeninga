@@ -79,7 +79,6 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
               />
             )}
 
-            {series && <div className="series" ><span>{series}</span></div>}
              {date && (
             <PostDate
               dangerouslySetInnerHTML={{

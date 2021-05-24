@@ -11,6 +11,7 @@ export const PostPreview = styled.div`
   img {
     border-radius: 3px;
     filter: grayscale(100%);
+    
   }
 
   &:before {
@@ -27,14 +28,14 @@ export const PostPreview = styled.div`
   
   .series {
     position:absolute;
-    top: 0px;
-    left:150px;
-    background-color: rgba(209, 0, 104, 0.7);
+    bottom: 0px;
+    right:0px;
+    background-color: #0984e3;
     font-size: 10px;
     margin: 0 10px;
     padding: 5px 10px;
     font-family: 'Poppins';
-    width: 50%;
+
     border-radius:  0 0 0 10px;
     cursor: pointer;
     

@@ -45,9 +45,6 @@ const BlogPostTemplate = (props: any) => {
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
 
-  console.log(post)
-
-
   return (
     <Layout>
       <SEO
@@ -134,7 +131,7 @@ const BlogPostTemplate = (props: any) => {
                   <PostCard
                     title={node.title || node.slug.current}
                     url={node.slug.current}
-                    date={post.publishedAt}
+                    date={node.publishedAt}
                     image={
                       node.mainImage == null
                         ? null

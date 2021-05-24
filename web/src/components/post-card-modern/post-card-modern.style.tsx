@@ -28,11 +28,11 @@ export const PostPreview = styled.div`
     position:absolute;
     top: 0px;
     right:-10px;
-    background-color: rgba(209, 0, 104, 0.7);
+    background-color: #fff;
     font-size: 10px;
     margin: 0 10px;
     padding: 5px 10px;
-    font-family: 'Poppins';
+
 
     border-radius:  0 0 0 10px;
     cursor: pointer;
@@ -42,8 +42,8 @@ export const PostPreview = styled.div`
     span {
       
   
-      font-size: 16px;
-      color:#fff;
+      font-size: 14px;
+      color:#0984e3;
       font-weight: 900;       
     }
   }
