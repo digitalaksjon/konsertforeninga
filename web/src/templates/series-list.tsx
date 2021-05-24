@@ -70,12 +70,7 @@ const BlogList = (props: any) => {
             );
           })}
         </PostRow>
-        <Pagination
-          prevLink={PrevLink}
-          nextLink={NextLink}
-          currentPage={`${currentPage}`}
-          totalPage={`${numPages}`}
-        />
+
       </BlogPostsWrapper>
     </Layout>
   );
