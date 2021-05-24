@@ -10,6 +10,7 @@ import series from './documents/series'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 import concert from './documents/concert'
+import background from './documents/background'
 
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
@@ -30,6 +31,7 @@ export default createSchema({
     post,
     series,
     concert,
+    background,
     author,
     mainImage,
     siteSettings,

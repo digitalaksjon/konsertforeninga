@@ -43,6 +43,24 @@ export default () =>
     .title('Content')
     .items([
       S.listItem()
+        .title('Konserter')
+        .icon(MdDescription)
+        .schemaType('concert')
+        .child(S.documentTypeList('concert').title('Konserter')),
+      S.divider(),
+      S.listItem()
+        .title('Konsertserier')
+        .icon(MdLocalOffer)
+        .schemaType('series')
+        .child(S.documentTypeList('series').title('Konsertserier')),
+      S.divider(),
+      S.listItem()
+        .title('Bakgrunner')
+        .icon(MdDescription)
+        .schemaType('background')
+        .child(S.documentTypeList('background').title('Bakgrunner')),
+      S.divider(),
+      S.listItem()
         .title('Settings')
         .icon(MdSettings)
         .child(
@@ -51,21 +69,11 @@ export default () =>
             .schemaType('siteSettings')
             .documentId('siteSettings')
         ),
-      S.divider(),
-      S.listItem()
-        .title('Konserter')
-        .icon(MdDescription)
-        .schemaType('concert')
-        .child(S.documentTypeList('concert').title('Konserter')),
-      S.listItem()
-        .title('Konsertserier')
-        .icon(MdLocalOffer)
-        .schemaType('series')
-        .child(S.documentTypeList('series').title('Konsertserier')),
+
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
-        listItem => !['series', 'concert', 'siteSettings'].includes(listItem.getId())
+        listItem => !['series', 'concert', 'background', 'siteSettings'].includes(listItem.getId())
       )
     ])
