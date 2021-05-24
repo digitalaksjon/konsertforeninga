@@ -94,6 +94,8 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
+
+
     // Create blog posts pages.
     const posts = result.data.posts.edges
 
@@ -108,7 +110,7 @@ exports.createPages = ({ graphql, actions }) => {
           slug: post.node.slug.current,
           previous,
           next,
-          tag: post.node.tags,
+          tag: post.node.tags
         },
       })
     })
@@ -129,7 +131,7 @@ exports.createPages = ({ graphql, actions }) => {
             slug: post.node.slug.current,
             previous,
             next,
-            tag: post.node.tags
+            tag: post.node.tags,
             
           },
         })

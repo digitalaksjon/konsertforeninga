@@ -348,12 +348,12 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: start;
+  align-items: flex-start;
   width: 100%;
 
   div {
 
-    text-align:center;
+ 
     font-family: 'Poppins';
     border-radius: 0 0 5px ;
 
@@ -376,7 +376,6 @@ export const PostMetaWrapper = styled.div`
        
     }
 
-    align-self:start;
     
     @media (max-width: 600px) {
       font-size: 11px;
@@ -385,7 +384,7 @@ export const PostMetaWrapper = styled.div`
       span {
         font-size: 15px;
       }
-      &:nth-of-type(even) {
+      &:nth-of-type(4) {
         margin-left:auto;
       }
     }

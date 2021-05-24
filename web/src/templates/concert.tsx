@@ -85,6 +85,10 @@ const ConcertTemplate = (props: any) => {
   const concertTime = new Date(post.concertDateTime);
   const readableTime = concertTime.getFullDate(date) + " - " + concertTime.getHours() + "."+ concertTime.getFullMinutes()+ " <span>// "+concertTime.getFullYear()+" </span>";
  
+
+
+  console.log(props)
+
   return (
     <Layout>
       <SEO

@@ -4,11 +4,13 @@ import _ from 'lodash';
 import Img from 'gatsby-image';
 import FeaturePost from '../../components/feature-post/feature-post';
 import PromotionImage from '../../images/ad.png';
+
 import {
   SidebarWrapper,
   SidebarWidget,
   WidgetTitle,
-  TagItem,
+  InstagramWrapper,
+  InstagramPhoto
 } from './style';
 
 type SidebarProps = {};
@@ -61,9 +63,8 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
     }
   `);
 
+  
   const Posts = Data.posts.edges;
-  const Tags = Data.posts.group;
-
 
   
 
@@ -119,18 +120,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
             />
           );
         })}
-      </SidebarWidget>
-
-      <SidebarWidget>
-        <WidgetTitle>Tags</WidgetTitle>
-        {Tags.map((tag: any) => (
-          <TagItem key={tag.fieldValue}>
-            <span>#</span>
-            <Link to={`/tags/${_.kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} <span>({tag.totalCount})</span>
-            </Link>
-          </TagItem>
-        ))}
       </SidebarWidget>
 
      
