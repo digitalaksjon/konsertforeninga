@@ -71,19 +71,24 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         initDelay={2} // delay before the first transition (if left at 0, the first image will be skipped initially)
         transition={4} // transition duration between images
         duration={8} // how long an image is shown
+        images={["banner-bg1.jpg", "banner-bg2.jpg", "banner-bg3.jpg", "banner-bg4.jpg", "banner-bg5.jpg", "banner-bg7.jpg"]} 
+
+      // pass down standard element props
         // specify images to include (and their order) according to `relativePath`
         //images={["dog.jpg", "cat.jpg", "giraffe.jpg", "tasmanian devil.jpg", "gabe.jpg"]} 
 
            
         > 
         {/* Captions in sync with background images*/}
-        <CarouselCaptionWrapper>Viviana Vega</CarouselCaptionWrapper>
-        <CarouselCaptionWrapper>Blow Out!</CarouselCaptionWrapper>
-        <CarouselCaptionWrapper>Blårollinger</CarouselCaptionWrapper>
-        <CarouselCaptionWrapper>Femme Brutal</CarouselCaptionWrapper>
-        <CarouselCaptionWrapper>Skrap & Guitars</CarouselCaptionWrapper>
-        <CarouselCaptionWrapper>Ståle Liavik Solberg og John Butcher</CarouselCaptionWrapper>
-        <CarouselCaptionWrapper>Blow Out Festival!</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper><strong>SKRAP & GUITARS </strong><br />Blow Out! 2017</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper><strong>Barre Phillips solo</strong> <br />Blow Out! Festival 2019</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper><strong>Karin Krog  / Ole Morten Vågan / Paal Nilssen Love </strong><br />Blow Out! Festival 2018</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper><strong>???</strong><br />Blårollinger</CarouselCaptionWrapper>
+        
+        <CarouselCaptionWrapper><strong>John Butcher & Ståle Liavik Solberg</strong><br />Blow Out! 2017</CarouselCaptionWrapper>
+        <CarouselCaptionWrapper><strong>???</strong><br />Femme Brutal</CarouselCaptionWrapper>
+        
+        
 
         </BackgroundSlider>
 
