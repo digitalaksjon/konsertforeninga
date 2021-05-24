@@ -134,7 +134,8 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       )}
       <PostMetaWrapper>
         {venue && <div className="venue">STED: <span>{venue}</span></div>}
-        {concertDateTime && <div className="time">TIDSPUNKT: <span>{concertDateTime}</span></div>}
+        {concertDateTime && <div className="time">TIDSPUNKT: <span dangerouslySetInnerHTML={
+          {__html: concertDateTime}}></span></div>}
 
         {price && <div className="price">PRIS: <span>{price}</span></div>}
         {tickets && <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETT</Link></div>}

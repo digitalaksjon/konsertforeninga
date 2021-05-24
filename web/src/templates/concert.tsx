@@ -33,6 +33,7 @@ import {
   PostTags,
   BlogDetailsContent,
 } from './templates.style';
+import { date } from 'yup';
 
 const ConcertTemplate = (props: any) => {
   
@@ -44,8 +45,27 @@ const ConcertTemplate = (props: any) => {
   const slug = post.slug.current;
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
-
+  const date = post.concertDateTime;
   
+  Date.prototype.getMonthName = function() {
+    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
+      "Juli", "August", "September", "Oktober", "November", "Desember"
+    ];
+    return monthNames[this.getMonth()];
+  }
+
+  const dateObject = new Date(date);
+
+  var concertDate = dateObject.getDate();
+  var concertMonth = dateObject.getMonthName(dateObject.getMonth());
+
+
+  var newDate
+  if (date != "NaN")  {
+    newDate = concertDate + `<br><span>` + concertMonth + `</span>`
+  } else {
+    newDate = date
+  }
 
 
   Date.prototype.getFullMinutes = function () {
@@ -55,9 +75,15 @@ const ConcertTemplate = (props: any) => {
     return this.getMinutes();
  };
 
+ Date.prototype.getFullDate = function (dateObject) {
+
+  const newDate = new Date(dateObject)
+  return newDate.getDate()+". "+newDate.getMonthName(newDate.getMonth());
+};
+
 
   const concertTime = new Date(post.concertDateTime);
-  const readableTime = concertTime.getHours() + "." + concertTime.getFullMinutes();
+  const readableTime = concertTime.getFullDate(date) + " - " + concertTime.getHours() + "."+ concertTime.getFullMinutes()+ " <span>// "+concertTime.getFullYear()+" </span>";
  
   return (
     <Layout>

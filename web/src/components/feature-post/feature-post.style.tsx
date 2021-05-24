@@ -8,7 +8,7 @@ export const FeaturedPostWrapper = styled.div`
   &:hover {
     .post_preview {
       > a {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
     }
   }
@@ -21,6 +21,9 @@ export const PostPreview = styled.div`
   overflow: hidden;
   img {
     filter: grayscale(100%);
+    &:hover {
+      filter:unset;
+    }
   }
   @media (max-width: 990px) {
     flex: 0 0 60px;
@@ -28,7 +31,7 @@ export const PostPreview = styled.div`
   > a {
     display: block;
     transition: 0.15s ease-in-out;
-    transform-origin: top left;
+    transform-origin: bottom left;
   }
 `;
 
@@ -66,23 +69,15 @@ export const PostMeta = styled.div`
 `;
 
 export const PostDate = styled.div`
-  position: absolute;
-  width: 30px;
+  width: 100%;
   height: 30px;
-  top: 55px;
-  left: 55px;
-  @media (max-width: 475px) {
-    position:absolute;
-    left:40px;
-    top:-5px;
-  
-  }
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
-  border-radius: 6px;
+  border-radius: 0 0 6px 6px;
+  
   font-size: 14px;
   font-weight: bold;
   line-height: 1;

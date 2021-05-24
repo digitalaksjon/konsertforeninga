@@ -107,6 +107,9 @@ export const PostPreview = styled.div`
   img {
     border-radius: 3px;
     filter: grayscale(100%);
+    &:hover {
+      filter: unset;
+    }
   }
 
   &:before {
@@ -367,7 +370,9 @@ export const PostMetaWrapper = styled.div`
       font-size: 16px;
       color:#D10068;
       font-weight: 600;
-
+      span {
+        color: #222;
+      }
        
     }
 
@@ -411,14 +416,14 @@ export const PostMetaWrapper = styled.div`
       font-weight: bold;
       align-self: self-end;
       cursor: pointer;
-      &:hover {
-        padding: 4px 0;
-        transition: padding 0.5s ease-in-out;
-
-      }      
     
     }
-    border-radius: 0 0 0 10px;
+    &:hover {
+      transform:scale(1.1);
+      transition: all 0.5s ease-in-out;
+
+    }      
+  border-radius: 0 10px 0 10px;
 
   }
 `;
