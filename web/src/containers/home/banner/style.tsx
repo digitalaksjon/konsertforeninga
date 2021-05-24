@@ -100,4 +100,8 @@ export const CarouselCaptionWrapper = styled.div`
   opacity: 0.8;
   right: 100px;
   bottom:100px;
+
+  @media (max-width: 600px) {
+    display:none;
+  }
 `;
