@@ -129,8 +129,7 @@ exports.createPages = ({ graphql, actions }) => {
             slug: post.node.slug.current,
             previous,
             next,
-            tag: post.node.tags,
-            currentDate: getCurrentDate()
+            tag: post.node.tags
             
           },
         })
