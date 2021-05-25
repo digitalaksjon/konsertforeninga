@@ -13,13 +13,13 @@ export default {
               sites: [
                 {
                   buildHookId: '600ee742ad07d4ea04cec520',
-                  title: 'Sanity Studio',
+                  title: 'Konsertforeninga Studio',
                   name: 'konsertforeninga-studio',
                   apiId: '14e257b5-5079-45f4-bfb6-32474555b2b9'
                 },
                 {
                   buildHookId: '600ee742d04e2ff18e12771b',
-                  title: 'Blog Website',
+                  title: 'Nettisde',
                   name: 'konsertforeninga',
                   apiId: '461be2c7-8e92-4d12-8120-85350265d64f'
                 }
