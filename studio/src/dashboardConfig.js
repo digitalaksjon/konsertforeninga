@@ -19,7 +19,7 @@ export default {
                 },
                 {
                   buildHookId: '600ee742d04e2ff18e12771b',
-                  title: 'Nettisde',
+                  title: 'Konsertforeninga Nettside',
                   name: 'konsertforeninga',
                   apiId: '461be2c7-8e92-4d12-8120-85350265d64f'
                 }
