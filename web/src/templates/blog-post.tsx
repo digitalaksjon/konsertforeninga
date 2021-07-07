@@ -8,7 +8,7 @@ import PostCard from '../components/post-card/post-card';
 import PostDetails from '../components/post-details/post-details';
 import Sidebar from '../containers/sidebar';
 
-
+import { Document } from 'react-pdf';
 
 import {
   FacebookShareButton,
@@ -35,7 +35,7 @@ import {
 } from './templates.style';
 
 const BlogPostTemplate = (props: any) => {
-  
+
   const post = props.data.sanityPost;
   const { edges } = props.data.posts;
   const title = post.title;
@@ -67,6 +67,12 @@ const BlogPostTemplate = (props: any) => {
             description={post._rawBody}
           />
 
+          <Document
+            file="somefile.pdf"
+
+          >
+
+          </Document>
           <BlogPostFooter>
             {post.tags == null ? null : (
               <PostTags className="post_tags">
@@ -124,7 +130,7 @@ const BlogPostTemplate = (props: any) => {
               ];
               const setColor =
                 placeholderColors[
-                  Math.floor(Math.random() * placeholderColors.length)
+                Math.floor(Math.random() * placeholderColors.length)
                 ];
               return (
                 <RelatedPostItem key={node.slug.current}>
