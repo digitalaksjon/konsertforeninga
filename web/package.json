@@ -16,6 +16,7 @@
     "npm": ">=7.0.0"
   },
   "browser": {
+    "fs": false,
     "zlib": false
   },
   "devDependencies": {
@@ -62,6 +63,7 @@
     "@styled-system/theme-get": "^5.1.2",
     "axios": "^0.20.0",
     "babel-plugin-styled-components": "^1.11.1",
+    "canvas": "^2.8.0",
     "disqus-react": "^1.0.10",
     "formik": "^2.1.5",
     "gatsby": "^2.24.57",

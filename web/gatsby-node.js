@@ -262,7 +262,7 @@ exports.onCreateWebpackConfig = ({ getConfig, stage, loaders, actions }) => {
       'react-dom': '@hot-loader/react-dom',
     }
   }
-  if (stage.startsWith('production') && config.resolve) {
+  if (stage.startsWith('build') && config.resolve) {
     actions.setWebpackConfig({
       module: {
         rules: [
