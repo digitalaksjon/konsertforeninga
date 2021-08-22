@@ -36,7 +36,7 @@ import {
 import { date } from 'yup';
 
 const ConcertTemplate = (props: any) => {
-  
+
   const post = props.data.sanityConcert;
   const { edges } = props.data.concerts;
   const title = post.title;
@@ -46,8 +46,8 @@ const ConcertTemplate = (props: any) => {
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
   const date = post.concertDateTime;
-  
-  Date.prototype.getMonthName = function() {
+
+  Date.prototype.getMonthName = function () {
     var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
       "Juli", "August", "September", "Oktober", "November", "Desember"
     ];
@@ -61,7 +61,7 @@ const ConcertTemplate = (props: any) => {
 
 
   var newDate
-  if (date != "NaN")  {
+  if (date != "NaN") {
     newDate = concertDate + `<br><span>` + concertMonth + `</span>`
   } else {
     newDate = date
@@ -70,21 +70,28 @@ const ConcertTemplate = (props: any) => {
 
   Date.prototype.getFullMinutes = function () {
     if (this.getMinutes() < 10) {
-        return '0' + this.getMinutes();
+      return '0' + this.getMinutes();
     }
     return this.getMinutes();
- };
+  };
 
- Date.prototype.getFullDate = function (dateObject) {
+  Date.prototype.getFullDate = function (dateObject) {
 
-  const newDate = new Date(dateObject)
-  return newDate.getDate()+". "+newDate.getMonthName(newDate.getMonth());
-};
+    const newDate = new Date(dateObject)
+    return newDate.getDate() + ". " + newDate.getMonthName(newDate.getMonth());
+  };
 
 
   const concertTime = new Date(post.concertDateTime);
-  const readableTime = concertTime.getFullDate(date) + " - " + concertTime.getHours() + "."+ concertTime.getFullMinutes()+ " <span>// "+concertTime.getFullYear()+" </span>";
- 
+  var readableTime = "";
+
+  if (concertTime.getFullYear() < 2021) {
+    readableTime = concertTime.getFullDate(date) + " - " + concertTime.getHours() + "." + concertTime.getFullMinutes() + " <span>// " + concertTime.getFullYear() + " </span>";
+
+  } else {
+    readableTime = concertTime.getFullDate(date) + " - " + concertTime.getHours() + "." + concertTime.getFullMinutes();
+  }
+
 
 
   console.log(props)
@@ -104,7 +111,7 @@ const ConcertTemplate = (props: any) => {
             venue={post.venue}
             tickets={post.ticketURL}
             price={post.price}
-            series={post.series[0].title ? post.series[0].title: ""}
+            series={post.series[0].title ? post.series[0].title : ""}
             concertDateTime={readableTime}
             preview={
               post.mainImage == null
@@ -171,7 +178,7 @@ const ConcertTemplate = (props: any) => {
               ];
               const setColor =
                 placeholderColors[
-                  Math.floor(Math.random() * placeholderColors.length)
+                Math.floor(Math.random() * placeholderColors.length)
                 ];
               return (
                 <RelatedPostItem key={node.slug.current}>

@@ -57,8 +57,8 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
     addClass.push(className);
   }
 
-  
-  Date.prototype.getMonthName = function() {
+
+  Date.prototype.getMonthName = function () {
     var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
       "Juli", "August", "September", "Oktober", "November", "Desember"
     ];
@@ -73,7 +73,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
 
 
   var newDate
-  if (date != "NaN")  {
+  if (date != "NaN") {
     newDate = concertDate + `<br><span>` + concertMonth + `</span>`
   } else {
     newDate = date
@@ -111,7 +111,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       {imagePosition == 'top' ? (
         <>
           <PostTitle>{title}</PostTitle>
- 
+
         </>
       ) : (
         ''
@@ -123,9 +123,9 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
             <PostPreview className="post_preview">
               <Img fluid={preview} alt={title} backgroundColor={setColor} />
               {newDate != "NaN" &&
-                  <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate}} /></PostDate>  
+                <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate }} /></PostDate>
               }
-                    {series && <div className="series">SERIE:<span>{series}</span></div>}
+              {series && <div className="series"><span>{series}</span></div>}
             </PostPreview>
           )}
         </>
@@ -135,14 +135,14 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       <PostMetaWrapper>
         {venue && <div className="venue">STED: <span>{venue}</span></div>}
         {concertDateTime && <div className="time">TIDSPUNKT: <span dangerouslySetInnerHTML={
-          {__html: concertDateTime}}></span></div>}
+          { __html: concertDateTime }}></span></div>}
 
         {price && <div className="price">PRIS: <span>{price}</span></div>}
         {tickets && <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETT</Link></div>}
-        
+
       </PostMetaWrapper>
 
-      
+
       <PostDescriptionWrapper className="post_des_wrapper">
         {imagePosition == 'left' ? (
           <>
@@ -153,10 +153,10 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
           ''
         )}
         <PostDescription>
-        {description && <PortableText blocks={description} className="post_des" />}
+          {description && <PortableText blocks={description} className="post_des" />}
 
         </PostDescription>
-    
+
       </PostDescriptionWrapper>
     </PostDetailsWrapper>
   );

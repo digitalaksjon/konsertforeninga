@@ -27,7 +27,7 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
         <Newsletter />
         <Footer>
           Copyright &copy; {new Date().getFullYear()}
-          <a href="https://www.digitalaksjon.no/"> Digital Aksjon</a>
+          <a href="https://www.konsertforeninga.no/"> Konsertforeninga</a>
         </Footer>
         <ScrollToTop
           showUnder={300}

@@ -40,6 +40,11 @@ export default {
         'This ends up on summary pages, on Google, when people share your post in social media.'
     },
     {
+      title: 'Legg ved en PDF',
+      name: 'filePDF',
+      type: 'file'
+    },
+    {
       name: 'authors',
       title: 'Authors',
       type: 'array',

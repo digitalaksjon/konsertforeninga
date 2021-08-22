@@ -1,5 +1,5 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby';
+import React, { useState } from 'react';
+import { graphql, Link, withPrefix } from 'gatsby';
 import _ from 'lodash';
 import urljoin from 'url-join';
 import Layout from '../components/layout';
@@ -8,7 +8,9 @@ import PostCard from '../components/post-card/post-card';
 import PostDetails from '../components/post-details/post-details';
 import Sidebar from '../containers/sidebar';
 
-import { Document } from 'react-pdf';
+import { Worker, Viewer } from '@react-pdf-viewer/core';
+import '@react-pdf-viewer/core/lib/styles/index.css';
+
 
 import {
   FacebookShareButton,
@@ -34,6 +36,13 @@ import {
   BlogDetailsContent,
 } from './templates.style';
 
+
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
+
+// Import styles
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+
+
 const BlogPostTemplate = (props: any) => {
 
   const post = props.data.sanityPost;
@@ -44,6 +53,8 @@ const BlogPostTemplate = (props: any) => {
   const slug = post.slug.current;
   const siteUrl = props.data.site.siteUrl;
   const shareUrl = urljoin(siteUrl, slug);
+
+  const defaultLayoutPluginInstance = defaultLayoutPlugin();
 
   return (
     <Layout>
@@ -67,12 +78,19 @@ const BlogPostTemplate = (props: any) => {
             description={post._rawBody}
           />
 
-          <Document
-            file="somefile.pdf"
+          {post.filePDF &&
+            <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.6.347/build/pdf.worker.min.js">
+              <div
+                style={{
+                  border: '1px solid rgba(0, 0, 0, 0.3)',
+                  height: '750px',
+                }}
+              >
+                <Viewer fileUrl={post.filePDF.asset.url} plugins={[defaultLayoutPluginInstance]} />
+              </div>
+            </Worker>
+          }
 
-          >
-
-          </Document>
           <BlogPostFooter>
             {post.tags == null ? null : (
               <PostTags className="post_tags">
@@ -110,49 +128,51 @@ const BlogPostTemplate = (props: any) => {
         <Sidebar />
       </BlogPostDetailsWrapper>
 
-      {edges.length !== 0 && (
-        <RelatedPostWrapper>
-          <RelatedPostTitle>Relaterte Konserter</RelatedPostTitle>
-          <RelatedPostItems>
-            {edges.map(({ node }: any) => {
-              // Random Placeholder Color
-              const placeholderColors = [
-                '#55efc4',
-                '#81ecec',
-                '#74b9ff',
-                '#a29bfe',
-                '#ffeaa7',
-                '#fab1a0',
-                '#e17055',
-                '#0984e3',
-                '#badc58',
-                '#c7ecee',
-              ];
-              const setColor =
-                placeholderColors[
-                Math.floor(Math.random() * placeholderColors.length)
+      {
+        edges.length !== 0 && (
+          <RelatedPostWrapper>
+            <RelatedPostTitle>Relaterte Konserter</RelatedPostTitle>
+            <RelatedPostItems>
+              {edges.map(({ node }: any) => {
+                // Random Placeholder Color
+                const placeholderColors = [
+                  '#55efc4',
+                  '#81ecec',
+                  '#74b9ff',
+                  '#a29bfe',
+                  '#ffeaa7',
+                  '#fab1a0',
+                  '#e17055',
+                  '#0984e3',
+                  '#badc58',
+                  '#c7ecee',
                 ];
-              return (
-                <RelatedPostItem key={node.slug.current}>
-                  <PostCard
-                    title={node.title || node.slug.current}
-                    url={node.slug.current}
-                    date={node.publishedAt}
-                    image={
-                      node.mainImage == null
-                        ? null
-                        : node.mainImage.asset.fluid
-                    }
-                    tags={node.tags}
-                    placeholderBG={setColor}
-                  />
-                </RelatedPostItem>
-              );
-            })}
-          </RelatedPostItems>
-        </RelatedPostWrapper>
-      )}
-    </Layout>
+                const setColor =
+                  placeholderColors[
+                  Math.floor(Math.random() * placeholderColors.length)
+                  ];
+                return (
+                  <RelatedPostItem key={node.slug.current}>
+                    <PostCard
+                      title={node.title || node.slug.current}
+                      url={node.slug.current}
+                      date={node.publishedAt}
+                      image={
+                        node.mainImage == null
+                          ? null
+                          : node.mainImage.asset.fluid
+                      }
+                      tags={node.tags}
+                      placeholderBG={setColor}
+                    />
+                  </RelatedPostItem>
+                );
+              })}
+            </RelatedPostItems>
+          </RelatedPostWrapper>
+        )
+      }
+    </Layout >
   );
 };
 
@@ -188,6 +208,11 @@ export const pageQuery = graphql`
           }
         }
         title
+        filePDF {
+          asset {
+            url
+          }
+        }
         _rawExcerpt
         _rawBody
         slug {
@@ -211,6 +236,11 @@ export const pageQuery = graphql`
           id
           tags
           publishedAt
+          filePDF {
+            asset {
+              url
+            }
+          }
           featuredImage {
             asset {
             
