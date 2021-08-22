@@ -254,7 +254,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 }
 
 // for React-Hot-Loader: react-🔥-dom patch is not detected
-exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
+exports.onCreateWebpackConfig = ({ getConfig, stage, loaders, actions }) => {
   const config = getConfig()
   if (stage.startsWith('develop') && config.resolve) {
     config.resolve.alias = {
@@ -262,4 +262,18 @@ exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
       'react-dom': '@hot-loader/react-dom',
     }
   }
+  if (stage.startsWith('production') && config.resolve) {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /canvas/,
+            use: loaders.null()          },
+        ]
+      }
+    })
+  }
+
 }
+
+
