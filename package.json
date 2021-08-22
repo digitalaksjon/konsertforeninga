@@ -5,6 +5,9 @@
   "engines": {
     "node": ">=15.4.0",
     "npm": ">=7.0.0"
+  },  
+  "browser": {
+    "zlib": false
   },
   "scripts": {
     "build": "lerna run build --parallel",
