@@ -132,7 +132,7 @@ const ConcertTemplate = (props: any) => {
               </PostTags>
             )}
             <PostShare>
-              <span>Share This:</span>
+              <span>Del denne konserten:</span>
               <FacebookShareButton url={shareUrl} quote={post._rawExcerpt}>
                 <IoLogoFacebook />
               </FacebookShareButton>

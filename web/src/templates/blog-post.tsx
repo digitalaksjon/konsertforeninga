@@ -102,7 +102,7 @@ const BlogPostTemplate = (props: any) => {
               </PostTags>
             )}
             <PostShare>
-              <span>Share This:</span>
+              <span>Del dette:</span>
               <FacebookShareButton url={shareUrl} quote={post._rawExcerpt}>
                 <IoLogoFacebook />
               </FacebookShareButton>
@@ -131,7 +131,7 @@ const BlogPostTemplate = (props: any) => {
       {
         edges.length !== 0 && (
           <RelatedPostWrapper>
-            <RelatedPostTitle>Relaterte Konserter</RelatedPostTitle>
+            <RelatedPostTitle>Relaterte Nyheter</RelatedPostTitle>
             <RelatedPostItems>
               {edges.map(({ node }: any) => {
                 // Random Placeholder Color
