@@ -66,17 +66,17 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
     placeholderColors[Math.floor(Math.random() * placeholderColors.length)];
 
 
-  Date.prototype.getMonthName = function() {
+  Date.prototype.getMonthName = function () {
     var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
       "Juli", "August", "September", "Oktober", "November", "Desember"
     ];
     return monthNames[this.getMonth()];
   }
-  
+
 
 
   const dateObject = new Date(date);
-  
+
   return (
     <PostCardModernWrapper className={addAllClasses.join(' ')} {...props}>
       {image == null ? null : (
@@ -84,42 +84,42 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
           <Link to={url}>
 
 
-          {image.asset
-            && (
-              <Image
-            
-              fluid={image.asset.fluid}
-              alt={title}
-              backgroundColor={setColor}
-  
-            />  )
-            
-          }
-          
-          
-        
+            {image.asset
+              && (
+                <Image
+
+                  fluid={image.asset.fluid}
+                  alt={title}
+                  backgroundColor={setColor}
+
+                />)
+
+            }
+
+
+
           </Link>
-          {series && <div className="series" >SERIE:<span>{series}</span></div>}
+          {series && <div className="series" ><span>{series}</span></div>}
           {date && (
             <PostDate
               dangerouslySetInnerHTML={{
-                __html: dateObject.getDate() + "<span>"+ dateObject.getMonthName() + "</span>",
+                __html: dateObject.getDate() + "<span>" + dateObject.getMonthName() + "</span>",
               }}
               className="post_date"
             />
           )}
-      
+
         </PostPreview>
       )}
-      
+
       <PostDetails className="post_details">
-  
+
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
-        
+
         {excerpt && <PortableText blocks={excerpt[0]} />}
-       
+
       </PostDetails>
     </PostCardModernWrapper>
   );
