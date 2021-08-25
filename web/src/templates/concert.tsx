@@ -100,7 +100,7 @@ const ConcertTemplate = (props: any) => {
     <Layout>
       <SEO
         title={title}
-        description={post._rawExcerpt}
+        description={post._rawBody}
         metaImage={post.mainImage.asset.fluid}
       />
       <BlogPostDetailsWrapper>

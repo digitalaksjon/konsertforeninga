@@ -32,16 +32,16 @@ export const BannerWrapper = styled.div`
 
 export const IllustrationWrapper = styled.div`
 
-    margin: auto;
-    width: 250px;
+    margin: 0 auto;
+
     img {
-      max-width: 250px;
+      max-width: 100%;
     }
 
     @media (min-width: 991px) {
-      width: 700px;
+      width: 600px;
       img {
-        max-width: 700px;
+        max-width: 600px;
       }
   
     }
