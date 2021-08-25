@@ -63,27 +63,24 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
     }
   `);
 
-  
+
   const Posts = Data.posts.edges;
 
-  
+
 
   return (
     <SidebarWrapper>
       <SidebarWidget>
-        <a
-          href="https://1.envato.market/r1jdv"
-          aria-label="Get StoryHub"
-          target="_blank"
-        >
-          <img src={PromotionImage} alt="Get StoryHub" />
-        </a>
+        <div className="promoImage">
+          <img src={PromotionImage} alt="Bli medlem i Konsertforeninga" />
+
+        </div>
       </SidebarWidget>
 
       <SidebarWidget>
         <WidgetTitle>Nytt fra foreninga</WidgetTitle>
         {Posts.map(({ node }: any) => {
-          
+
           const title = node.title || node.slug.current;
           // Random Placeholder Color
           const placeholderColors = [
@@ -100,10 +97,10 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
           ];
           const setColor =
             placeholderColors[
-              Math.floor(Math.random() * placeholderColors.length)
+            Math.floor(Math.random() * placeholderColors.length)
             ];
 
-            console.log(node.slug.current)
+          console.log(node.slug.current)
 
           return (
             <FeaturePost
@@ -114,7 +111,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
                   ? null
                   : node.featuredImage.asset.fluid
               }
-              url={"/"+node.slug.current}
+              url={"/" + node.slug.current}
               tags={node.tags}
               placeholderBG={setColor}
             />
@@ -122,7 +119,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
         })}
       </SidebarWidget>
 
-     
+
     </SidebarWrapper>
   );
 };

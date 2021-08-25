@@ -5,7 +5,7 @@ import NewsletterBG from '../../images/newsletter-bg.png';
 export const NewsletterWrapper = styled.div`
   margin: 0 auto;
   padding: 30px;
-  background-color: #f3f3f3;
+  background-color: #fff;
   background-image: url(${NewsletterBG});
   background-size: cover;
   background-position: center;

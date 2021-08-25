@@ -21,6 +21,7 @@ interface PostCardModernProps {
   url: string;
   series?: string;
   date?: string;
+  key?: string;
   tags?: [];
   className?: string;
   imageType?: 'fixed' | 'fluid';
@@ -32,6 +33,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
   title,
   excerpt,
   url,
+  key,
   date,
   tags,
   series,

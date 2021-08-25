@@ -18,10 +18,10 @@ export const PostPreview = styled.div`
     content: '';
     position: absolute;
     width: 80%;
-    height: 80%;
+    height: 100%;
     background-color: #757575;
     bottom: 0;
-    left: 10%;
+    left: 5%;
     filter: blur(15px);
   }
 

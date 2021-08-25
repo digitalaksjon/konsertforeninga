@@ -46,6 +46,10 @@ export const SidebarWidget = styled.div`
       filter: grayscale(100%);
     }
   }
+  
+  .promoImage:hover {
+    filter: drop-shadow(4px 4px 4px #292929);
+  }
 
   .featured_post {
     margin-bottom: 30px;

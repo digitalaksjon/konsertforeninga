@@ -107,7 +107,7 @@ const ResetCSS = createGlobalStyle`
   }
 
   table tr {
-    background-color: #fff;
+    background-color: #e6e6e6;
     border-top: 1px solid #c6cbd1;
   }
 

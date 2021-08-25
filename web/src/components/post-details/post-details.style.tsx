@@ -143,7 +143,7 @@ export const PostPreview = styled.div`
       margin-left: 5px;
       font-size: 16px;
       color:#D10068;
-      font-weight: 600;
+      font-weight: 500;
     }
     
     @media (max-width: 600px) {
@@ -333,16 +333,16 @@ export const PostTags = styled.div`
 `;
 // Random Placeholder Color
 const placeholderColors = [
-'#55efc4',
-'#81ecec',
-'#74b9ff',
-'#a29bfe',
-'#ffeaa7',
-'#fab1a0',
-'#e17055',
-'#74b9ff',
-'#badc58',
-'#c7ecee',
+  '#55efc4',
+  '#81ecec',
+  '#74b9ff',
+  '#a29bfe',
+  '#ffeaa7',
+  '#fab1a0',
+  '#e17055',
+  '#74b9ff',
+  '#badc58',
+  '#c7ecee',
 ];
 
 export const PostMetaWrapper = styled.div`
@@ -369,7 +369,7 @@ export const PostMetaWrapper = styled.div`
       margin-left: 5px;
       font-size: 16px;
       color:#D10068;
-      font-weight: 600;
+      font-weight: 500;
       span {
         color: #222;
       }
@@ -407,7 +407,9 @@ export const PostMetaWrapper = styled.div`
     background-color: #D10068;
     justify-self:flex-end;
     margin-left: auto;
+    padding: 10px;
     box-shadow: 2px 2px 5px #111;
+    
     a {
       margin: 0;
       text-align: center;
@@ -422,7 +424,7 @@ export const PostMetaWrapper = styled.div`
       transition: all 0.5s ease-in-out;
 
     }      
-  border-radius: 0 10px 0 10px;
+  
 
   }
 `;

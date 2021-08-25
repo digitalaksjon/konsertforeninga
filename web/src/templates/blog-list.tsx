@@ -18,7 +18,7 @@ const BlogList = (props: any) => {
   const PrevLink = !isFirst && prevPage;
   const NextLink = !isLast && nextPage;
 
-  
+
 
   return (
     <Layout>
@@ -29,7 +29,7 @@ const BlogList = (props: any) => {
           {Posts.map(({ node }: any) => {
 
 
-            const postURL = "/" +node.slug.current;
+            const postURL = "/" + node.slug.current;
 
             // Random Placeholder Color
             const placeholderColors = [
@@ -46,8 +46,12 @@ const BlogList = (props: any) => {
             ];
             const setColor =
               placeholderColors[
-                Math.floor(Math.random() * placeholderColors.length)
+              Math.floor(Math.random() * placeholderColors.length)
               ];
+
+
+
+
 
             return (
               <PostGrid>
@@ -61,7 +65,7 @@ const BlogList = (props: any) => {
                   }
                   url={postURL}
                   series={node.series[0].title}
-                  excerpt={node._rawExcerpt|| node._rawExcerpt}
+                  excerpt={node._rawExcerpt || node._rawExcerpt}
                   date={node.concertDateTime}
                   tags={node.tags}
                   placeholderBG={setColor}

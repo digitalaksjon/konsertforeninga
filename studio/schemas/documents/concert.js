@@ -39,6 +39,7 @@ export default {
       name: 'series',
       type: 'array',
       title: 'Konsertserie',
+      validation: Rule => Rule.required(),
       of: [
         {
           type: 'reference',

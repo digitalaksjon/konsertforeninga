@@ -1,7 +1,7 @@
 const colors = {
   transparent: "transparent", // 0
   black: "#292929", // 1
-  white: "#ffffff", // 2
+  white: "#E6E6E6", // 2
   textColor: "#292929", // 3
   lightTextColor: "#757575", // 4
   inactiveField: "#F7F7F7", // 5
