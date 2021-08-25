@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { BannerWrapper, BannerInner, FeaturePosts, Title, CarouselCaptionWrapper, IllustrationWrapper } from './style';
 import BackgroundSlider from 'gatsby-image-background-slider';
 import Img from 'gatsby-image';
-import KFLogo from '../../../images/logomedillustrasjon2.png';
+import KFLogo from '../../../images/logomedillustrasjon.png';
 
 type BannerProps = {};
 
@@ -40,7 +40,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
           initDelay={2} // delay before the first transition (if left at 0, the first image will be skipped initially)
           transition={4} // transition duration between images
           duration={8} // how long an image is shown
-          images={["banner-bg1.jpg", "banner-bg2.jpg", "banner-bg3.jpg", "banner-bg4.jpg", "banner-bg5.jpg", "banner-bg7.jpg"]}
+          images={["banner-bg1.jpg", "banner-bg2.jpg", "banner-bg3.jpg", "banner-bg4.jpg", "banner-bg5.jpg", "banner-bg6.jpg", "banner-bg7.jpg", "banner-bg8.jpg"]}
 
         // pass down standard element props
         // specify images to include (and their order) according to `relativePath`
@@ -52,10 +52,10 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
           <CarouselCaptionWrapper><strong>SKRAP & GUITARS </strong><br />Blow Out! 2017</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>BARRE PHILIPS SOLO</strong> <br />Blow Out! Festival 2019</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>KARIN KROG  / OLE MORTEN VÅGAN / PAAL NILSSEN LOVE </strong><br />Blow Out! Festival 2018</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>BLÅROLLINGER</strong></CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>HARPETUSSA</strong><br />Blårollinger</CarouselCaptionWrapper>
 
           <CarouselCaptionWrapper><strong>JOHN BUTCHER & STÅLE LIAVIK SOLBERG</strong><br />Blow Out! 2017</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>FEMME BRUTAL</strong><br /></CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>FEMME BRUTAL</strong><br />Femme Brutal Festival 2015<br /></CarouselCaptionWrapper>
 
 
 
