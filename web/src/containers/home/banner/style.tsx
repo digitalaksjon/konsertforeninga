@@ -29,12 +29,33 @@ export const BannerWrapper = styled.div`
   }
 `;
 
+
+export const IllustrationWrapper = styled.div`
+
+    margin: auto;
+    width: 250px;
+    img {
+      max-width: 250px;
+    }
+
+    @media (min-width: 991px) {
+      width: 900px;
+      img {
+        max-width: 900px;
+      }
+  
+    }
+        
+`;
+
 export const BannerInner = styled.div`
   margin: 0 auto;
   width: 100%;
 
   @media (min-width: 991px) {
     width: 900px;
+    }
+        
   }
   @media (min-width: 1200px) {
     width: 1170px;

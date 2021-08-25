@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { BannerWrapper, BannerInner, FeaturePosts, Title, CarouselCaptionWrapper } from './style';
+import { BannerWrapper, BannerInner, FeaturePosts, Title, CarouselCaptionWrapper, IllustrationWrapper } from './style';
 import BackgroundSlider from 'gatsby-image-background-slider';
 import Img from 'gatsby-image';
 import KFLogo from '../../../images/logomedillustrasjon.png';
@@ -61,9 +61,9 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
 
         </BackgroundSlider>
 
-        <div style={{ maxWidth: '800px', margin: 'auto' }}>
-          <img src={KFLogo} alt="Konsertforeninga illustrasjon" style={{ maxWidth: '800px' }} />
-        </div>
+        <IllustrationWrapper>
+          <img src={KFLogo} alt="Konsertforeninga illustrasjon" />
+        </IllustrationWrapper>
 
       </BannerInner>
     </BannerWrapper>
