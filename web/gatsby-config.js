@@ -187,7 +187,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint: process.env.MAILCHIMP_ENDPOINT, // add your MC list endpoint here; see instructions below
+        endpoint: "https://konsertforeninga.us6.list-manage.com/subscribe/post?u=f6e56758bcf921e7745b845cb&id=377ebe8f70" // add your MC list endpoint here; see instructions below
       },
     },
 

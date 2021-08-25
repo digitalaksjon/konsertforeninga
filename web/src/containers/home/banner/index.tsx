@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import { BannerWrapper, BannerInner, FeaturePosts, Title, CarouselCaptionWrapper, IllustrationWrapper } from './style';
 import BackgroundSlider from 'gatsby-image-background-slider';
 import Img from 'gatsby-image';
-import KFLogo from '../../../images/logomedillustrasjon.png';
+import KFLogo from '../../../images/logomedillustrasjon2.png';
 
 type BannerProps = {};
 
@@ -39,7 +39,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
           query={Data}
           initDelay={2} // delay before the first transition (if left at 0, the first image will be skipped initially)
           transition={4} // transition duration between images
-          duration={10} // how long an image is shown
+          duration={8} // how long an image is shown
           images={["banner-bg1.jpg", "banner-bg2.jpg", "banner-bg3.jpg", "banner-bg4.jpg", "banner-bg5.jpg", "banner-bg7.jpg"]}
 
         // pass down standard element props

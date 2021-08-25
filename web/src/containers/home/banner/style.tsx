@@ -39,9 +39,9 @@ export const IllustrationWrapper = styled.div`
     }
 
     @media (min-width: 991px) {
-      width: 900px;
+      width: 700px;
       img {
-        max-width: 900px;
+        max-width: 700px;
       }
   
     }
