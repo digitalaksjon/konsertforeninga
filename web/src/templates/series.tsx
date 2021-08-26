@@ -53,7 +53,7 @@ const ConcertTemplate = (props: any) => {
       <SEO
         title={title}
         description="En serie fra Konsertforeninga"
-        metaImage={post.mainImage}
+        metaImage={post.mainImage.asset.url}
       />
       <BlogPostDetailsWrapper>
         <BlogDetailsContent>

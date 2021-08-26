@@ -104,15 +104,6 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
             </Excerpt>
           )}
 
-          {tags == null ? null : (
-            <PostTags className="post_tags">
-              {tags.map((tag: string, index: number) => (
-                <Link key={index} to={`/tags/${_.kebabCase(tag)}/`}>
-                  {`#${tag}`}
-                </Link>
-              ))}
-            </PostTags>
-          )}
         </PostContent>
       </PostDetails>
     </PostCardWrapper>
