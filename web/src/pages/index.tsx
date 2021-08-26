@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import PersonalBlog from '../containers/home';
 import SEO from '../components/seo';
+import ogImage from '../images/ogimage.jpg';
 
 const HomePage = (props: any) => {
   const { data } = props;
@@ -10,7 +11,9 @@ const HomePage = (props: any) => {
   return (
     <Layout>
       <SEO
-        title="Forsiden"
+        title="Konsertforeninga"
+        metaImage={ogImage}
+        description="Konsertforeninga er en helårsarrangør som står for rundt 70 konserter med ny og levende musikk hvert år."
       />
 
       <PersonalBlog />

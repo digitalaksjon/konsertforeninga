@@ -94,14 +94,14 @@ const ConcertTemplate = (props: any) => {
 
 
 
-  console.log(props)
+
 
   return (
     <Layout>
       <SEO
         title={title}
-        description={post._rawBody}
-        metaImage={post.mainImage.asset.fluid}
+        description={post._rawExcerpt}
+        metaImage={post.mainImage.asset.url}
       />
       <BlogPostDetailsWrapper>
         <BlogDetailsContent>
