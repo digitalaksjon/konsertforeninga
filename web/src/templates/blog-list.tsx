@@ -22,7 +22,7 @@ const BlogList = (props: any) => {
 
   return (
     <Layout>
-      <SEO title={`Page ${currentPage}`} />
+      <SEO title={`Konserter ${currentPage}`} />
 
       <BlogPostsWrapper>
         <PostRow>
