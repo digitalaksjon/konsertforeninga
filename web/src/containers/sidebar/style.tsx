@@ -46,9 +46,16 @@ export const SidebarWidget = styled.div`
       filter: grayscale(100%);
     }
   }
+
+  
+
+  .promoImage {
+    transition: all .2s ease-in-out;
+  }
   
   .promoImage:hover {
-    filter: drop-shadow(4px 4px 4px #292929);
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
   }
 
   .featured_post {
