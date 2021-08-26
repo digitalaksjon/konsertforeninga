@@ -55,7 +55,6 @@ export const SidebarWidget = styled.div`
   
   .promoImage:hover {
     transform: scale(1.1);
-    -webkit-transform: scale(1.1);
   }
 
   .featured_post {
