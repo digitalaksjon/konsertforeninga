@@ -33,7 +33,7 @@ export const BannerWrapper = styled.div`
 export const IllustrationWrapper = styled.div`
 
     margin: 0 auto;
-
+    opacity: 0.9;
     img {
       max-width: 100%;
     }
