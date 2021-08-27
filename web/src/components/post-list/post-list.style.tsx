@@ -18,7 +18,7 @@ export const PostListWrapper = styled.div`
 
 export const PostPreview = styled.div`
   flex: 0 0 62px;
-  flex-shrink: 0;
+
   margin-right: 30px;
   border-radius: 3px;
   overflow: hidden;
@@ -37,6 +37,7 @@ export const PostTitle = styled.h1`
   font-weight: 700;
   color: ${themeGet('colors.textColor', '#292929')};
   line-height: 1.53;
+  width: 500px;
   margin-bottom: 12px;
   a {
     color: ${themeGet('colors.textColor', '#292929')};

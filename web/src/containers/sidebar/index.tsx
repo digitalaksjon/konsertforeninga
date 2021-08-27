@@ -100,7 +100,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
             Math.floor(Math.random() * placeholderColors.length)
             ];
 
-          console.log(node.slug.current)
+    
 
           return (
             <FeaturePost
