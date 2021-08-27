@@ -10,7 +10,7 @@ const AboutPage: React.FunctionComponent<AboutPageProps> = () => {
     <Layout>
       <SEO
         title="Om Konsertforeninga"
-        description="StoryHub is a beautiful Gatsby Blog theme designed to showcase your work in style. Perfect for designers, artists, photographers and developers to use for their portfolio website."
+        description="Konsertforeninga er en helårsarrangør som står for rundt 100 konserter med ny og levende musikk hvert år."
       />
 
       <About />
