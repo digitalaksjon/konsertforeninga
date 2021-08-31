@@ -72,14 +72,15 @@ export const IllustrationWrapper = styled.div`
       to   { opacity: 0.9; }
     }
       
+    width: 70%;
     img {
       max-width: 100%;
     }
 
     @media (min-width: 991px) {
-      width: 600px;
+      width: 500px;
       img {
-        max-width: 600px;
+        max-width: 500px;
       }
   
     }
