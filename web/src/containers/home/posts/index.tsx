@@ -72,7 +72,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
 
         {Posts.filter(
           function(date) {            
-            return  new Date(date.node.concertDateTime).valueOf() > new Date().valueOf();
+            return  new Date(date.node.concertDateTime).valueOf() > convertTZ(new Date(), "Europe/Oslo").valueOf();
           }
         ).map(({ node }: any) => {
 
@@ -128,3 +128,7 @@ const Posts: React.FunctionComponent<PostsProps> = () => {
 };
 
 export default Posts;
+
+function convertTZ(date, tzString) {
+  return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+}

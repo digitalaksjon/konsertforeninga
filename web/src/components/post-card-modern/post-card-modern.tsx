@@ -105,7 +105,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
           {date && (
             <PostDate
               dangerouslySetInnerHTML={{
-                __html: dateObject.getDate() + "<span>" + dateObject.getMonthName() + "</span>",
+                __html: dateObject.getDate() + "<span>" + dateObject.getMonthName() + "</span>" ,
               }}
               className="post_date"
             />
