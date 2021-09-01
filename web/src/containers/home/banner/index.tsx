@@ -37,10 +37,10 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <BackgroundSlider
 
           query={Data}
-          initDelay={6} // delay before the first transition (if left at 0, the first image will be skipped initially)
+          initDelay={10} // delay before the first transition (if left at 0, the first image will be skipped initially)
           transition={2} // transition duration between images
-          duration={6} // how long an image is shown
-          images={["banner-bg1.jpg", "banner-bg2.jpg", "banner-bg3.jpg",  "banner-bg5.jpg", "banner-bg6.jpg"]}
+          duration={8} // how long an image is shown
+          images={["banner-bg1.jpg", "banner-b32.jpg", "banner-bg2.jpg",  "banner-bg5.jpg", "banner-bg6.jpg"]}
 
         // pass down standard element props
         // specify images to include (and their order) according to `relativePath`
