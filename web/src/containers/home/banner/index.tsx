@@ -37,9 +37,9 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <BackgroundSlider
 
           query={Data}
-          initDelay={2} // delay before the first transition (if left at 0, the first image will be skipped initially)
-          transition={4} // transition duration between images
-          duration={10} // how long an image is shown
+          initDelay={6} // delay before the first transition (if left at 0, the first image will be skipped initially)
+          transition={2} // transition duration between images
+          duration={6} // how long an image is shown
           images={["banner-bg1.jpg", "banner-bg2.jpg", "banner-bg3.jpg",  "banner-bg5.jpg", "banner-bg6.jpg"]}
 
         // pass down standard element props
@@ -50,10 +50,8 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         >
           {/* Captions in sync with background images*/}
           <CarouselCaptionWrapper><strong>SKRAP & GUITARS </strong><br />Blow Out! 2017</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>BARRE PHILIPS SOLO</strong> <br />Blow Out! Festival 2019</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>KARIN KROG  / OLE MORTEN VÅGAN / PAAL NILSSEN LOVE </strong><br />Blow Out! Festival 2018</CarouselCaptionWrapper>
-
-
+          <CarouselCaptionWrapper><strong>BARRE PHILIPS SOLO</strong> <br />Blow Out! Festival 2019</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>JOHN BUTCHER & STÅLE LIAVIK SOLBERG</strong><br />Blow Out! 2017</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>FEMME BRUTAL</strong><br />Femme Brutal Festival 2015<br /></CarouselCaptionWrapper>
 
