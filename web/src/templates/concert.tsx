@@ -163,7 +163,7 @@ const ConcertTemplate = (props: any) => {
           <RelatedPostTitle>Lignende konserter</RelatedPostTitle>
           <RelatedPostItems>
             {edges.map(({ node }: any) => {
-        
+      
               return (
                 <RelatedPostItem key={node.slug.current}>
                   <PostCard
