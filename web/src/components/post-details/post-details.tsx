@@ -121,7 +121,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         <>
           {preview == null ? null : (
             <PostPreview className="post_preview">
-              <Img fluid={preview} alt={title} backgroundColor={setColor} />
+              <Img fluid={preview} alt={title} />
               {newDate != "NaN" &&
                 <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate }} /></PostDate>
               }

@@ -73,7 +73,7 @@ export const PostDate = styled.div`
   line-height: 0.8;
   pointer-events: none;
   z-index: 1;
-  background-color: rgba(209, 0, 104, 0.9);
+  background-color: rgba(209, 0, 104, 0.9 );
   div {
     > span {
       font-size: 13px;
@@ -119,10 +119,9 @@ export const PostPreview = styled.div`
     position:absolute;
     top: 0px;
     right:-10px;
-    background-color: white;
+
     font-size: 12px;
     margin: 0 10px;
-    opacity: 0.8;
     padding: 5px 10px;
     font-family: 'Poppins';
     color: #000;
@@ -140,7 +139,9 @@ export const PostPreview = styled.div`
     }
     
     @media (max-width: 600px) {
-
+      background-color: white;
+      opacity: 0.8;
+   
       > span {
         font-size: 12px;
       }
