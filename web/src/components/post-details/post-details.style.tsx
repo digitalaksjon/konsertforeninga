@@ -114,7 +114,17 @@ export const PostPreview = styled.div`
     }
   }
 
-
+  &:before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: #757575;
+    bottom: 5%;
+    left: 10%;
+    filter: blur(15px);
+  }
+  
   div.series {
     position:absolute;
     top: 0px;
@@ -122,7 +132,7 @@ export const PostPreview = styled.div`
 
     font-size: 12px;
     margin: 0 10px;
-    padding: 5px 10px;
+    padding: 0px 10px;
     font-family: 'Poppins';
     color: #000;
     
@@ -404,7 +414,7 @@ export const PostMetaWrapper = styled.div`
     margin-right: auto;
     width: 300px;
     padding: 10px;
-    box-shadow: 2px 2px 5px #111;
+
     
     a {
       margin: 0;

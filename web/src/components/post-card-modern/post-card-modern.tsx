@@ -92,7 +92,7 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
 
                   fluid={image.asset.fluid}
                   alt={title}
-                  backgroundColor={setColor}
+     
 
                 />)
 

@@ -12,7 +12,9 @@ export const PostPreview = styled.div`
  
   img {
     position: relative;
-
+    mask-image: url(${require("../../images/mask-inverse.png")});
+    mask-size: cover;
+    
     display: block; 
     border-radius: 3px;
     filter: grayscale(100%);

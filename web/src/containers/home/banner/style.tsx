@@ -75,6 +75,7 @@ export const IllustrationWrapper = styled.div`
     width: 70%;
     img {
       max-width: 100%;
+  
     }
 
     @media (min-width: 991px) {
