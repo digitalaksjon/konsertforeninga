@@ -42,15 +42,21 @@ export const PostTitle = styled.h1`
   a {
     color: ${themeGet('colors.textColor', '#292929')};
   }
+  @media (max-width: 1200px) {
+    font-size: 40px;
+    margin-bottom: 15px;
+  }
   @media (max-width: 990px) {
-    font-size: 16px;
+    font-size: 36px;
     margin-bottom: 10px;
   }
   @media (max-width: 575px) {
-    font-size: 14px;
+    font-size: 28px;
     margin-bottom: 8px;
   }
 `;
+
+
 
 export const PostMeta = styled.div`
   display: flex;

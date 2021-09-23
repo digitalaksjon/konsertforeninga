@@ -25,7 +25,7 @@ export const BannerWrapper = styled.div`
   }
 
   @media (max-width: 767px) {
-    min-height: 300px;
+    min-height: 200px;
     padding: 40px 0;
   }
 `;
@@ -73,13 +73,16 @@ export const IllustrationWrapper = styled.div`
       to   { opacity: 1; }
     }
       
-    width: 70%;
+    width: 50%;
     img {
       max-width: 100%;
     }
 
+
+
     @media (min-width: 991px) {
       width: 500px;
+  
       img {
         max-width: 500px;
       }

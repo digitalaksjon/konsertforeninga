@@ -43,15 +43,15 @@ export const PostTitle = styled.h1`
   line-height: 1.53;
   margin-bottom: 10px;
   @media (max-width: 1200px) {
-    font-size: 26px;
+    font-size: 40px;
     margin-bottom: 15px;
   }
   @media (max-width: 990px) {
-    font-size: 24px;
+    font-size: 36px;
     margin-bottom: 15px;
   }
   @media (max-width: 575px) {
-    font-size: 20px;
+    font-size: 28px;
     margin-bottom: 15px;
   }
 `;

@@ -123,13 +123,16 @@ export const PostTitle = styled.h2`
     color: ${themeGet('colors.textColor', '#292929')};
   }
   @media (max-width: 1200px) {
-    font-size: 20px;
+    font-size: 38px;
+    margin-bottom: 15px;
   }
   @media (max-width: 990px) {
-    font-size: 19px;
+    font-size: 34px;
+    margin-bottom: 10px;
   }
   @media (max-width: 575px) {
-    font-size: 18px;
+    font-size: 24px;
+    margin-bottom: 8px;
   }
 `;
 
