@@ -10,6 +10,7 @@ export const BannerWrapper = styled.div`
   background-position: center;
   min-height: 870px;
   display: flex;
+  
   align-items: center;
   justify-content: center;
 
@@ -36,11 +37,11 @@ export const IllustrationWrapper = styled.div`
     opacity: 1;
 
 
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s; /* Firefox < 16 */
-        -ms-animation: fadein 2s; /* Internet Explorer */
-         -o-animation: fadein 2s; /* Opera < 12.1 */
-            animation: fadein 2s;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s; /* Firefox < 16 */
+        -ms-animation: fadein 1s; /* Internet Explorer */
+         -o-animation: fadein 1s; /* Opera < 12.1 */
+            animation: fadein 1s;
 
 
     @keyframes fadein {
@@ -75,7 +76,6 @@ export const IllustrationWrapper = styled.div`
     width: 70%;
     img {
       max-width: 100%;
-  
     }
 
     @media (min-width: 991px) {

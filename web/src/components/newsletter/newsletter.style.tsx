@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
-import NewsletterBG from '../../images/newsletter-bg.png';
+import NewsletterBG from '../../images/newsletter-bg.jpg';
 
 export const NewsletterWrapper = styled.div`
   margin: 0 auto;
   padding: 30px;
   background-color: #fff;
+
   background-image: url(${NewsletterBG});
   background-size: cover;
   background-position: center;
@@ -45,7 +46,9 @@ export const NewsletterInnerWrapper = styled.div`
 
 export const NewsletterTitle = styled.h1`
   font-size: 30px;
-  color: ${themeGet('colors.textColor', '#292929')};
+  background-color: #111;
+
+  color: #fff;
   font-weight: ${themeGet('fontWeights.6', '700')};
   margin-bottom: 20px;
   font-family: ${themeGet('fontFamily.0', "'Fira Sans',sans-serif")};
@@ -65,8 +68,10 @@ export const NewsletterDescription = styled.p`
   font-size: ${themeGet('fontSizes.3', '15')}px;
   line-height: ${themeGet('lineHeights.text', '2')};
   font-weight: ${themeGet('fontWeights.3', '400')};
-  color: ${themeGet('colors.textColor', '#292929')};
+  color: #fff;
   margin: 0;
+  background-color: #111;
+
   @media (max-width: 1200px) {
     font-size: 14px;
   }
@@ -78,6 +83,8 @@ export const NewsletterDescription = styled.p`
 export const NewsletterInputWrapper = styled.form`
   display: flex;
   align-items: flex-end;
+  background-color: #111;
+
   width: 570px;
   max-width: 100%;
   margin-top: 90px;
@@ -105,10 +112,18 @@ export const NewsletterInputWrapper = styled.form`
         border-width: 0 0 1px 0;
         border-color: ${themeGet('colors.textColor', '#292929')};
         background: transparent;
+        color: #fff;
+        placeholder-color: #fff;
+
       }
+      input::placeholder {
+        color: #fff;
+      }
+
     }
   }
   .button {
+    background-color: #D10068;
     @media (max-width: 575px) {
       width: 100%;
       height: 42px;
@@ -120,9 +135,11 @@ export const ErrorMessage = styled.div`
   width: 570px;
   max-width: 100%;
   margin-top: 10px;
+  background-color: #111;
+
   text-align: justify;
   font-size: 13px;
-
+  color: #fff;
   > span {
     color: #d8000c;
   }
@@ -136,6 +153,9 @@ export const SuccessMessage = styled.div`
   line-height: 1.7;
   text-align: center;
   width: 100%;
+  color: #fff;
+  background-color: #111;
+
 
   @media (max-width: 990px) {
     font-size: 18px;

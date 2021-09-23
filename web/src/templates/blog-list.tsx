@@ -9,6 +9,7 @@ import { BlogPostsWrapper, PostRow, PostGrid } from './templates.style';
 const BlogList = (props: any) => {
   const { data } = props;
   const Posts = data.concerts.edges;
+  const FuturePosts = data.concertsFuture.edges;
   const { currentPage, numPages } = props.pageContext;
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
@@ -25,55 +26,84 @@ const BlogList = (props: any) => {
       <SEO title={`Konserter ${currentPage}`} />
 
       <BlogPostsWrapper>
+        <h1>Kommende konserter</h1>
         <PostRow>
-          {Posts.map(({ node }: any) => {
+
+                    
+          {FuturePosts.filter(
+            function(date) {            
+              return  new Date(date.node.concertDateTime).valueOf() > convertTZ(new Date(), "Europe/Oslo").valueOf();
+            }
+          ).map(({ node }: any) => {
 
 
-            const postURL = "/" + node.slug.current;
+              const postURL = "/" + node.slug.current;
 
-            // Random Placeholder Color
-            const placeholderColors = [
-              '#55efc4',
-              '#81ecec',
-              '#74b9ff',
-              '#a29bfe',
-              '#ffeaa7',
-              '#fab1a0',
-              '#e17055',
-              '#0984e3',
-              '#badc58',
-              '#c7ecee',
-            ];
-            const setColor =
-              placeholderColors[
-              Math.floor(Math.random() * placeholderColors.length)
-              ];
+             
+
+              
+              return (
+
+                <PostGrid>
+                  
+                  <PostCardModern
+                    key={node.slug.current}
+                    title={node.title || node.slug.current}
+                    image={
+                      node.mainImage == null
+                        ? null
+                        : node.mainImage
+                    }
+                    url={postURL}
+                    series={node.series[0].title}
+                    excerpt={node._rawExcerpt || node._rawExcerpt}
+                    date={node.concertDateTime}
+                    tags={node.tags}
+            
+                  />
+                </PostGrid>
+              );
+            })}
+          </PostRow>
+          <h1>Tidligere konserter</h1>
+          <PostRow>
+
+                    
+          {Posts.filter(
+            function(date) {            
+              return  new Date(date.node.concertDateTime).valueOf() < convertTZ(new Date(), "Europe/Oslo").valueOf();
+            }
+          ).map(({ node }: any) => {
 
 
+              const postURL = "/" + node.slug.current;
 
+             
 
+              
+              return (
 
-            return (
-              <PostGrid>
-                <PostCardModern
-                  key={node.slug.current}
-                  title={node.title || node.slug.current}
-                  image={
-                    node.mainImage == null
-                      ? null
-                      : node.mainImage
-                  }
-                  url={postURL}
-                  series={node.series[0].title}
-                  excerpt={node._rawExcerpt || node._rawExcerpt}
-                  date={node.concertDateTime}
-                  tags={node.tags}
-                  placeholderBG={setColor}
-                />
-              </PostGrid>
-            );
-          })}
-        </PostRow>
+                <PostGrid>
+                  
+                  <PostCardModern
+                    key={node.slug.current}
+                    title={node.title || node.slug.current}
+                    image={
+                      node.mainImage == null
+                        ? null
+                        : node.mainImage
+                    }
+                    url={postURL}
+                    series={node.series[0].title}
+                    excerpt={node._rawExcerpt || node._rawExcerpt}
+                    date={node.concertDateTime}
+                    tags={node.tags}
+            
+                  />
+                </PostGrid>
+              );
+            })}
+          </PostRow>
         <Pagination
           prevLink={PrevLink}
           nextLink={NextLink}
@@ -92,6 +122,72 @@ export const pageQuery = graphql`
 
 
     concerts: allSanityConcert (
+      limit: $limit
+      skip: $skip
+      sort: { fields: concertDateTime, order: DESC}
+    ) {
+      totalCount
+      edges {
+        node {       
+          id
+          tags
+          publishedAt
+          mainImage {
+            asset {
+            
+                fluid(maxWidth: 570, maxHeight: 370) {
+                  ...GatsbySanityImageFluid
+                }
+            }
+          }
+          title
+          _rawExcerpt
+          _rawBody
+          series {
+            title
+          }
+          concertDateTime
+          slug {
+            current
+          }
+        }
+      }
+    }
+
+    concertsFuture: allSanityConcert (
+
+      sort: { fields: concertDateTime, order: ASC}
+    ) {
+      totalCount
+      edges {
+        node {       
+          id
+          tags
+          publishedAt
+          mainImage {
+            asset {
+            
+                fluid(maxWidth: 570, maxHeight: 370) {
+                  ...GatsbySanityImageFluid
+                }
+            }
+          }
+          title
+          _rawExcerpt
+          _rawBody
+          series {
+            title
+          }
+          concertDateTime
+          slug {
+            current
+          }
+        }
+      }
+    }
+
+    
+    concertsPast: allSanityConcert (
       limit: $limit
       skip: $skip
       sort: { fields: concertDateTime, order: DESC }
@@ -137,3 +233,8 @@ export const pageQuery = graphql`
       
   }
 `;
+
+
+function convertTZ(date, tzString) {
+  return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));   
+}

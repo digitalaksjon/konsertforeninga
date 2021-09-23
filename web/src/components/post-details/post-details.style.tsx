@@ -414,7 +414,7 @@ export const PostMetaWrapper = styled.div`
     margin-right: auto;
     width: 300px;
     padding: 10px;
-
+    transform:scale(1);
     
     a {
       margin: 0;
@@ -426,7 +426,7 @@ export const PostMetaWrapper = styled.div`
     
     }
     &:hover {
-      transform:scale(1.1);
+      transform:scale(1.05);
       transition: all 0.5s ease-in-out;
 
     }      

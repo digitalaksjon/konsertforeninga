@@ -8,19 +8,22 @@ export const PostCardWrapper = styled.div`
 export const PostPreview = styled.div`
   margin-bottom: 45px;
   position: relative;
+  height: 110%;
   img {
     border-radius: 3px;
     filter: grayscale(100%);
-    
+    mask-image: url(${require("../../images/mask-inverse.png")});
+    mask-size: cover;
   }
+  padding-bottom:20px;
 
   &:before {
     content: '';
     position: absolute;
     width: 80%;
-    height: 100%;
+    height: 60%;
     background-color: #757575;
-    bottom: 0;
+    bottom: 10%;
     left: 5%;
     filter: blur(15px);
   }
