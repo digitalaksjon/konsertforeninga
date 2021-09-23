@@ -3,7 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import _ from 'lodash';
 import Img from 'gatsby-image';
 import FeaturePost from '../../components/feature-post/feature-post';
-import PromotionImage from '../../images/ad.png';
+import PromotionImage from '../../images/ad.jpg';
 
 import {
   SidebarWrapper,
