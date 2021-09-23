@@ -11,7 +11,7 @@ const HomePage = (props: any) => {
   return (
     <Layout>
       <SEO
-        title="Konsertforeninga"
+        title="Forsida"
         metaImage={ogImage}
         description="Konsertforeninga er en helårsarrangør som står for rundt 70 konserter med ny og levende musikk hvert år."
       />
