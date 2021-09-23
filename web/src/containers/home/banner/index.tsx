@@ -37,9 +37,9 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <BackgroundSlider
 
           query={Data}
-          initDelay={6} // delay before the first transition (if left at 0, the first image will be skipped initially)
-          transition={2} // transition duration between images
-          duration={7} // how long an image is shown
+          initDelay={7} // delay before the first transition (if left at 0, the first image will be skipped initially)
+          transition={3} // transition duration between images
+          duration={8} // how long an image is shown
           images={imageArray}
 
         // pass down standard element props
@@ -73,20 +73,3 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
 
 export default Banner;
 
-function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
-
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
-
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
-
-  return array;
-}
