@@ -46,9 +46,10 @@ export const NewsletterInnerWrapper = styled.div`
 
 export const NewsletterTitle = styled.h1`
   font-size: 30px;
-  background-color: #111;
+  background-color: #292929;
 
   color: #fff;
+  padding: 5px 0;
   font-weight: ${themeGet('fontWeights.6', '700')};
   margin-bottom: 20px;
   font-family: ${themeGet('fontFamily.0', "'Fira Sans',sans-serif")};
@@ -70,7 +71,8 @@ export const NewsletterDescription = styled.p`
   font-weight: ${themeGet('fontWeights.3', '400')};
   color: #fff;
   margin: 0;
-  background-color: #111;
+  background-color: #292929;
+  padding: 5px 0;
 
   @media (max-width: 1200px) {
     font-size: 14px;
@@ -83,7 +85,7 @@ export const NewsletterDescription = styled.p`
 export const NewsletterInputWrapper = styled.form`
   display: flex;
   align-items: flex-end;
-  background-color: #111;
+  background-color: #292929;
 
   width: 570px;
   max-width: 100%;
