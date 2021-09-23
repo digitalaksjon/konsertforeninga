@@ -26,7 +26,7 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
   `);
 
 
-  const imageArray = ["banner-bg-14.jpg", "banner-bg-9.jpg", "banner-bg1.jpg","banner-bg3.jpg","banner-bg-13.jpg", "banner-bg2.jpg"];
+  const imageArray = ["banner-bg-14.jpg", "banner-bg-9.jpg", "banner-bg1.jpg","banner-bg-10.jpg", ,"banner-bg3.jpg","banner-bg-vega.jpg","banner-bg-13.jpg", "banner-bg2.jpg", "banner-bg-12.jpg"];
   
 
   return (
@@ -37,9 +37,9 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <BackgroundSlider
 
           query={Data}
-          initDelay={7} // delay before the first transition (if left at 0, the first image will be skipped initially)
+          initDelay={6} // delay before the first transition (if left at 0, the first image will be skipped initially)
           transition={2} // transition duration between images
-          duration={10} // how long an image is shown
+          duration={7} // how long an image is shown
           images={imageArray}
 
         // pass down standard element props
@@ -52,7 +52,9 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
           <CarouselCaptionWrapper><strong>Steinmøysa NB & Ståle Storløkken</strong><br />Blow Out Festival 2021</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>Propan</strong><br />Femme Brutal - Foto: Juliane Schütz</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>Skrap & Guitars </strong><br />Blow Out! 2017</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Intetskjønn </strong><br />Femme Brutal 2016</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>Karin Krog / Ole Morten Vågan / Paal Nilssen-Love </strong><br />Blow Out Festival 2018</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Viviana Vega </strong><br />Blow Out Festival 2015</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>Per Oddvar Johansen / Lene Grenager / Ketil Gutvik</strong><br />Gutvik Ukentlig 2021</CarouselCaptionWrapper>
           <CarouselCaptionWrapper><strong>Barre Philips solo </strong><br />Blow Out Festival 2019</CarouselCaptionWrapper>
 
