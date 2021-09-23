@@ -59,8 +59,8 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
 
 
   Date.prototype.getMonthName = function () {
-    var monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
-      "Juli", "August", "September", "Oktober", "November", "Desember"
+    var monthNames = ["Jan", "Feb", "Mars", "April", "Mai", "Juni",
+      "Juli", "Aug", "Sep", "Okt", "Nov", "Des"
     ];
     return monthNames[this.getMonth()];
   }

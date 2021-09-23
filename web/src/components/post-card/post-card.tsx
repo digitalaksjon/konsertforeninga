@@ -48,9 +48,9 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
     addAllClasses.push(className);
   }
 
-  Date.prototype.getMonthName = function() {
+  Date.prototype.getMonthName = function () {
     var monthNames = ["Jan", "Feb", "Mars", "April", "Mai", "Juni",
-      "Juli", "Aug", "Sept", "Okt", "Nov", "Des"
+      "Juli", "Aug", "Sep", "Okt", "Nov", "Des"
     ];
     return monthNames[this.getMonth()];
   }
@@ -58,7 +58,7 @@ const PostCard: React.FunctionComponent<PostCardProps> = ({
 
 
   const dateObject = new Date(date);
-  const dateString = dateObject.getDate() + "<span>"+dateObject.getMonthName(dateObject.getMonth()) + "<br />"+dateObject.getFullYear() + "</span";
+  const dateString = dateObject.getDate() + "<span>"+dateObject.getMonthName(dateObject.getMonth())  + "</span";
 
   return (
     <PostCardWrapper className={addAllClasses.join(' ')} {...props}>
