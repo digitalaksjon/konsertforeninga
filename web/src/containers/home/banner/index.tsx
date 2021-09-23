@@ -37,9 +37,9 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <BackgroundSlider
 
           query={Data}
-          initDelay={6} // delay before the first transition (if left at 0, the first image will be skipped initially)
+          initDelay={7} // delay before the first transition (if left at 0, the first image will be skipped initially)
           transition={2} // transition duration between images
-          duration={8} // how long an image is shown
+          duration={10} // how long an image is shown
           images={imageArray}
 
         // pass down standard element props
