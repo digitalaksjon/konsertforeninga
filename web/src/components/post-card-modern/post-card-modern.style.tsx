@@ -23,6 +23,7 @@ export const PostPreview = styled.div`
         filter: unset;
     }
   } 
+  
 
   .series {
     position:absolute;

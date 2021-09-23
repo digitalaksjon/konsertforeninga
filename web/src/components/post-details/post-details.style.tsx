@@ -68,12 +68,12 @@ export const PostDate = styled.div`
   justify-content: center;
   color: #fff;
   border-radius: 6px;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   line-height: 0.8;
   pointer-events: none;
   z-index: 1;
-  background-color: rgba(209, 0, 104, 0.7);
+  background-color: rgba(209, 0, 104, 0.9);
   div {
     > span {
       font-size: 13px;
@@ -107,43 +107,36 @@ export const PostPreview = styled.div`
   img {
     border-radius: 3px;
     filter: grayscale(100%);
+    mask-image: url(${require("../../images/mask-inverse.png")});
+    mask-size: contain;
     &:hover {
       filter: unset;
     }
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: #757575;
-    bottom: 0;
-    left: 10%;
-    filter: blur(15px);
-  }
 
   div.series {
     position:absolute;
     top: 0px;
     right:-10px;
-    background-color: #fff;
-    font-size: 10px;
+    background-color: white;
+    font-size: 12px;
     margin: 0 10px;
+    opacity: 0.8;
     padding: 5px 10px;
     font-family: 'Poppins';
     color: #000;
     
-    border-radius: 0 0 0 10px;
+
     cursor: pointer;
     
     text-transform: uppercase;
 
     span {
       margin-left: 5px;
-      font-size: 16px;
+      font-size: 18px;
       color:#D10068;
-      font-weight: 500;
+      font-weight: 600;
     }
     
     @media (max-width: 600px) {
@@ -348,7 +341,7 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  flex-direction: column;
   width: 100%;
 
   div {
@@ -405,8 +398,10 @@ export const PostMetaWrapper = styled.div`
 
   div.ticketButton {
     background-color: #D10068;
-    justify-self:flex-end;
+
     margin-left: auto;
+    margin-right: auto;
+    width: 300px;
     padding: 10px;
     box-shadow: 2px 2px 5px #111;
     

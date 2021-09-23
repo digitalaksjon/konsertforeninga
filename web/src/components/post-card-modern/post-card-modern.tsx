@@ -101,7 +101,6 @@ const PostCardModern: React.FunctionComponent<PostCardModernProps> = ({
 
 
           </Link>
-          {series && <div className="series" ><span>{series}</span></div>}
           {date && (
             <PostDate
               dangerouslySetInnerHTML={{

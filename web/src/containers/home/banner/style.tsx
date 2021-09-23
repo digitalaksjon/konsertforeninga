@@ -33,7 +33,7 @@ export const BannerWrapper = styled.div`
 export const IllustrationWrapper = styled.div`
 
     margin: 0 auto;
-    opacity: 0.9;
+    opacity: 1;
 
 
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
@@ -45,31 +45,31 @@ export const IllustrationWrapper = styled.div`
 
     @keyframes fadein {
       from { opacity: 0; }
-      to   { opacity: 0.9; }
+      to   { opacity: 1; }
     }
 
     /* Firefox < 16 */
     @-moz-keyframes fadein {
       from { opacity: 0; }
-      to   { opacity: 0.9; }
+      to   { opacity: 1; }
     }
 
     /* Safari, Chrome and Opera > 12.1 */
     @-webkit-keyframes fadein {
       from { opacity: 0; }
-      to   { opacity: 0.9; }
+      to   { opacity: 1; }
     }
 
     /* Internet Explorer */
     @-ms-keyframes fadein {
       from { opacity: 0; }
-      to   { opacity: 0.9; }
+      to   { opacity: 1; }
     }
 
     /* Opera < 12.1 */
     @-o-keyframes fadein {
       from { opacity: 0; }
-      to   { opacity: 0.9; }
+      to   { opacity: 1; }
     }
       
     width: 70%;
@@ -153,9 +153,9 @@ export const Title = styled.div`
 
 
 export const CarouselCaptionWrapper = styled.div`
-  color:black;
+  color:white;
   padding: 10px;
-  background-color: white;
+  background-color: black;
   position:absolute;
   opacity: 0.8;
   right: 100px;
