@@ -26,8 +26,8 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
   `);
 
 
-
-
+  const imageArray = ["banner-bg-14.jpg", "banner-bg-9.jpg", "banner-bg1.jpg","banner-bg3.jpg","banner-bg-13.jpg", "banner-bg2.jpg"];
+  
 
   return (
 
@@ -37,10 +37,10 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
         <BackgroundSlider
 
           query={Data}
-          initDelay={10} // delay before the first transition (if left at 0, the first image will be skipped initially)
+          initDelay={6} // delay before the first transition (if left at 0, the first image will be skipped initially)
           transition={2} // transition duration between images
           duration={8} // how long an image is shown
-          images={["banner-bg1.jpg", "banner-bg3.jpg", "banner-bg2.jpg",  "banner-bg5.jpg", "banner-bg6.jpg"]}
+          images={imageArray}
 
         // pass down standard element props
         // specify images to include (and their order) according to `relativePath`
@@ -49,11 +49,12 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
 
         >
           {/* Captions in sync with background images*/}
-          <CarouselCaptionWrapper><strong>SKRAP & GUITARS </strong><br />Blow Out! 2017</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>KARIN KROG  / OLE MORTEN VÅGAN / PAAL NILSSEN LOVE </strong><br />Blow Out! Festival 2018</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>BARRE PHILIPS SOLO</strong> <br />Blow Out! Festival 2019</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>JOHN BUTCHER & STÅLE LIAVIK SOLBERG</strong><br />Blow Out! 2017</CarouselCaptionWrapper>
-          <CarouselCaptionWrapper><strong>FEMME BRUTAL</strong><br />Femme Brutal Festival 2015<br /></CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Steinmøysa NB & Ståle Storløkken</strong><br />Blow Out Festival 2021</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Propan</strong><br />Femme Brutal - Foto: Juliane Schütz</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Skrap & Guitars </strong><br />Blow Out! 2017</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Karin Krog / Ole Morten Vågan / Paal Nilssen-Love </strong><br />Blow Out Festival 2018</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Per Oddvar Johansen / Lene Grenager / Ketil Gutvik</strong><br />Gutvik Ukentlig 2021</CarouselCaptionWrapper>
+          <CarouselCaptionWrapper><strong>Barre Philips solo </strong><br />Blow Out Festival 2019</CarouselCaptionWrapper>
 
 
 
@@ -69,3 +70,21 @@ const Banner: React.FunctionComponent<BannerProps> = () => {
 };
 
 export default Banner;
+
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
