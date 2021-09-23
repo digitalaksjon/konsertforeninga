@@ -29,6 +29,20 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
         }
       }
 
+
+      
+      ad: allFile (filter: {sourceInstanceName: {eq: "ad"}}){
+        nodes {
+          relativePath
+          childImageSharp {
+            fluid (maxWidth: 1000, quality: 90){
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+
+
         posts: allSanityPost (
           limit: 5
           sort: { fields: [publishedAt], order: DESC }
@@ -65,14 +79,13 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
 
 
   const Posts = Data.posts.edges;
-
-
+    console.log(Data.ad.nodes[0].childImageSharp.fluid);
 
   return (
     <SidebarWrapper>
       <SidebarWidget>
         <div className="promoImage">
-          <img src={PromotionImage} alt="Bli medlem i Konsertforeninga" />
+          <Img fluid={Data.ad.nodes[0].childImageSharp.fluid} alt="Bli medlem i Konsertforeninga" />
 
         </div>
       </SidebarWidget>

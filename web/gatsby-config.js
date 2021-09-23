@@ -92,6 +92,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `ad`,
+        path: `${__dirname}/content/ad`, // wherever background images are stored
+      }
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
     },
     {

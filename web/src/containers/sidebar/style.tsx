@@ -4,6 +4,11 @@ import { themeGet } from '@styled-system/theme-get';
 export const SidebarWrapper = styled.div`
   flex: 0 0 360px;
   max-width: 360px;
+
+
+  img {
+    filter:  unset !important;
+  }
   @media (max-width: 1249px) {
     flex: 0 0 320px;
     max-width: 320px;
