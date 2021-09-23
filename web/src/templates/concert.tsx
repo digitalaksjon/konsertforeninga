@@ -160,7 +160,7 @@ const ConcertTemplate = (props: any) => {
 
       {edges.length !== 0 && (
         <RelatedPostWrapper>
-          <RelatedPostTitle>Relaterte Konserter</RelatedPostTitle>
+          <RelatedPostTitle>Lignende konserter</RelatedPostTitle>
           <RelatedPostItems>
             {edges.map(({ node }: any) => {
               // Random Placeholder Color
@@ -193,7 +193,7 @@ const ConcertTemplate = (props: any) => {
                     }
                     tags={node.tags}
                     series={node.series[0].title}
-                    placeholderBG={setColor}
+         
                   />
                 </RelatedPostItem>
               );
