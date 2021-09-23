@@ -49,7 +49,7 @@ export const NewsletterTitle = styled.h1`
   background-color: #292929;
 
   color: #fff;
-  padding: 5px 0;
+  padding: 10px;
   font-weight: ${themeGet('fontWeights.6', '700')};
   margin-bottom: 20px;
   font-family: ${themeGet('fontFamily.0', "'Fira Sans',sans-serif")};
@@ -72,7 +72,8 @@ export const NewsletterDescription = styled.p`
   color: #fff;
   margin: 0;
   background-color: #292929;
-  padding: 5px 0;
+  padding: 10px;
+
 
   @media (max-width: 1200px) {
     font-size: 14px;

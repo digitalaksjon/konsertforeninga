@@ -95,23 +95,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
         {Posts.map(({ node }: any) => {
 
           const title = node.title || node.slug.current;
-          // Random Placeholder Color
-          const placeholderColors = [
-            '#55efc4',
-            '#81ecec',
-            '#74b9ff',
-            '#a29bfe',
-            '#ffeaa7',
-            '#fab1a0',
-            '#e17055',
-            '#0984e3',
-            '#badc58',
-            '#c7ecee',
-          ];
-          const setColor =
-            placeholderColors[
-            Math.floor(Math.random() * placeholderColors.length)
-            ];
+
 
     
 
@@ -126,7 +110,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
               }
               url={"/" + node.slug.current}
               tags={node.tags}
-              placeholderBG={setColor}
             />
           );
         })}

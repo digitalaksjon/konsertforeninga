@@ -32,24 +32,7 @@ const BlogList = (props: any) => {
 
             const postURL = "/" +node.slug.current;
 
-            // Random Placeholder Color
-            const placeholderColors = [
-              '#55efc4',
-              '#81ecec',
-              '#74b9ff',
-              '#a29bfe',
-              '#ffeaa7',
-              '#fab1a0',
-              '#e17055',
-              '#0984e3',
-              '#badc58',
-              '#c7ecee',
-            ];
-            const setColor =
-              placeholderColors[
-                Math.floor(Math.random() * placeholderColors.length)
-              ];
-
+     
             return (
               <PostGrid>
                 <PostCardModern
@@ -64,7 +47,6 @@ const BlogList = (props: any) => {
                   excerpt={node._rawDescription}
                   date={node.concertDateTime}
                   tags={node.tags}
-                  placeholderBG={setColor}
                 />
               </PostGrid>
             );
