@@ -13,7 +13,7 @@ const HomePage = (props: any) => {
       <SEO
         title="Forsida"
         metaImage={ogImage}
-        description="Konsertforeninga er en helårsarrangør som står for rundt 70 konserter med ny og levende musikk hvert år."
+        description="Konsertforeninga er en helårsarrangør som står for rundt 100 konserter med ny og levende musikk hvert år."
       />
 
       <PersonalBlog />

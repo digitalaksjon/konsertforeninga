@@ -96,7 +96,7 @@ const About: React.FunctionComponent<AboutProps> = () => {
         <h2>Om Konsertforeninga</h2>
         <p>
 
-          Konsertforeninga er en helårsarrangør som står for rundt 70 konserter med ny og levende musikk hvert år.
+          Konsertforeninga er en helårsarrangør som står for rundt 100 konserter med ny og levende musikk hvert år.
         </p>
       </AboutPageTitle>
 
