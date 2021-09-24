@@ -46,7 +46,7 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
           Få siste nytt fra Konsertforeninga rett i innboksen.
         </NewsletterTitle>
         <NewsletterDescription>
-          Subscribe to our newsletter and stay updated.
+          Meld deg på vårt nyhetsbrev!
         </NewsletterDescription>
 
         <NewsletterInputWrapper onSubmit={handleSubmit}>

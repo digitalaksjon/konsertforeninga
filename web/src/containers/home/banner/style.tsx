@@ -73,7 +73,7 @@ export const IllustrationWrapper = styled.div`
       to   { opacity: 1; }
     }
       
-    width: 50%;
+    width: 80%;
     img {
       max-width: 100%;
     }
