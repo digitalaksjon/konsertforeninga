@@ -80,7 +80,7 @@ export const IllustrationWrapper = styled.div`
 
 
 
-    @media (min-width: 991px) {
+    @media (min-width: 791px) {
       width: 500px;
   
       img {
