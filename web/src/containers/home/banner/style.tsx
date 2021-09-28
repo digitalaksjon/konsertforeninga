@@ -86,6 +86,7 @@ export const IllustrationWrapper = styled.div`
     @media (min-width: 791px) {
       width: 500px;
   
+      filter: drop-shadow(-3px 3px 2px #292929);
       img {
         max-width: 500px;
       }
