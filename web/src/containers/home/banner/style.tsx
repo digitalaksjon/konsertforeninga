@@ -35,14 +35,15 @@ export const IllustrationWrapper = styled.div`
 
     margin: 0 auto;
     opacity: 1;
+    display:none;
 
-    filter: drop-shadow(-10px 10px 5px #292929);
+    filter: drop-shadow(2px -2px 0px #292929);
 
-    -webkit-animation: fadein 2s ease-in; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 2s ease-in; /* Firefox < 16 */
-        -ms-animation: fadein 2s ease-in; /* Internet Explorer */
-         -o-animation: fadein 2s ease-in; /* Opera < 12.1 */
-            animation: fadein 2s ease-in;
+    -webkit-animation: fadein 1s ease-in; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 1s ease-in; /* Firefox < 16 */
+        -ms-animation: fadein 1s ease-in; /* Internet Explorer */
+         -o-animation: fadein 1s ease-in; /* Opera < 12.1 */
+            animation: fadein 1s ease-in;
           
 
 
@@ -76,7 +77,7 @@ export const IllustrationWrapper = styled.div`
       to   { opacity: 1; }
     }
       
-    width: 50%;
+    width: 30%;
     img {
       max-width: 100%;
     }
@@ -85,8 +86,9 @@ export const IllustrationWrapper = styled.div`
 
     @media (min-width: 791px) {
       width: 500px;
-  
-      filter: drop-shadow(-3px 3px 2px #292929);
+      display:block;
+      filter: drop-shadow(0px 20px 10px #292929);
+      margin: 0 auto;
       img {
         max-width: 500px;
       }
@@ -172,6 +174,6 @@ export const CarouselCaptionWrapper = styled.div`
   @media (max-width: 600px) {
       right: 10px;
       bottom: 10px;
-      font-size: 0.7em;
+      font-size: 0.5em;
   }
 `;
