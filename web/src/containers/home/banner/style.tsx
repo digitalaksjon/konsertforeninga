@@ -8,6 +8,7 @@ export const BannerWrapper = styled.div`
   z-index:1;
   background-size: cover;
   background-position: center;
+  
   min-height: 870px;
   display: flex;
   
@@ -35,7 +36,6 @@ export const IllustrationWrapper = styled.div`
 
     margin: 0 auto;
     opacity: 1;
-    display:none;
 
     filter: drop-shadow(2px -2px 0px #292929);
 
@@ -77,7 +77,7 @@ export const IllustrationWrapper = styled.div`
       to   { opacity: 1; }
     }
       
-    width: 30%;
+    width: 40%;
     img {
       max-width: 100%;
     }
@@ -86,7 +86,6 @@ export const IllustrationWrapper = styled.div`
 
     @media (min-width: 791px) {
       width: 500px;
-      display:block;
       filter: drop-shadow(0px 20px 10px #292929);
       margin: 0 auto;
       img {
