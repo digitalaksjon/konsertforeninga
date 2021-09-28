@@ -79,7 +79,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
 
 
   const Posts = Data.posts.edges;
-    console.log(Data.ad.nodes[0].childImageSharp.fluid);
 
   return (
     <SidebarWrapper>

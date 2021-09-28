@@ -8,11 +8,17 @@ export default {
       type: 'text',
       title: 'Beskrivelse'
     },
+    
     {
       name: 'backgroundImage',
       type: 'image',
       title: 'Bakgrunn'
-    }
+    },
+    {
+      name: 'publishedAt',
+      type: 'datetime',
+      title: 'Publisert',
+    },
   ],
   preview: {
     select: {
