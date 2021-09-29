@@ -10,23 +10,12 @@ export const PostPreview = styled.div`
   position: relative;
   height: 110%;
   img {
-    border-radius: 3px;
+
     filter: grayscale(100%);
-    mask-image: url(${require("../../images/mask-inverse.png")});
-    mask-size: cover;
   }
   padding-bottom:20px;
 
-  &:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 60%;
-    background-color: #757575;
-    bottom: 10%;
-    left: 5%;
-    filter: blur(15px);
-  }
+
 
   
   .series {
@@ -39,7 +28,7 @@ export const PostPreview = styled.div`
     padding: 5px 10px;
     font-family: 'Poppins';
 
-    border-radius:  0 0 0 10px;
+
     cursor: pointer;
     
     text-transform: uppercase;

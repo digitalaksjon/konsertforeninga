@@ -105,25 +105,13 @@ export const PostPreview = styled.div`
   }
 
   img {
-    border-radius: 3px;
     filter: grayscale(100%);
-    mask-image: url(${require("../../images/mask-inverse.png")});
-    mask-size: contain;
     &:hover {
       filter: unset;
     }
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: #757575;
-    bottom: 5%;
-    left: 10%;
-    filter: blur(15px);
-  }
+
   
   div.series {
     position:absolute;
@@ -135,7 +123,7 @@ export const PostPreview = styled.div`
     padding: 0px 10px;
     font-family: 'Poppins';
     color: #000;
-    
+    background-color: #fff;
 
     cursor: pointer;
     
@@ -359,7 +347,7 @@ export const PostMetaWrapper = styled.div`
 
  
     font-family: 'Poppins';
-    border-radius: 0 0 5px ;
+
 
     font-size: 12px;
     margin: 0px 10px;

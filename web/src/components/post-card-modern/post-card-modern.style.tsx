@@ -12,11 +12,9 @@ export const PostPreview = styled.div`
  
   img {
     position: relative;
-    mask-image: url(${require("../../images/mask-inverse.png")});
-    mask-size: cover;
     
     display: block; 
-    border-radius: 3px;
+
     filter: grayscale(100%);
 
     transition:all 0.5s ease;
@@ -51,17 +49,7 @@ export const PostPreview = styled.div`
     }
   }
     
-  &:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: #757575;
-    bottom: 0;
-    left: 10%;
-    filter: blur(15px);
-  }
-  
+
 
     
 `;
