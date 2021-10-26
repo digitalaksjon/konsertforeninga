@@ -4,7 +4,6 @@ import { themeGet } from '@styled-system/theme-get';
 export const BannerWrapper = styled.div`
   position: relative;
   padding: 90px 0;
-  background-color: #d96233;
   z-index:1;
   background-size: cover;
   background-position: center;
