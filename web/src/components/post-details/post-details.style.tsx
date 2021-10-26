@@ -150,7 +150,7 @@ export const PostPreview = styled.div`
 `;
 
 export const PostDescriptionWrapper = styled.div`
-  margin-top: 90px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
   width: 870px;
@@ -253,7 +253,6 @@ export const PostDescription = styled.div`
     &:after {
       content: '';
       width: 30px;
-      height: 1px;
       display: block;
       background: #292929;
     }
@@ -340,8 +339,24 @@ const placeholderColors = [
 export const PostMetaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
+  text-align:center;
+
+  .metaleft {
+    width:50%;
+    text-align:left;
+    padding:0;
+    margin:0;
+  }
+  
+  .metaright {
+    width: 50%;
+    text-align:right;
+    padding:0;
+    margin:0;
+
+  }
 
   div {
 
@@ -358,7 +373,7 @@ export const PostMetaWrapper = styled.div`
     text-transform: uppercase;
 
     span {
-      margin-left: 5px;
+
       font-size: 16px;
       color:#D10068;
       font-weight: 500;
@@ -414,7 +429,7 @@ export const PostMetaWrapper = styled.div`
     
     }
     &:hover {
-      transform:scale(1.05);
+      transform:scale(1.02);
       transition: all 0.5s ease-in-out;
 
     }      

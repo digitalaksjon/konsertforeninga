@@ -39,43 +39,18 @@ export const IllustrationWrapper = styled.div`
 
     filter: drop-shadow(2px -2px 0px #292929);
 
-    -webkit-animation: fadein 1s ease-in; /* Safari, Chrome and Opera > 12.1 */
-       -moz-animation: fadein 1s ease-in; /* Firefox < 16 */
-        -ms-animation: fadein 1s ease-in; /* Internet Explorer */
-         -o-animation: fadein 1s ease-in; /* Opera < 12.1 */
-            animation: fadein 1s ease-in;
-          
+            animation: fadein ease 2s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
 
 
 
     @keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+      0% { opacity: 0; }
+      50% { opacity: 0.7; }
+      100%   { opacity: 1; }
     }
 
-    /* Firefox < 16 */
-    @-moz-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* Safari, Chrome and Opera > 12.1 */
-    @-webkit-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* Internet Explorer */
-    @-ms-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-
-    /* Opera < 12.1 */
-    @-o-keyframes fadein {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
       
     width: 40%;
     img {

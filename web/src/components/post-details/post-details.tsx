@@ -110,7 +110,6 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
               {newDate != "NaN" &&
                 <PostDate> <div dangerouslySetInnerHTML={{ __html: newDate }} /></PostDate>
               }
-              {series && <div className="series">SERIE: <span>{series}</span></div>}
             </PostPreview>
           )}
         </>
@@ -118,11 +117,15 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         ''
       )}
       <PostMetaWrapper>
-        {venue && <div className="venue">STED: <span>{venue}</span></div>}
-        {concertDateTime && <div className="time">TIDSPUNKT: <span dangerouslySetInnerHTML={
-          { __html: concertDateTime }}></span></div>}
+        <div className="metaleft">
+          {series && <div className="series">SERIE<br /> <span>{series}</span></div>}
+          {venue && <div className="venue">STED <br /><span>{venue}</span></div>}
+        </div>
+        <div className="metaright">
+          {concertDateTime && <div className="time">TIDSPUNKT <br/><span dangerouslySetInnerHTML={{ __html: concertDateTime }}></span></div>}
+          {price && <div className="price">PRIS<br /> <span>{price}</span></div>}
+        </div>
 
-        {price && <div className="price">PRIS: <span>{price}</span></div>}
         {tickets && <div className="ticketButton"><Link to={tickets} target="_blank" rel="noopener noreferrer" >KJØP BILLETT</Link></div>}
 
       </PostMetaWrapper>
