@@ -418,6 +418,7 @@ export const PostMetaWrapper = styled.div`
     width: 300px;
     padding: 10px;
     transform:scale(1);
+    border-radius: 6px;
     
     a {
       margin: 0;
