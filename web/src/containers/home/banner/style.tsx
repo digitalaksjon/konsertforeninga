@@ -36,7 +36,6 @@ export const IllustrationWrapper = styled.div`
     margin: 0 auto;
     opacity: 1;
 
-    filter: drop-shadow(2px -2px 0px #292929);
 
             animation: fadein ease 2s;
             animation-iteration-count: 1;
@@ -46,12 +45,12 @@ export const IllustrationWrapper = styled.div`
 
     @keyframes fadein {
       0% { opacity: 0; }
-      50% { opacity: 0.7; }
+      50% { opacity: 0.1; }
       100%   { opacity: 1; }
     }
 
       
-    width: 40%;
+    width: 80%;
     img {
       max-width: 100%;
     }
@@ -73,6 +72,7 @@ export const IllustrationWrapper = styled.div`
 export const BannerInner = styled.div`
   margin: 0 auto;
   width: 100%;
+
 
   @media (min-width: 991px) {
     width: 900px;
