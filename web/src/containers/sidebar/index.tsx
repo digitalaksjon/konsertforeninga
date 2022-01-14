@@ -81,15 +81,9 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
   const Posts = Data.posts.edges;
 
   return (
-    /*
-    <SidebarWrapper>
-      <SidebarWidget>
-        <div className="promoImage">
-          <Img fluid={Data.ad.nodes[0].childImageSharp.fluid} alt="Bli medlem i Konsertforeninga" />
 
-        </div>
-      </SidebarWidget>
-*/
+    <SidebarWrapper>
+
       <SidebarWidget>
         <WidgetTitle>Nytt fra foreninga</WidgetTitle>
         {Posts.map(({ node }: any) => {
