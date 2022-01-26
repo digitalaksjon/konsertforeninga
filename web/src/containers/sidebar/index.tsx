@@ -81,7 +81,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
   const Posts = Data.posts.edges;
 
   return (
-    /*
+    
     <SidebarWrapper>
       <SidebarWidget>
         <div className="promoImage">
@@ -89,7 +89,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
 
         </div>
       </SidebarWidget>
-*/
+
       <SidebarWidget>
         <WidgetTitle>Nytt fra foreninga</WidgetTitle>
         {Posts.map(({ node }: any) => {
