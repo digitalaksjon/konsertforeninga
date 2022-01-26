@@ -4,4 +4,5 @@ import 'typeface-merriweather'
 require('prismjs/themes/prism.css')
 require('katex/dist/katex.min.css')
 
-export function onServiceWorkerUpdateReady(){window.location.reload(true)};
+// trigger an immediate page refresh when an update is found
+export const onServiceWorkerUpdateReady = () => window.location.reload();
