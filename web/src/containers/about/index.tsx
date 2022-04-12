@@ -14,6 +14,8 @@ import {
   SocialProfiles,
 } from './style';
 
+import PortableText from '../../components/portableText'
+
 import FeaturePost from '../../components/feature-post/feature-post';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -47,6 +49,9 @@ const About: React.FunctionComponent<AboutProps> = () => {
         title
         description
         keywords
+        _rawAboutKf
+        _rawInvoiceInfo
+        _rawInvoiceInfoEn
         author {
           name
         }
@@ -85,8 +90,12 @@ const About: React.FunctionComponent<AboutProps> = () => {
     }
   `);
 
-  const Posts = Data.posts.edges;
 
+  const Posts = Data.posts.edges;
+  const AboutKf = Data.site._rawAboutKf;
+  const InvoiceNo = Data.site._rawInvoiceInfo;
+  const InvoiceEn = Data.site._rawInvoiceInfoEn;
+  console.log(Data.site)
 
 
   return (
@@ -95,8 +104,8 @@ const About: React.FunctionComponent<AboutProps> = () => {
 
         <h2>Om Konsertforeninga</h2>
         <p>
-
-          Konsertforeninga er en helårsarrangør som står for rundt 100 konserter med ny og levende musikk hvert år.
+          {Data.site.description}
+          
         </p>
       </AboutPageTitle>
 
@@ -116,22 +125,11 @@ const About: React.FunctionComponent<AboutProps> = () => {
           </TabList>
 
           <TabPanel>
-            <br />
-            <h2>Om Konsertforeninga</h2>
+          <br />
+          <h2>Om Konsertforeninga</h2>
+          {AboutKf && <PortableText blocks={AboutKf} />}
 
-            <p>
-              Konsertforeninga har gjennom over 23 års virke opparbeida seg en enestående erfaring som kulturformidler i Oslo by. Fram til inngangen av 2007 holdt vi hus på en adresse ved Akerselva, men har siden den gang levd en nomadisk tilværelse som konsertarrangør ved flere ulike scener i hovedstaden. Vårt credo om å bringe til torgs banebrytende og bra musikk i alle sjangre – og stadig med et skråblikk til jazzen – holdes fortsatt høyt i hevd. Og inntil vi får etablert oss med fast bopæl inviterer vi godtfolk til å danse med oss rundt i Oslo. Konsertforeninga står for konsertseriene Blow Out!, FemmeBrutal!, Blårollinger, Death Jazz, Gutvik Ukentlig og Ladyfest i tillegg til flere andre konserter.
-            </p>
-            <h2>Kontakt oss</h2>
-            <p>
-              kontakt(at)konsertforeninga.no<br />
-              eller<br />
-              Konsertforeninga<br />
-              C/O Østnorsk jazzsenter<br />
-              Dronningens Gate 16<br />
-              0152 Oslo<br />
-            </p>
-
+            
           </TabPanel>
           <TabPanel>
             <br />
@@ -159,35 +157,13 @@ const About: React.FunctionComponent<AboutProps> = () => {
           <TabPanel>
             <br />
             <h2>Fakturainformasjon</h2>
-
-            Vi foretrekker faktura i EHF-format. Registrer oss som kunde med org.nr 879 602 432. Alternativt legg inn konsertforeninga@ebilag.com
-            <br /><br />
-            …navn på konsertserie eller festival…<br />
-            Konsertforeninga<br />
-            Dronningens gate 16<br />
-            0152 Oslo<br />
-            Org nr 879 602 432<br />
-            <br />
+            
+            {InvoiceNo && <PortableText blocks={InvoiceNo} />}
           </TabPanel>
           <TabPanel>
             <br />
             <h2>INVOICE / Message to foreign artists</h2>
-
-            Please send your invoice to (specifying the appropriate concert series) :<br />
-            Blow Out / Blow Out festival / Femme Brutal / Femme Brutal festival / Gutvik ukentlig / etc.<br />
-            Konsertforeninga<br />
-            Dronningens gate 16<br />
-            N-0152 Oslo<br />
-            Norway<br />
-            konsertforeninga@ebilag.com (we prefer invoices in PDF)<br />
-            <br />
-            Along with your invoice, please make sure to email us:<br />
-            IBAN and SWIFT<br />
-            as well as:<br />
-            Your full name<br />
-            Date of birth<br />
-            Residential address<br />
-            Nationality<br />
+            {InvoiceEn && <PortableText blocks={InvoiceEn} />}
 
           </TabPanel>
         </Tabs>

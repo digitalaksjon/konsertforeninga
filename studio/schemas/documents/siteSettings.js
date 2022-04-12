@@ -7,13 +7,31 @@ export default {
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Tittel'
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
-      description: 'Describe your blog for search engines and social media.'
+      title: 'Beskrivelse - SEO',
+      description: 'Teksten som dukker opp i søkemotorer.'
+    },
+    {
+      name: 'aboutKf',
+      type: 'excerptPortableText',
+      title: 'Beskrivelse - Om Konsertforeninga',
+      description: 'Teksten som dukker opp under Om Konsertforeninga.'
+    },
+    {
+      name: 'invoiceInfo',
+      type: 'excerptPortableText',
+      title: 'Fakturainformasjon',
+      description: 'Teksten som dukker opp under Fakturainformasjon.'
+    },
+    {
+      name: 'invoiceInfoEn',
+      type: 'excerptPortableText',
+      title: 'Invoice information',
+      description: 'Teksten som dukker opp under Invoice.'
     },
     {
       name: 'siteUrl',
