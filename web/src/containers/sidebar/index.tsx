@@ -85,7 +85,7 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
     <SidebarWrapper>
       <SidebarWidget>
         <div className="promoImage">
-          <a href="https://konsertforeninga.ticketco.events/no/sv/e/medlemskap_2022" target="_new">
+          <a href="https://konsertforeninga.ticketco.events/no/nb/e/medlemskap_2023" target="_new">
             <Img fluid={Data.ad.nodes[0].childImageSharp.fluid} alt="Bli medlem i Konsertforeninga" />
           </a>
 

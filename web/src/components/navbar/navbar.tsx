@@ -36,6 +36,10 @@ const MenuItems = [
 
   },
   {
+    label: 'Bli medlem',
+    url: 'https://konsertforeninga.ticketco.events/no/nb/e/medlemskap_2023',
+  },
+  {
     label: 'Om Konsertforeninga',
     url: '/om',
   }
